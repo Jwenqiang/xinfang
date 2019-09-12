@@ -82,7 +82,7 @@ Page({
   getData:function(){
     var that=this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Users/GetShootEstateMsgNotice',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/GetShootEstateMsgNotice',
       header:{token:that.data.utoken},
       success(res){
         console.log(res);

@@ -186,7 +186,7 @@ Page({
           console.log('data:image/png;base64,' + r.data);
           var baseUrl = 'data:image/jpg;base64,' + r.data;
           wx.request({
-            url: 'https://spapi.centaline.com.cn/System/PostImgByBase64',
+            url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgByBase64',
             method: "post",
             data: {
               ImgBase64: baseUrl,
@@ -200,7 +200,7 @@ Page({
                   fmPic: newImg
                 })
                 wx.request({
-                  url: 'https://spapi.centaline.com.cn/Users/UpdateEconomicMan',
+                  url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UpdateEconomicMan',
                   header: { token: that.data.utoken },
                   method:"post",
                   data:{

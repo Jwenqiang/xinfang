@@ -131,7 +131,7 @@ Page({
   getData:function(e){
     var that=this;  
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstateById',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateById',
       header: {
         token: that.data.utoken
       },
@@ -407,7 +407,7 @@ Page({
             if (yn.confirm) {
               console.log(yn);
               wx.request({
-                url: 'https://spapi.centaline.com.cn/ShootEstate/AddShootEstateDownNotice',
+                url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/AddShootEstateDownNotice',
                 method: "post",
                 header: {
                   token: res.data.Token
@@ -478,7 +478,7 @@ Page({
     var that=this;
     var val=e.currentTarget.dataset.n;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/UpdateShootEstateShootValue?Id=' + that.data.hid+"&Type="+val,
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/UpdateShootEstateShootValue?Id=' + that.data.hid+"&Type="+val,
       method:"post",
       header: {
         token: that.data.utoken

@@ -81,7 +81,7 @@ Page({
   getData: function (e) {
     var that = this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstateById',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateById',
       data: { Id: e },
       success(res) {
         console.log(res);

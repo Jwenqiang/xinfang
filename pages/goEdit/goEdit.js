@@ -509,7 +509,7 @@ Page({
   getData(e) {
     var that = this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstateById',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateById',
       header: { token: that.data.utoken },
       data: {
         Id: that.data.hid
@@ -920,8 +920,8 @@ Page({
                 // console.log(that.data.fmPic);
                 if (baseArr.length == that.data.fmTemp.length) {
                   wx.request({
-                    // url: 'https://spapi.centaline.com.cn/System/PostImgListByBase64',
-                    url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+                    // url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListByBase64',
+                    url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
                     method: "post",
                     data: {
                       ImgBase64: baseArr,
@@ -977,7 +977,7 @@ Page({
                 // console.log(that.data.fmPic);
                 if (baseArr.length == that.data.slTemp.length) {
                   wx.request({
-                    url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+                    url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
                     method: "post",
                     data: {
                       ImgBase64: baseArr,
@@ -1029,7 +1029,7 @@ Page({
                 // console.log(that.data.fmPic);
                 if (baseArr.length == that.data.hxTemp.length) {
                   wx.request({
-                    url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+                    url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
                     method: "post",
                     data: {
                       ImgBase64: baseArr,
@@ -1081,7 +1081,7 @@ Page({
                 // console.log(that.data.fmPic);
                 if (baseArr.length == that.data.zbTemp.length) {
                   wx.request({
-                    url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+                    url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
                     method: "post",
                     data: {
                       ImgBase64: baseArr,
@@ -1160,7 +1160,7 @@ Page({
   delPic(e){
     var that=this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/DelShootEstatePic',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/DelShootEstatePic',
       header:{token:that.data.utoken},
       data: { id:e},
       success:res=>{
@@ -1446,7 +1446,7 @@ Page({
       }) 
       console.log({ ShootEstate: list, Id: that.data.hid});
       wx.request({
-        url: 'https://spapi.centaline.com.cn/ShootEstate/UpdateShootEstate',
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/UpdateShootEstate',
         method:"post",
         header: { token: that.data.utoken },
         data: { ShootEstate: list},

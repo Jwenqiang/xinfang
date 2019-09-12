@@ -100,7 +100,7 @@ Page({
         eleven: false,
       }) 
       wx.request({
-        url: 'https://spapi.centaline.com.cn/Users/AddUserVerificationCode',
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/AddUserVerificationCode',
         method:"post",
         data: { Mobile:_this.data.mobile,Type:5},
         success(res){
@@ -143,7 +143,7 @@ Page({
           title: '正在登录',
         })         
         wx.request({
-          url: 'https://spapi.centaline.com.cn/Users/UserLogin',
+          url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UserLogin',
           method:"post",
           data: { Mobile: that.data.mobile, Type: 2, Password: that.data.phoneCode},
           success(res){  

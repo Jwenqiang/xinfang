@@ -131,7 +131,7 @@ Page({
     var that=this;
     console.log(that.data.utoken)
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetDictionariesHousePageList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetDictionariesHousePageList',
       header:{token:that.data.utoken},
       data:{PageIndex:idx,PageSize:size},
       success:res=>{

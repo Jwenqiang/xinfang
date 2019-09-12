@@ -245,7 +245,7 @@ Page({
     var that=this;
     if (that.data.time !="" && that.data.ymsg!=""){
       wx.request({
-        url: 'https://spapi.centaline.com.cn/ShootEstate/UpdateShootEstateReserveState',
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/UpdateShootEstateReserveState',
         data: {
           Id: that.data.yid,
           State: 2,

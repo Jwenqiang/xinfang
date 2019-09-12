@@ -131,7 +131,7 @@ Page({
       num = 1;
     }    
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstateRankingPageList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateRankingPageList',
       data: { State: 4, PageIndex: num, PageSize: 10 },
       success(res) {
         console.log(res);

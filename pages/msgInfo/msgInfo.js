@@ -87,7 +87,7 @@ Page({
     var that=this;
     if(that.data.mType=='qg'){
       wx.request({
-        url: 'https://spapi.centaline.com.cn/Users/GetMessagePushShootEstateSpecialById',
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/GetMessagePushShootEstateSpecialById',
         data:{Id:that.data.mId},
         header:{token:that.data.utoken},
         success(res){
@@ -118,7 +118,7 @@ Page({
       })
     }else{
       wx.request({
-        url: 'https://spapi.centaline.com.cn/Information/GetInformationById',
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/Information/GetInformationById',
         data: { Id: that.data.mId },
         header: { token: that.data.utoken },
         success(res) {

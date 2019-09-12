@@ -110,7 +110,7 @@ Page({
   getData(e,num){
     var that=this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstateBrokerStoreSalePageList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateBrokerStoreSalePageList',
       header:{token:that.data.utoken},
       method:"post",
       data:{
@@ -177,7 +177,7 @@ Page({
               icon: "none"
             })            
             wx.request({
-              url: 'https://spapi.centaline.com.cn/ShootEstate/UpdateShootEstateState',
+              url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/UpdateShootEstateState',
               header: { token: that.data.utoken },
               method: "post",
               data: {
@@ -226,7 +226,7 @@ Page({
               icon: "none"
             })            
             wx.request({
-              url: 'https://spapi.centaline.com.cn/ShootEstate/UpdateShootEstateState',
+              url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/UpdateShootEstateState',
               header: { token: that.data.utoken },
               method: "post",
               data: {
@@ -275,7 +275,7 @@ Page({
               icon: "none"
             })            
             wx.request({
-              url: 'https://spapi.centaline.com.cn/ShootEstate/UpdateShootEstateState',
+              url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/UpdateShootEstateState',
               header: { token: that.data.utoken },
               method: "post",
               data: {
@@ -423,7 +423,7 @@ Page({
       success(res) {
         if (res.confirm) {
           wx.request({
-            url: 'https://spapi.centaline.com.cn/ShootEstate/DelShootEstate?id='+cId,
+            url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/DelShootEstate?id='+cId,
             method:'delete',
             header: { token: that.data.utoken },
             success:res=>{

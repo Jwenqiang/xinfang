@@ -144,7 +144,7 @@ goLogin:function(e){
     //     console.log(res);
     //     console.log('code转换', res.code); //用code传给服务器调换session_key
         // wx.request({
-        //   url: 'https://spapi.centaline.com.cn/Users/UserLogin', //接口地址
+        //   url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UserLogin', //接口地址
         //   data: {
         //     code: this.data.wxcode,
         //     encryptedData: telObj,
@@ -187,7 +187,7 @@ goLogin:function(e){
             mask: true
           })
           wx.request({
-            url: 'https://spapi.centaline.com.cn/Users/UserLogin', //接口地址
+            url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UserLogin', //接口地址
             data: {
               code: this.data.wxcode,
               encryptedData: telObj,

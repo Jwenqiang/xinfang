@@ -114,7 +114,7 @@ Page({
   getData: function () {
     var that = this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Users/GetUser',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/GetUser',
       header: {
         'token': that.data.utoken
       },

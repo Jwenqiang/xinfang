@@ -314,7 +314,7 @@ getData:function(){
   var that = this;
   return new Promise(function (resolve) {
     wx.request({
-      url: 'https://spapi.centaline.com.cn/System/GetBanner',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/GetBanner',
       data:{
         AdPositionId:30
       },
@@ -341,7 +341,7 @@ getWeekAndHot:function(){
   var that=this;
   return new Promise(function (resolve) {
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstateWeekAndHotList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateWeekAndHotList',
       method:"post",
       success(res){
         console.log(res);
@@ -363,7 +363,7 @@ getZt:function(){
   var that=this;
   return new Promise(function (resolve) {
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstateSpecialPageList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateSpecialPageList',
       success(res){
         console.log(res);
         if(res.data.code==1001){

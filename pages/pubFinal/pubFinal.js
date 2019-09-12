@@ -292,7 +292,7 @@ Page({
           data: list,
           success:r=>{
             wx.request({
-              url: 'https://spapi.centaline.com.cn/ShootEstate/AddShootEstate',
+              url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/AddShootEstate',
               header: {
                 'token': that.data.utoken
               },              

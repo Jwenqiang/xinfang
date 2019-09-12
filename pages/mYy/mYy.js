@@ -124,7 +124,7 @@ Page({
   getData:function(num,state){
     var that=this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstateReservePageList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateReservePageList',
       header:{
         token:that.data.utoken
       },
@@ -167,7 +167,7 @@ Page({
         console.log(res);
         if (res.confirm) {
           wx.request({
-            url: 'https://spapi.centaline.com.cn/ShootEstate/UpdateShootEstateReserveState',
+            url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/UpdateShootEstateReserveState',
             method:"post",
             header:{token:that.data.utoken},
             data:{

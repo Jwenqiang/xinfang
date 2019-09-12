@@ -296,7 +296,7 @@ Page({
   getTag(){
     var that=this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootTagList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootTagList',
       success(res) {
         that.setData({
           tagList: res.data.data
@@ -313,7 +313,7 @@ Page({
         // that.results(1);     
     // }
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstatePageList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstatePageList',
       method:"post",
       data: { State: 4, PageIndex: num, PageSize: 10 },
       success(res){
@@ -562,7 +562,7 @@ Page({
   getCity(e) {
     var that = this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Region/GetRegionCityOrArea?RegionId=19&ShootEstateBl=true',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Region/GetRegionCityOrArea?RegionId=19&ShootEstateBl=true',
       // data:{
       //   RegionId:19,
       //   ShootEstateBl:1
@@ -587,7 +587,7 @@ selectC(e){
       citySub: idx
     })
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Region/GetRegionCityOrArea?RegionId='+val,
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Region/GetRegionCityOrArea?RegionId='+val,
       // data:{
       //   RegionId: e.currentTarget.dataset.val
       // },
@@ -775,7 +775,7 @@ selectC(e){
       showBj:false
     })
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstatePageList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstatePageList',
       method: "post",
       data: { State: 4, PageIndex: num, PageSize: 10, ShootEstateTag: that.data.allv.toString(), RegionId: that.data.qy, BuySalePrice: that.data.zj, Apartment: that.data.fx, ProductionAcreage: that.data.mj, Orientation: that.data.cx, PropertyType: that.data.wy, ShootEstateRenovation: that.data.zx, StoreyH: that.data.lc, Keyword:that.data.keyword},
       success(res) {

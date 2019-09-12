@@ -105,7 +105,7 @@ Page({
   getData:function(num){
     var that=this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstateSpecialRemindPageList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateSpecialRemindPageList',
       data: { PageIndex: num, PageSize: 10,},
       header:{
         token:that.data.utoken
@@ -145,7 +145,7 @@ Page({
         console.log(res);
         if (res.confirm) {
           wx.request({
-            url: 'https://spapi.centaline.com.cn/ShootEstate/UpdateShootEstateSpecialRemindState',
+            url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/UpdateShootEstateSpecialRemindState',
             method:"post",
             header: {
               token: that.data.utoken
@@ -185,7 +185,7 @@ Page({
         console.log(res);
         if (res.confirm) {
           wx.request({
-            url: 'https://spapi.centaline.com.cn/ShootEstate/DelShootEstateSpecialRemind',
+            url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/DelShootEstateSpecialRemind',
             // method: "delete",
             header: {
               token: that.data.utoken

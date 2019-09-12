@@ -186,7 +186,7 @@ Page({
         title: '',
       })
       wx.request({
-        url: 'https://spapi.centaline.com.cn/ShootEstate/AddEntrustment',
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/AddEntrustment',
         method:"post",
         header: { token: that.data.utoken },
         data:{

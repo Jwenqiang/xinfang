@@ -174,7 +174,7 @@ Page({
   getData:function(){
     var that=this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Users/GetUser',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/GetUser',
       data: { UserId:that.data.uid},
       header: {
         'token': that.data.utoken
@@ -245,7 +245,7 @@ Page({
   getMsg(){
     var that=this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Users/GetShootEstateTotalMsgNotice',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/GetShootEstateTotalMsgNotice',
       header: { token: that.data.utoken },
       success(r) {
         console.log(r);

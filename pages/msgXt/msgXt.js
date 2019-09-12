@@ -95,7 +95,7 @@ Page({
   getQg:function(){
     var that=this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Users/GetShootEstateMsgNoticeByType',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/GetShootEstateMsgNoticeByType',
       header:{token:that.data.utoken},
       success(res){
         console.log(res);
@@ -115,7 +115,7 @@ Page({
   getSp: function () {
     var that = this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Users/GetShootEstateMsgNoticeInformation',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/GetShootEstateMsgNoticeInformation',
       header: { token: that.data.utoken },
       success(res) {
         console.log(res);

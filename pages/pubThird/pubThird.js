@@ -222,8 +222,8 @@ Page({
   //               // console.log(that.data.fmPic);
   //               if (baseArr.length == that.data.fmTemp.length) {
   //                 wx.request({
-  //                   // url: 'https://spapi.centaline.com.cn/System/PostImgListByBase64',
-  //                   url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+  //                   // url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListByBase64',
+  //                   url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
   //                   method: "post",
   //                   data: {
   //                     ImgBase64: baseArr,
@@ -284,7 +284,7 @@ Page({
   //               // console.log(that.data.fmPic);
   //               if (baseArr.length == that.data.slTemp.length) {
   //                 wx.request({
-  //                   url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+  //                   url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
   //                   method: "post",
   //                   data: {
   //                     ImgBase64: baseArr,
@@ -341,7 +341,7 @@ Page({
   //               // console.log(that.data.fmPic);
   //               if (baseArr.length == that.data.hxTemp.length) {
   //                 wx.request({
-  //                   url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+  //                   url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
   //                   method: "post",
   //                   data: {
   //                     ImgBase64: baseArr,
@@ -398,7 +398,7 @@ Page({
   //               // console.log(that.data.fmPic);
   //               if (baseArr.length == that.data.zbTemp.length) {
   //                 wx.request({
-  //                   url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+  //                   url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
   //                   method: "post",
   //                   data: {
   //                     ImgBase64: baseArr,
@@ -472,8 +472,8 @@ Page({
                 // console.log(that.data.fmPic);
                 if (baseArr.length == that.data.fmTemp.length) {
                   wx.request({
-                    // url: 'https://spapi.centaline.com.cn/System/PostImgListByBase64',
-                    url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+                    // url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListByBase64',
+                    url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
                     method: "post",
                     data: {
                       ImgBase64: baseArr,
@@ -540,7 +540,7 @@ Page({
                 // console.log(that.data.fmPic);
                 if (baseArr.length == that.data.slTemp.length) {
                   wx.request({
-                    url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+                    url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
                     method: "post",
                     data: {
                       ImgBase64: baseArr,
@@ -606,7 +606,7 @@ Page({
                 // console.log(that.data.fmPic);
                 if (baseArr.length == that.data.hxTemp.length) {
                   wx.request({
-                    url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+                    url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
                     method: "post",
                     data: {
                       ImgBase64: baseArr,
@@ -675,7 +675,7 @@ Page({
                 // console.log(that.data.fmPic);
                 if (baseArr.length == that.data.zbTemp.length) {
                   wx.request({
-                    url: 'https://spapi.centaline.com.cn/System/PostImgListShootEstateByBase64',
+                    url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgListShootEstateByBase64',
                     method: "post",
                     data: {
                       ImgBase64: baseArr,

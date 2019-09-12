@@ -469,7 +469,7 @@ Page({
     }    
     else{
       wx.request({
-        url: 'https://spapi.centaline.com.cn/ShootEstate/AddShootEstateReserve',
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/AddShootEstateReserve',
         method: "post",
         data: {
           FullName: that.data.uName,

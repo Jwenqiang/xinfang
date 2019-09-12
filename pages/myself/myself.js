@@ -140,7 +140,7 @@ Page({
       })
     }else{
       wx.request({
-        url: 'https://spapi.centaline.com.cn/Users/UpdateNickName',
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UpdateNickName',
         header: { token: that.data.utoken },
         method: "post",
         data: { NickName: newName },
@@ -184,7 +184,7 @@ Page({
           success: r => { //成功的回调
             var baseUrl='data:image/jpg;base64,' + r.data;
             wx.request({
-              url: 'https://spapi.centaline.com.cn/System/PostImgByBase64',
+              url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgByBase64',
               method:"post",
               data:{
                 ImgBase64: baseUrl,
@@ -194,7 +194,7 @@ Page({
                 if(r.data.code==1001){
                   var newImg = r.data.message;
                   wx.request({
-                    url: 'https://spapi.centaline.com.cn/Users/UpdateHeadImg',
+                    url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UpdateHeadImg',
                     header: { token: that.data.utoken },
                     method:"post",
                     data: { HeadImg:r.data.message},
@@ -295,7 +295,7 @@ Page({
     var that = this;
     var newName = e.detail.value;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Users/UpdatePractitionersYears',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UpdatePractitionersYears',
       header: { token: that.data.utoken },
       method: "post",
       data: { PractitionersYears: newName },
@@ -314,7 +314,7 @@ Page({
     var that = this;
     var newName = e.detail.value;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Users/UpdateMainVillage',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UpdateMainVillage',
       header: { token: that.data.utoken },
       method: "post",
       data: { MainVillage: newName },
@@ -333,7 +333,7 @@ Page({
     var that = this;
     var newName = e.detail.value;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Users/UpdatePersonalIntroduce',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UpdatePersonalIntroduce',
       header: { token: that.data.utoken },
       method: "post",
       data: { PersonalIntroduce: newName },
@@ -369,7 +369,7 @@ Page({
   getTag(e){
     var that=this;
     wx.request({
-      url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootTagList',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootTagList',
       header: { token: that.data.utoken },
       data: { Type: 2, Recommend: 0, Tags: that.data.goodJ},
       success: r => {
@@ -433,7 +433,7 @@ Page({
       goodJ: this.data.tsMsg
     })
     wx.request({
-      url: 'https://spapi.centaline.com.cn/Users/UpdateBusinessGood',
+      url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UpdateBusinessGood',
       header: { token: this.data.utoken },
       method:"post",
       data: { BusinessGood: this.data.goodJ },

@@ -114,7 +114,7 @@ Page({
             success: r => { //成功的回调
               var baseUrl = 'data:image/jpg;base64,' + r.data;
               wx.request({
-                url: 'https://spapi.centaline.com.cn/System/PostImgByBase64',
+                url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgByBase64',
                 method: "post",
                 data: {
                   ImgBase64: baseUrl
@@ -169,7 +169,7 @@ Page({
               console.log("反");
               var baseUrl = 'data:image/jpg;base64,' + r.data;
               wx.request({
-                url: 'https://spapi.centaline.com.cn/System/PostImgByBase64',
+                url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/PostImgByBase64',
                 method: "post",
                 data: {
                   ImgBase64: baseUrl
@@ -252,7 +252,7 @@ Page({
         duration: 10000
       })
       wx.request({
-        url: 'https://spapi.centaline.com.cn/Users/UpdateIdentity',
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UpdateIdentity',
         header: { token: that.data.utoken },
         method: "post",
         data: { IdCardPositive: that.data.imgZ, IdCardNegative: that.data.imgF, FullName: that.data.rzName, IdCard: that.data.rzNum, UserId:that.data.uid},

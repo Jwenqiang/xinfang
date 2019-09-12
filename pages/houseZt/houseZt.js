@@ -133,7 +133,7 @@ Page({
         num = 1;
       }    
       wx.request({
-        url: 'https://spapi.centaline.com.cn/ShootEstate/GetShootEstateSpecialPageList',
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateSpecialPageList',
         data: { PageIndex: num, PageSize: 10 },
         header:{
           token:that.data.utoken
@@ -243,7 +243,7 @@ Page({
             if (yn.confirm) {
               console.log(yn);
               wx.request({
-                url: 'https://spapi.centaline.com.cn/ShootEstate/AddShootEstateSpecialRemind',
+                url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/AddShootEstateSpecialRemind',
                 method: "post",
                 header: {
                   token: res.data.Token
@@ -327,7 +327,7 @@ Page({
         mask: true
       })
       wx.request({
-        url: 'https://spapi.centaline.com.cn/Users/UserLogin', //接口地址
+        url: 'https://spapi.centaline.com.cn/SPXinFangApi/Users/UserLogin', //接口地址
         data: {
           code: this.data.wxcode,
           encryptedData: telObj,
