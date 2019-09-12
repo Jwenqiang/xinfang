@@ -1,0 +1,19 @@
+page{font-size: 28rpx;background: #f6f6f6}
+.section{background: #fff;margin-bottom: 20rpx;}
+.secStatus{padding: 0 40rpx;height: 100rpx;line-height: 100rpx;font-size: 28rpx;font-weight: bold;color: #999;border-bottom: 1px solid #f5f5f7}
+.secStatus label{float: left}
+.secStatus text{float: right}
+.house{padding: 40rpx;box-sizing: border-box;}
+.house image{width: 200rpx;height: 150rpx;float: left;margin-right: 40rpx;border-radius: 4rpx}
+.hifMsg text{
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;  
+    font-weight: bold
+}
+.house{border-bottom: 1px solid #f5f5f7}
+.hifT{margin-top: 20rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #999;font-size: 24rpx;}
+.secB{height: 100rpx;}
+.secB button{width: 160rpx;height: 60rpx;line-height: 60rpx;font-size: 24rpx;border-radius: 20px;border: 1px solid #ff6262;color: #ff6262;background: none;margin-top: 20rpx;float: right;margin-right: 40rpx;padding: 0}

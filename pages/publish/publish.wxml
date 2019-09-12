@@ -1,0 +1,49 @@
+
+<view class='page'>
+  <view class='top'>
+    <view class='top-t'>
+      <label>1</label><text></text><label>2</label><text></text><label>3</label><text></text><label>4</label>
+    </view>
+    <view class='top-b'>
+      <text>房源地址</text>
+      <text>基本信息</text>
+      <text>特色信息</text>
+      <text>上架发布</text>
+    </view>
+  </view>
+  <!-- <view class='hr10'></view> -->
+  <view style='height：80rpx;line-height:80rpx;padding-left:40rpx;font-size:22rpx;font-weight:bold;color:#ff0000;background:#f5f5f7'>注意：小区名称点击右箭头搜索,点击输入框输入</view>
+  <view class='content'>
+    <view class='outer hInp'>
+      <text decode="{{true}}">所在区域</text>
+      <picker mode="multiSelector" value="{{multiIndex}}"  bindchange="cityChange" bindcolumnchange="cityColumnChange"  range="{{cityArr}}" range-key="name" data-id='{{cityArr[index].id}}'>
+        <input type='text' disabled  placeholder='请选择房源所在区域' value='{{cityInfo}}' placeholder-class="inputTip" ></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view>   
+    <view class='outer hInp'>
+      <text decode="{{true}}">所在小区</text>
+      <view>
+        <input type='text' placeholder='请选择或填写小区名称' value='{{houseName}}' data-t='mc' bindinput='setMsg' placeholder-class="inputTip" ></input>
+        <text class='iconfont icon-right' style='float:right' bindtap='goSearch'></text>
+      </view>
+    </view>  
+    <view class='outer hInp'>
+      <text decode="{{true}}">小区地址</text>
+      <picker disabled>
+        <input type='text' placeholder='小区所在地址' value='{{houseAddr}}' data-t='dz' bindinput='setMsg' placeholder-class="inputTip" ></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view>    
+     <view class='outer hInp'>
+      <text decode="{{true}}">所在楼层</text>
+      <picker mode="selector" value="{{index}}"  bindchange="lcMsg" range="{{lcArr}}">
+        <input type='text' disabled  placeholder='请选择楼层高低' value='{{lcInfo}}' placeholder-class="inputTip" ></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view>          
+  </view>
+  <view class="btn">
+    <button bindtap='goNext'>下一步</button>
+  </view>
+</view>

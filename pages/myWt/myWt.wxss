@@ -1,0 +1,19 @@
+.page{font-size: 28rpx;padding-bottom: 80rpx}
+.top{text-align: center;padding: 80rpx;background: #f5f5f7}
+
+.wtHouse{padding: 80rpx 0}
+.wtTitle{text-align: center;font-weight: bold}
+.house{padding: 40rpx;box-sizing: border-box;}
+.house image{width: 200rpx;height: 150rpx;float: left;margin-right: 40rpx;border-radius: 4rpx}
+.hifMsg{position: relative}
+.hifMsg text{
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: bold;
+    
+}
+.hifT{margin-top: 10rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #999;font-size: 24rpx;}
+.btn{margin-top: 120rpx;width: 100%;padding: 0 40rpx;box-sizing: border-box}
+.btn button{background: #5f92ff;color: #fff}

@@ -1,0 +1,70 @@
+<view class="page">
+  <view class='status'>
+    <block wx:for="{{statuList}}" wx:key="index">
+      <label class="{{statuSub==index?'on':''}}" data-idx="{{index}}" data-name="{{item}}" bindtap='selMsg'>{{item}}</label>
+    </block>  
+  </view>
+  <view class='allData'>
+    <view class='section' wx:for="{{house}}" wx:key="index" wx:if="{{house.length>0}}">
+      <view class='ycj {{isCj}}?"mShow":""' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/ycj.png) center no-repeat;background-size:100rpx; ' wx:if="{{sId==6&&isCj&&house.length>0}}"></view>
+      <view class='secStatus'>
+        <label wx:if="{{sId==4}}">上架时间：{{item.AddTime}}</label>
+        <label wx:if="{{sId==3}}">提交时间：{{item.AddTime}}</label>
+        <label wx:if="{{sId==6}}">成交时间：{{item.DealDate}}</label>
+        <label wx:if="{{sId==7}}">失效时间：{{item.AddTime}}</label>
+      </view>
+      <!--  -->
+      <view class='outer house' bindtap='goHouseInfo' data-s="{{item.State}}" data-id="{{item.Id}}">
+        <image src='{{item.MainImg}}' mode='aspectFit'></image>
+        <view class='hifMsg'>
+          <text>{{item.Name}}</text>
+          <view class='hifT'>
+            <view class='hinfo'>{{item.RegionName}} | 
+          <block wx:if="{{item.PropertyType==1}}">住宅</block>
+          <block wx:if="{{item.PropertyType==2}}">公寓</block>
+          <block wx:if="{{item.PropertyType==3}}">别墅</block>
+          <block wx:if="{{item.PropertyType==4}}">商铺</block>
+          <block wx:if="{{item.PropertyType==5}}">写字楼</block>
+          <block wx:if="{{item.PropertyType==6}}">洋房</block>
+          <block wx:if="{{item.PropertyType==7}}">商住楼</block>
+          <block wx:if="{{item.PropertyType==8}}">综合体</block>
+          <block wx:if="{{item.PropertyType==9}}">统建房</block>
+          <block wx:if="{{item.PropertyType==10}}">福利房</block>
+          <block wx:if="{{item.PropertyType==11}}">军产房</block>
+          |  {{item.ProductionAcreage}}㎡ | {{item.CountF}}室<block wx:if="{{item.CountT>0}}">{{item.CountT}}厅</block> | {{item.Orientation}}
+            </view>
+            <view style='margin-top:20rpx;color:#999;font-size:24rpx;'>抢购价<label style="color:#ff0000;font-weight:bold;font-size:32rpx;">{{item.BuySalePrice}}</label>万<label style='margin-left:20rpx;text-decoration: line-through'>原价{{item.OriginalSalePrice}}万</label>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 已上架 -->
+      <view class='secB' wx:if="{{sId==4}}">
+        <label class='blue' bindtap='goEdit' data-id='{{item.Id}}' data-c='4'>编辑房源</label>
+        <label class='red' bindtap='changeState'  data-id='{{item.Id}}' data-t='3'>下架房源</label>
+        <label class='green' bindtap='goCj' data-id='{{item.Id}}' data-c='4'>已成交</label>
+      </view> 
+       <!--待上架  -->
+      <view class='secB secD' wx:if="{{sId==3}}">
+        <label class='blue' bindtap='goEdit' data-id='{{item.Id}}' data-c='3'>编辑房源</label>
+        <label class='red' bindtap='changeState' data-id='{{item.Id}}' data-t='4'>上架房源</label>
+        <label class='green' bindtap='goCj' data-id='{{item.Id}}' data-c='3'>已成交</label>
+        <label class='gray' bindtap='changeState' data-id='{{item.Id}}' data-t='7'>已失效</label>
+      </view> 
+        <!--已成交  -->
+      <view class='secB' wx:if="{{sId==6}}">
+        <text style='margin-left:40rpx;' class='blue' bindtap='goEditmsg' data-id='{{item.Id}}'>查看房源信息 >></text>
+      </view> 
+      <!--已失效  -->
+      <view class='secB secF' wx:if="{{sId==7}}">
+        <label class='blue' bindtap='goEdit' data-id='{{item.Id}}' data-c='7'>编辑房源</label>
+        <label class='red' bindtap='del' data-id='{{item.Id}}'>删除</label>
+      </view>  
+    </view>      
+
+      <!-- 无数据时 -->
+      <view style="text-align:center;padding-top:500rpx;background:url(http://hfugweb.centaline.com.cn/img/smallR/img/noMsg.png) center no-repeat;background-size:320rpx;color:#999" wx:if="{{house.length==0&&isN}}">
+      </view> 
+    </view> 
+</view>

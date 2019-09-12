@@ -1,0 +1,99 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="page">
+  <view class='hr10'></view>
+  <view class='outer hdtMsg'>
+    <view style='font-size:34rpx;font-weight:bold;margin-bottom:20rpx;'>基础信息</view>
+    <view class='hcontent'>
+      <label>物业类型：</label>
+      <text>
+      <block wx:if="{{house.PropertyType==1}}">住宅</block>
+      <block wx:if="{{house.PropertyType==2}}">公寓</block>
+      <block wx:if="{{house.PropertyType==3}}">别墅</block>
+      <block wx:if="{{house.PropertyType==4}}">商铺</block>
+      <block wx:if="{{house.PropertyType==5}}">写字楼</block>
+      <block wx:if="{{house.PropertyType==6}}">洋房</block>
+      <block wx:if="{{house.PropertyType==7}}">商住楼</block>
+      <block wx:if="{{house.PropertyType==8}}">综合体</block>
+      <block wx:if="{{house.PropertyType==9}}">统建房</block>
+      <block wx:if="{{house.PropertyType==10}}">福利房</block>
+      <block wx:if="{{house.PropertyType==11}}">军产房</block>     
+      </text>
+    </view>
+    <view class='hcontent'><label>建成年代：</label><text wx:if="{{house.BuildYears>0}}">{{house.BuildYears}}</text><text wx:else>暂无信息</text></view>
+    <view class='hcontent'>
+      <label>房屋户型：</label>
+      <text>{{house.CountF}}室<block>{{house.CountT}}厅</block><block>{{house.CountW}}卫</block></text>
+    </view>
+    <view class='hcontent'>
+      <label>建筑面积：</label>
+      <text>{{house.ProductionAcreage}}㎡</text>
+    </view>
+    <view class='hcontent'>
+      <label>房源楼层：</label>
+      <text wx:if="{{house.Storey<=10}}">低层</text>
+      <text wx:elif="{{house.Storey<20}}">中层</text>
+      <text wx:else>高层</text>
+    </view>
+    <view class='hcontent'>
+      <label>装修情况：</label>
+      <text>
+      <text wx:if="{{house.ShootEstateRenovation==1}}">毛坯</text>
+      <text wx:if="{{house.ShootEstateRenovation==2}}">简装</text>
+      <text wx:if="{{house.ShootEstateRenovation==3}}">精装</text>
+      <text wx:if="{{house.ShootEstateRenovation==4}}">豪装</text>      
+      </text>
+    </view> 
+    <view class='hcontent'>
+      <label>房源朝向：</label>
+      <text>{{house.Orientation}}</text>
+    </view> 
+    <view class='hcontent'>
+      <label>产权年限：</label>
+      <text wx:if="{{house.PropertyYears!=null&&house.PropertyYears!=''}}">{{house.PropertyYears}}</text>
+      <text wx:else>暂无信息</text>
+    </view> 
+    <view class='hcontent'>
+      <label>配套学区：</label>
+      <text wx:if="{{house.MatchingSchool!=''&&house.MatchingSchool!=null}}">{{house.MatchingSchool}}</text><text wx:else>暂无信息</text>
+    </view> 
+    <view class='hcontent' style='width:100%'><label>所属小区：</label><text>{{house.VillageName}}</text></view>                                   
+    <view class='hcontent' style='width:100%'><label>所在位置：</label><text>{{house.Address}}</text></view>                                   
+  </view>
+  <view class='hr10'></view>
+  <view class='outer hdtMsg'>
+    <view style='font-size:34rpx;font-weight:bold;margin-bottom:20rpx;'>交易属性</view>
+    <view class='hcontent'>
+      <label>购置年限：</label>
+      <text wx:if="{{house.PurchaseYears==1}}">不满两年</text>
+      <text wx:if="{{house.PurchaseYears==2}}">满两年</text>
+      <text wx:if="{{house.PurchaseYears==3}}">满五年</text>
+    </view>
+    <view class='hcontent'>
+      <label>是否唯一：</label>
+      <text wx:if="{{house.IsOnly==true}}">唯一</text>
+      <text wx:else>不唯一</text>
+    </view>
+    <view class='hcontent'>
+      <label>有无抵押：</label>
+      <text wx:if="{{house.IsMortgage==true}}">有</text>
+      <text wx:else>无</text>
+    </view>
+    <view class='hcontent'>
+      <label>上次交易：</label>
+      <text>{{house.TransactionTime}}</text>
+    </view>                                   
+  </view> 
+  <view class='hr10'></view> 
+  <view class='outer hdtMsg'>
+    <view style='font-size:34rpx;font-weight:bold;margin-bottom:20rpx;'>笋评</view>
+    <view>{{house.ShootEvaluate}}</view>                                  
+  </view> 
+  <view class='hr10'></view>  
+  <view class='outer hdtMsg' wx:if='{{house.Description!=null&&house.Description!=""}}'>
+    <view style='font-size:34rpx;font-weight:bold;margin-bottom:20rpx;'>房源描述</view> 
+    <view class='fyms'>
+      <!-- <rich-text nodes="{{house.Description}}"></rich-text> -->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view> 
+</view>

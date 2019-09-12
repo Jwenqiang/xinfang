@@ -1,0 +1,38 @@
+<!--历史成交-->
+<wxs module="filter" src="../fun.wxs"></wxs>
+<view class='page'>
+  <view class='ztTop'>
+    <image src='../../img/hisban.jpg'></image>
+  </view>
+  <view class='ztContent'>
+    <view class='outer ztlist' wx:for="{{hisHouse}}" wx:key="index" bindtap='goHouseInfo' data-id="{{item.Id}}" wx:if="{{hisHouse.length>0}}">
+      <image src='../../img/ycj.png' class='ycj'></image>
+      <view class='outer thTop'>
+          <image src='{{item.MainImg}}' class='hmsg'></image>
+          <view class='bigT'>{{item.VillageName}} {{item.CountF}}室<block wx:if="{{item.CountT>0}}">{{item.CountT}}</block>厅 {{item.ProductionAcreage}}㎡</view>
+          <view class='hinfo'>{{item.RegionName}} | 
+          <block wx:if="{{item.PropertyType==1}}">住宅</block>
+          <block wx:if="{{item.PropertyType==2}}">公寓</block>
+          <block wx:if="{{item.PropertyType==3}}">别墅</block>
+          <block wx:if="{{item.PropertyType==4}}">商铺</block>
+          <block wx:if="{{item.PropertyType==5}}">写字楼</block>
+          <block wx:if="{{item.PropertyType==6}}">洋房</block>
+          <block wx:if="{{item.PropertyType==7}}">商住楼</block>
+          <block wx:if="{{item.PropertyType==8}}">综合体</block>
+          <block wx:if="{{item.PropertyType==9}}">统建房</block>
+          <block wx:if="{{item.PropertyType==10}}">福利房</block>
+          <block wx:if="{{item.PropertyType==11}}">军产房</block>
+           |  {{item.Orientation}}</view>
+          <view class='signT'>签约日期：{{item.DealDate}}</view>
+          <view class="smallT">成交价<text class='price'>{{item.DealAmount}}</text>万<text class='label'>原价{{item.OriginalSalePrice}}万</text></view> 
+      </view>
+    </view>
+      <view wx:if="{{hisHouse.length==0&&isN}}" class='noL' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/hl-no.png) center no-repeat;background-size:504rpx;'>
+      <text>暂无成交记录</text>
+      </view>
+    <view style='text-align:center;width:100%;line-height:80rpx;color:#ccc;font-size:22rpx;' wx:if="{{no}}">
+      到底了~
+    </view>
+  </view>
+  <view class="gohome" style='background: #fff url(http://hfugweb.centaline.com.cn/img/smallR/img/gh.png) center 20% no-repeat;background-size: 44rpx;'  wx:if="{{isShare==true}}" bindtap='goIndex'>首页</view>
+</view>

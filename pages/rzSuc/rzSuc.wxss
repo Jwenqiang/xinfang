@@ -1,0 +1,15 @@
+.suc{padding: 0 0 80rpx}
+.tip{text-align: center;margin-bottom: 80rpx}
+.tip icon{margin-bottom: 40rpx}
+.msg{padding: 0 40rpx;box-sizing: border-box;font-size: 28rpx;border-bottom: 1px solid #ededed}
+.msg label{width: 180rpx;display: inline-block;float: left;height: 100rpx;line-height: 100rpx;}
+.msg input{width: 470rpx;height: 100rpx;line-height: 100rpx;float: left;font-weight: bold}
+
+.top{background: #f5f5f7;padding: 80rpx 0 40rpx}
+.tip{text-align: center;margin-bottom: 80rpx;font-size: 28rpx;}
+.tipMsg{font-weight: bold;margin-bottom: 20rpx}
+.tip icon{margin-bottom: 40rpx}
+.tip text{display: block}
+.btn {margin-top: 40rpx;text-align: center}
+.btn button{width: 320rpx;margin-bottom: 20rpx;background: #5f92ff;box-sizing: border-box;color: #fff}
+.btn button:last-child{border: 1px solid #5f92ff ;background: none;color:#5f92ff }

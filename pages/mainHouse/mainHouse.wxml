@@ -1,0 +1,162 @@
+<wxs module="num">
+var toNew = function(n) {
+  var newNum = n.toFixed(2);
+  return newNum;
+}
+module.exports.toNew = toNew;
+</wxs>
+<wxs module="cNum">
+var toF = function(val) {
+  var n = val.toFixed(0)
+  return n;
+}
+module.exports.toF = toF;
+</wxs>
+<import src="../../template/nav" />
+  <view class="flex fix_nav_wp {{isX?'pd-b60':''}}">
+  <block wx:for="{{navData}}" wx:key="index">
+      <template is="nav" data="{{...item}}"/>
+  </block>
+  </view> 
+<!--精选笋盘-->
+<wxs module="filter" src="../fun.wxs"></wxs>
+<view class='page {{showBj?"hide":""}}'>
+<!-- 搜索 -->
+<!-- <view class='show-s {{showS?"show":""}}'>
+  <view class='searchM'>
+    <icon type="search" size="16"></icon>
+    <input type='text' focus="{{focus}}" placeholder='请输入标题/小区/片区等' confirm-type="search" placeholder-style="color:#ccc" bindconfirm="search"></input>
+    <text class='cancel' bindtap='back'>取消</text>
+  </view>
+</view> -->
+<view class='mTop' wx:if="{{isFix==false}}">
+  <view class='topImg'>
+    <image src='http://hfugweb.centaline.com.cn/img/smallR/img/mban1.jpg'></image>
+  </view>
+
+</view>
+  <view class='mContent'>
+    <!-- <view class='mcT'>笋盘地图</view>
+    <view class='map'></view> -->
+<view class='mhTag {{isFix?"fixed":""}}'> 
+
+  <view class='search {{isFix?"fixSearch":""}}' wx:if="{{showBj==false}}">
+    <text class='iconfont icon-sousuo'></text>
+    <input type='text' placeholder='请输入标题/小区/片区等' placeholder-style="color:#ccc" value='{{keyword}}'  bindtap="gosearch" disabled></input>
+  </view>
+
+    <view class='houseL'>
+      <view class='hli'>
+        <view style='text-align:left;width:22%' data-num="1" catchtap='showList'><block wx:if="{{qy==''}}">区域</block><label wx:if="{{qy!=''}}" class='red'>{{qyName}}</label><text class='iconfont {{showQy?"icon-up":"icon-down1"}}'></text></view>
+        <view data-num="2" catchtap='showList'><block wx:if="{{zj==''}}">总价</block><label wx:if="{{zj!=''}}" class='red'>{{zjName}}</label><text class='iconfont {{showZj?"icon-up":"icon-down1"}}'></text></view>
+        <view data-num="3" catchtap='showList'><block wx:if="{{fx==''}}">房型</block><label wx:if="{{fx!=''}}" class='red'>{{fxName}}</label><text class='iconfont {{showFx?"icon-up":"icon-down1"}}'></text></view>
+        <view style='text-align:right;width:22%' data-num="4" catchtap='showList'><label class='{{mj.length>0||cx.length>0||wy.length>0||zx.length>0||lc.length>0?"red":""}}'>筛选</label><text class='iconfont {{showSx?"icon-up":"icon-down1"}}'></text></view>
+      </view>
+    </view>
+    <view class='tagList' wx:if="{{tagList.length>0}}">
+      <text wx:for="{{tagList}}" wx:key="{{index}}" bindtap='searchList' data-idx="{{index}}" data-n="{{item.Name}}" class="tagInfo {{item.State?'':'on'}}">{{item.Name}}</text>
+    </view>
+
+<!-- 条件筛选列表 -->
+<!-- 区域 -->
+      <view class='outer hli-show hli-qy' wx:if="{{showQy&&showNum==1}}" animation="{{animationData}}">
+        <view class='qyL'>
+          <view wx:for="{{cityList}}" wx:key="{{item.RegionId}}" class='{{citySub==index?"on":""}}' data-idx="{{index}}" data-val="{{item.RegionId}}" data-type="city" catchtap='selectC'>
+            {{item.Name}}
+          </view>
+          <!-- <view class='on'>不限</view>
+          <view>深圳</view>
+          <view>临深区</view> -->
+        </view>
+        <view class='qyR'>
+          <view wx:for="{{subCity}}" wx:key="{{item.RegionId}}" class='{{sSub==index?"on":""}}' data-name="{{item.Name}}" data-val="{{item.RegionId}}"  data-idx="{{index}}" data-type="sSub" catchtap='selectC'>
+            {{item.Name}}
+          </view>
+        </view>        
+      </view>
+<!-- 总价 -->
+      <view class="hli-show hli-one" wx:if="{{showZj&&showNum==2}}" animation="{{animationData}}">
+        <view wx:for="{{priceList}}" wx:key="{{item.Id}}" class='{{priceSub==index?"on":""}}' data-name="{{item.Name}}" data-idx="{{index}}"  data-type="price" data-val="{{item.Id}}" catchtap='selectC'>
+          {{item.Name}}
+        </view>
+      </view>
+<!-- 房型 -->
+      <view class="hli-show hli-one" wx:if="{{showFx&&showNum==3}}" animation="{{animationData}}">
+        <view wx:for="{{houseList}}" wx:key="{{item.Id}}" class='{{houseSub==index?"on":""}}' data-name="{{item.Name}}" data-idx="{{index}}"  data-type="house" data-val="{{item.Id}}" catchtap='selectC'>
+          {{item.Name}}
+        </view>
+      </view> 
+<!--筛选  -->
+      <view class='hli-show hli-all' wx:if="{{showSx&&showNum==4}}" animation="{{animationData}}">
+        <view class='all-content'>
+          <view class='all-section' wx:for="{{allList}}" wx:key="{{item.Id}}">
+            <view class='all-title'>
+              {{item.Name}}
+            </view>
+            <view class='all-msg'>
+              <label wx:for="{{item.Sub}}" wx:key="{{Sid}}" wx:for-item="sitem" wx:for-index="sindex" data-p="{{item.Name}}" data-pidx="{{index}}" data-sidx="{{sindex}}" data-sub="{{sitem.Val}}" catchtap='selectA' class='{{sitem.isOn?"on":""}}'>{{sitem.Tag}}</label>
+            </view>
+          </view>
+          <view class='h200'></view>
+        </view> 
+        <view class='all-sub'>
+          <button catchtap='selectCancel'>清空</button>
+          <button catchtap='selectConfim'>确定</button>
+        </view>
+      </view>
+
+</view>
+
+    <view class='h260' wx:if="{{isFix}}"></view>
+  <view class='listData'> 
+    <view class='outer ztlist' wx:for="{{list}}" wx:key="index" bindtap='goHouseInfo' data-id="{{item.Id}}" wx:if="{{list.length>0}}">
+      <view class='outer thTop'>
+          <!-- <view class='topFix' wx:if="{{item.BrokerCompanyId==0}}">
+            平台甄选
+          </view> -->
+          <image src='{{item.MainImg}}' class='hmsg'></image>
+          <view class='bigT'>{{item.Name}}</view>
+          <view class='hinfo'>{{item.RegionName}} | 
+          <block wx:if="{{item.PropertyType==1}}">住宅</block>
+          <block wx:if="{{item.PropertyType==2}}">公寓</block>
+          <block wx:if="{{item.PropertyType==3}}">别墅</block>
+          <block wx:if="{{item.PropertyType==4}}">商铺</block>
+          <block wx:if="{{item.PropertyType==5}}">写字楼</block>
+          <block wx:if="{{item.PropertyType==6}}">洋房</block>
+          <block wx:if="{{item.PropertyType==7}}">商住楼</block>
+          <block wx:if="{{item.PropertyType==8}}">综合体</block>
+          <block wx:if="{{item.PropertyType==9}}">统建房</block>
+          <block wx:if="{{item.PropertyType==10}}">福利房</block>
+          <block wx:if="{{item.PropertyType==11}}">军产房</block>
+           |  {{item.ProductionAcreage}}㎡ | {{item.CountF}}室<block wx:if="{{item.CountT>0}}">{{item.CountT}}厅</block></view>
+          <view class="smallT">抢购价<text class='price'>{{item.BuySalePrice}}</text>万<text class='label'>原价{{item.OriginalSalePrice}}万</text></view> 
+          <view class='tag'><block wx:for="{{filter.dTime(item.ShootEstateTag)}}" wx:for-item="sitem" wx:key="index"><text>{{sitem}}</text></block></view>
+          <view class='mhSun'>
+            <label>笋值</label>
+            <progress percent="{{cNum.toF(item.ShootHotValueProportion*100)}}" border-radius="10" color='#33cccc' stroke-width="4"/>
+            <text>{{cNum.toF(item.ShootHotValueProportion*100)}}%</text>
+          </view>
+          <!-- 有则显示 -->
+          <view class='zu' wx:if="{{item.MinRentPrice>0&&item.MaxRentPrice>0}}"><label class='label'>租</label>小区租金每月{{item.MinRentPrice}}-{{item.MaxRentPrice}}元</view>
+          <view class='jun' wx:if="{{item.VillageAveragePrice>0}}">
+            <label class='label'>均</label>
+            比同小区成交均价{{item.VillageAveragePrice}}元/㎡
+            <text wx:if="{{item.VillageAveragePriceRangeType==1}}">--</text>
+            <text class='iconfont icon-down2' wx:if="{{item.VillageAveragePriceRangeType==3}}"></text>
+            <text class='iconfont icon-up1' wx:if="{{item.VillageAveragePriceRangeType==2}}"></text>
+            <text>{{num.toNew(item.VillageAveragePriceRange*100)}}%</text>
+          </view>
+      </view>
+    </view>
+      <view wx:if="{{list.length==0&&isN}}" class='noL' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/hl-no.png) center no-repeat;background-size:504rpx;'>
+      <text>暂无结果</text>
+      </view>  
+    </view>   
+  </view>
+  <view class='showBj' wx:if="{{showBj}}" catchtap='hideBj'></view>
+    <view style='text-align:center;width:100%;line-height:120rpx;color:#ccc;font-size:22rpx;' wx:if="{{no&&list.length>0}}">
+      到底了~
+    </view>      
+  <view class="gohome" style='background: #fff url(http://hfugweb.centaline.com.cn/img/smallR/img/gh.png) center 20% no-repeat;background-size: 44rpx;'  wx:if="{{isShare==true}}" bindtap='goIndex'>首页</view>   
+  <view class='h120'></view>   
+</view>

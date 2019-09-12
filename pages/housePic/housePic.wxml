@@ -1,0 +1,57 @@
+<scroll-view scroll-x="true" class="ip_tab_comtainer">
+  <view class="ip_tab_comtainer_padd"></view>
+  <block wx:for="{{ips}}" wx:for-item="ip" wx:key="{{ip.id}}">
+    <view class="{{ip.isSelect?'ip_tab_item_s':'ip_tab_item_n'}}" bindtap="onIpItemClick" wx:key="{{ip.id}}" data-item="{{ip}}" data-id="{{ip.id}}">
+      {{ip.title}}
+    </view>
+  </block>
+  <view class="ip_tab_comtainer_padd"></view>
+</scroll-view>
+<view class='content'>
+  <view class='swiperC' wx:if="{{content.length>0}}">
+    <swiper bindchange="swiperChange" current="{{current}}" circular='true' class='houseBan'>
+      <block wx:for="{{content}}" wx:key="index">
+        <swiper-item>
+          <image src="{{item.Url}}" class="slide-image"  mode='aspectFill' catchtap='changeBig' data-u="{{item.Url}}" data-idx="{{index}}"/>
+        </swiper-item>
+      </block>  
+    </swiper>
+    <view class="imageCount"><block wx:if="{{current<content.length}}">{{current+1}}</block><block wx:else>1</block>/{{content.length}}</view>
+  </view>  
+
+<view class="footBar {{isX?'pd-b60 height160':''}}" wx:if="{{jjr==false}}">
+  <image src='{{house.ShootEstateSale.HeadImg}}' wx:if="{{house.ShootEstateSale.HeadImg!=''&&house.ShootEstateSale.HeadImg!=null}}"  mode='aspectFill'></image>
+  <image src='../../img/tx3.png' wx:else></image>
+  <view class='fbName'>
+    <text>{{house.ShootEstateSale.FullName}}</text>
+    <text>平台客服</text>
+  </view>
+  <view class='fbtn'>
+    <button data-tel="{{house.ShootEstateSale.TelePhone}}" data-m="{{house.ShootEstateSale.Mobile}}"  catchtap="openConfirm">电话咨询</button>  
+    <button open-type='contact'>在线咨询</button>
+  </view>
+</view>
+<view class="footBar {{isX?'pd-b60 height160':''}}" wx:if="{{jjr==true}}">
+  <image src='{{house.BrokerStoreSale.HeadImg}}' wx:if="{{house.BrokerStoreSale.HeadImg!=''&&house.BrokerStoreSale.HeadImg!=null}}"  mode='aspectFill'></image>
+  <image src='../../img/tx3.png' wx:else></image>
+  <view class='fbName'>
+    <text>{{house.BrokerStoreSale.FullName}}</text>
+    <text>经纪人</text>
+  </view>
+  <view class='fbtn'>
+    <button class="{{(house.BrokerStoreSale.WxQRcode==''||house.BrokerStoreSale.WxQRcode==null)?'only':''}}" data-tel="{{house.BrokerStoreSale.TelePhone}}" data-m="{{house.BrokerStoreSale.Mobile}}"  catchtap="openConfirm">电话咨询</button>
+    <button bindtap='show' wx:if="{{house.BrokerStoreSale.WxQRcode!=''&&house.BrokerStoreSale.WxQRcode!=null}}">添加微信</button>
+  </view>
+</view>
+
+
+   <!--弹窗  -->
+   <view class='show' wx:if="{{isShow}}">
+      <view class='bj' bindtap='show'></view>
+      <view class='showMsg'>
+        <text class='iconfont icon-guanbi' bindtap='show'></text>
+        <image src='{{house.BrokerStoreSale.WxQRcode}}' mode='aspectFit' bindtap='mBig' data-u=""></image>
+        <text class='msgTip'>tip:点击图片放大长按可保存</text>
+      </view>
+   </view>
+</view>

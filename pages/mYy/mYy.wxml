@@ -1,0 +1,140 @@
+<wxs module="phone">
+var toHide = function(array) {
+  var mphone = array.substring(0, 3) + '****' + array.substring(7);
+  return mphone;
+}
+module.exports.toHide = toHide;
+</wxs>
+<wxs module="name">
+var toN = function(array) {
+  var mname = array.substring(0, 1) + '*' + array.substring(2);
+  return mname;
+}
+module.exports.toN = toN;
+</wxs>
+<view class='myTab' wx:if="{{role==4||role==5}}">
+<block wx:for='{{myTab}}' wx:key="{{item.id}}">
+  <label class="{{tabSub==index?'on':''}}" data-s='{{item.id}}' data-idx='{{index}}' bindtap='changeS'>{{item.name}}<block wx:if="{{item.id==1&&isN}}">({{wdNum}})</block><block wx:if="{{item.id==2&&isN}}">({{khNum}})</block></label>
+</block>  
+</view>
+<!-- 普通权限 -->
+<view class="page pt {{(role==4||role==5)?'pt100':''}}" wx:if="{{who==1}}">
+  <view class='hr10'></view>
+  <view class='section' wx:for="{{yyList}}" wx:key="{{index}}" wx:if="{{yyList.length>0}}">
+    <view class='secStatus'>
+      <label style='color:#6699ff' wx:if="{{item.State==1}}">未带看</label>
+      <label style='color:#333' wx:elif="{{item.State==2}}">已带看</label>
+      <label style='color:#333' wx:else>已失效</label>
+      <text>预约 {{item.LookHouseTime}}</text>
+    </view>
+    <view class='outer house' bindtap="goHouseYY" data-hid="{{item.ShootEstateId}}" data-yid="{{item.Id}}">
+      <image src='{{item.MainImg}}'></image>
+      <view class='hifMsg'>
+        <text>{{item.ShootEstateName}}</text>
+        <view class='hifT'>
+          <block wx:if="{{item.PropertyType==1}}">住宅</block>
+          <block wx:if="{{item.PropertyType==2}}">公寓</block>
+          <block wx:if="{{item.PropertyType==3}}">别墅</block>
+          <block wx:if="{{item.PropertyType==4}}">商铺</block>
+          <block wx:if="{{item.PropertyType==5}}">写字楼</block>
+          <block wx:if="{{item.PropertyType==6}}">洋房</block>
+          <block wx:if="{{item.PropertyType==7}}">商住楼</block>
+          <block wx:if="{{item.PropertyType==8}}">综合体</block>
+          <block wx:if="{{item.PropertyType==9}}">统建房</block>
+          <block wx:if="{{item.PropertyType==10}}">福利房</block>
+          <block wx:if="{{item.PropertyType==11}}">军产房</block>
+         |  {{item.ProductionAcreage}}㎡ | {{item.Orientation}} | {{item.RegionName}}</view>
+        <view style='margin-top:12rpx;color:#666;font-size:24rpx;color:#999'>总价<label style="color:#ff0000;font-size:32rpx; font-weight:bold">{{item.BuySalePrice}}</label>万<label style='margin-left:40rpx;'>均价{{item.AveragePrice}}元/㎡</label></view>
+      </view>
+    </view>  
+    <view class='secB'>
+      <button bindtap='cancelTip' wx:if="{{item.State==1}}" data-hid="{{item.ShootEstateId}}" data-yid="{{item.Id}}">取消预约</button>
+      <!-- <button style='border: 1px solid #dedede;color:#999' bindtap='del' wx:else>删除</button> -->
+    </view>  
+  </view>
+  <!-- 无数据时 -->
+  <view wx:if="{{yyList.length==0&&isN}}" style="text-align:center;padding-top:500rpx;background:url(http://hfugweb.centaline.com.cn/img/smallR/img/noMsg.png) center no-repeat;background-size:320rpx;color:#999">
+    <text>暂无预约看房记录</text>
+  </view>  
+</view>
+<!-- 我方经纪人权限 -->
+<view class="page wfjjr {{(role==4||role==5)?'pt100':''}}" wx:if="{{role==4&&who==2}}">
+  <view class='hr10'></view>
+  <view class='section' wx:for="{{yyList}}" wx:key="{{index}}" wx:if="{{yyList.length>0}}">
+    <view class='secStatus'>
+      <label style='color:#6699ff' wx:if="{{item.State==1}}">未带看</label>
+      <label style='color:#333' wx:elif="{{item.State==2}}">已带看</label>
+      <label style='color:#333' wx:else>已失效</label>
+      <text>预约 {{item.LookHouseTime}}</text>
+    </view>
+    <view class='outer house'  bindtap="goHouseYY" data-hid="{{item.ShootEstateId}}" data-yid="{{item.Id}}">
+      <image src='{{item.MainImg}}'></image>
+      <view class='hifMsg'>
+        <text>{{item.ShootEstateName}}</text>
+        <view class='hifT'>
+          <block wx:if="{{item.PropertyType==1}}">住宅</block>
+          <block wx:if="{{item.PropertyType==2}}">公寓</block>
+          <block wx:if="{{item.PropertyType==3}}">别墅</block>
+          <block wx:if="{{item.PropertyType==4}}">商铺</block>
+          <block wx:if="{{item.PropertyType==5}}">写字楼</block>
+          <block wx:if="{{item.PropertyType==6}}">洋房</block>
+          <block wx:if="{{item.PropertyType==7}}">商住楼</block>
+          <block wx:if="{{item.PropertyType==8}}">综合体</block>
+          <block wx:if="{{item.PropertyType==9}}">统建房</block>
+          <block wx:if="{{item.PropertyType==10}}">福利房</block>
+          <block wx:if="{{item.PropertyType==11}}">军产房</block>
+         |  {{item.ProductionAcreage}}㎡ | {{item.Orientation}} | {{item.RegionName}}</view>
+        <view style='margin-top:20rpx;color:#666'><label style="color:#ff0000;font-weight:bold">{{item.BuySalePrice}}</label>万<label style='margin-left:40rpx;'>均价{{item.AveragePrice}}元/㎡</label></view>
+      </view>
+    </view>
+    <view class='secB'>
+      <text>{{item.FullName}} {{item.Mobile}}</text>
+      <button bindtap='goConfir' wx:if="{{item.State==1}}" data-hid="{{item.ShootEstateId}}" data-yid="{{item.Id}}">已带看</button>
+      <!-- <button style='border: 1px solid #dedede;color:#999' bindtap='del' wx:else>删除</button> -->
+    </view>  
+  </view>
+  <!-- 无数据时 -->
+  <view wx:if="{{yyList.length==0&&isN}}" style="text-align:center;padding-top:500rpx;background:url(http://hfugweb.centaline.com.cn/img/smallR/img/noMsg.png) center no-repeat;background-size:320rpx;color:#999">
+    <text>暂无预约看房记录</text>
+  </view>  
+</view>
+<!-- 中小经纪人权限 -->
+<view class="page zxjjr {{(role==4||role==5)?'pt100':''}}" wx:if="{{role==5&&who==2}}">
+  <view class='hr10'></view>
+  <view class='section' wx:for="{{yyList}}" wx:key="{{index}}" wx:if="{{yyList.length>0}}">
+    <view class='secStatus'>
+      <label style='color:#6699ff' wx:if="{{item.State==1}}">未带看</label>
+      <label style='color:#333' wx:elif="{{item.State==2}}">已带看</label>
+      <label style='color:#333' wx:else>已失效</label>
+      <text>预约 {{item.LookHouseTime}}</text>
+    </view>
+    <view class='outer house'  bindtap="goHouseYY" data-hid="{{item.ShootEstateId}}" data-yid="{{item.Id}}">
+      <image src='{{item.MainImg}}'></image>
+      <view class='hifMsg'>
+        <text>{{item.ShootEstateName}}</text>
+        <view class='hifT'>
+          <block wx:if="{{item.PropertyType==1}}">住宅</block>
+          <block wx:if="{{item.PropertyType==2}}">公寓</block>
+          <block wx:if="{{item.PropertyType==3}}">别墅</block>
+          <block wx:if="{{item.PropertyType==4}}">商铺</block>
+          <block wx:if="{{item.PropertyType==5}}">写字楼</block>
+          <block wx:if="{{item.PropertyType==6}}">洋房</block>
+          <block wx:if="{{item.PropertyType==7}}">商住楼</block>
+          <block wx:if="{{item.PropertyType==8}}">综合体</block>
+          <block wx:if="{{item.PropertyType==9}}">统建房</block>
+          <block wx:if="{{item.PropertyType==10}}">福利房</block>
+          <block wx:if="{{item.PropertyType==11}}">军产房</block>
+         |  {{item.ProductionAcreage}}㎡ | {{item.Orientation}} | {{item.RegionName}}</view>
+        <view style='margin-top:20rpx;color:#666'>总价<label style="color:#ff0000;font-weight:bold">{{item.BuySalePrice}}</label>万<label style='margin-left:40rpx;'>均价{{item.AveragePrice}}元/㎡</label></view>
+      </view>
+    </view>
+    <view class='secB'>
+      <text>{{item.FullName}} {{item.Mobile}}</text>
+      <button bindtap='goConfir' wx:if="{{item.State==1}}" data-hid="{{item.ShootEstateId}}" data-yid="{{item.Id}}">已带看</button>
+    </view>  
+  </view>  
+  <!-- 无数据时 -->
+  <view wx:if="{{yyList.length==0&&isN}}" style="text-align:center;padding-top:500rpx;background:url(http://hfugweb.centaline.com.cn/img/smallR/img/noMsg.png) center no-repeat;background-size:320rpx;color:#999">
+    <text>暂无预约看房记录</text>
+  </view>  
+</view>

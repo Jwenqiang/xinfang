@@ -1,0 +1,60 @@
+<wxs module="cNum">
+var toF = function(val) {
+  var n = val.toFixed(0)
+  return n;
+}
+module.exports.toF = toF;
+</wxs>
+ <view class='mContent' wx:if="{{list.length>0}}">
+    <!-- <view class='mhTag {{isFix?"fixed":""}}'>
+      <text>满五唯一</text>
+      <text>红本在手</text>
+      <text>近地铁</text>
+      <text>高学位</text>
+    </view>
+    <view class='h40' wx:if="{{isFix}}"></view> -->
+    <view class='outer ztlist' wx:for="{{hisHouse}}" wx:key="index" bindtap='goHouseInfo' data-id="{{item.Id}}">
+      <view class='outer thTop'>
+          <image src='{{item.MainImg}}' class='hmsg'></image>
+          <view class='bigT'>{{item.Name}}</view>
+          <view class='hinfo'>{{item.RegionName}} | 
+          <block wx:if="{{item.PropertyType==1}}">住宅</block>
+          <block wx:if="{{item.PropertyType==2}}">公寓</block>
+          <block wx:if="{{item.PropertyType==3}}">别墅</block>
+          <block wx:if="{{item.PropertyType==4}}">商铺</block>
+          <block wx:if="{{item.PropertyType==5}}">写字楼</block>
+          <block wx:if="{{item.PropertyType==6}}">洋房</block>
+          <block wx:if="{{item.PropertyType==7}}">商住楼</block>
+          <block wx:if="{{item.PropertyType==8}}">综合体</block>
+          <block wx:if="{{item.PropertyType==9}}">统建房</block>
+          <block wx:if="{{item.PropertyType==10}}">福利房</block>
+          <block wx:if="{{item.PropertyType==11}}">军产房</block>
+           |  {{item.ProductionAcreage}}㎡ | {{item.CountF}}室<block wx:if="{{item.CountT>0}}">{{item.CountT}}</block>厅</view>
+          <view class="smallT">抢购价<text class='price'>{{item.BuySalePrice}}</text>万<text class='label'>原价{{item.OriginalSalePrice}}万</text></view> 
+          <view class='tag'><block wx:for="{{filter.dTime(item.ShootEstateTag)}}" wx:for-item="sitem" wx:key="index"><text>{{sitem}}</text></block></view>
+          <view class='mhSun'>
+            <label>笋值</label>
+            <progress percent="{{cNum.toF(item.ShootHotValueProportion*100)}}" border-radius="10" color='#33cccc' stroke-width="4"/>
+            <text>{{cNum.toF(item.ShootHotValueProportion*100)}}%</text>
+          </view>          
+          <!-- 有则显示 -->
+          <view class='zu' wx:if="{{item.MinRentPrice>0&&item.MaxRentPrice>0}}"><label class='label'>租</label>小区租金每月{{item.MinRentPrice}}-{{item.MaxRentPrice}}元</view>
+          <view class='jun' wx:if="{{item.VillageAveragePrice>0}}">
+            <label class='label'>均</label>
+            比同小区成交均价{{item.VillageAveragePrice}}元/㎡
+            <text wx:if="{{item.VillageAveragePriceRangeType==1}}">--</text>
+            <text class='iconfont icon-down2' wx:if="{{item.VillageAveragePriceRangeType==2}}"></text>
+            <text class='iconfont icon-up1' wx:if="{{item.VillageAveragePriceRangeType==3}}"></text>
+            <text>20%</text>
+          </view>
+      </view>
+    </view>
+    <view style='text-align:center;width:100%;line-height:80rpx;color:#ccc;font-size:22rpx;' wx:if="{{no}}">
+      到底了~
+    </view>
+  </view>
+  <view wx:if="{{list.length==0&&isN}}" class='noL' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/hl-no.png) center no-repeat;background-size:504rpx;'>
+    <!-- <image src='../../img/hl-no.png'></image> -->
+    <text>暂无精选盘源</text>
+    <button bindtap='goM'>返回盘源列表</button>
+  </view>

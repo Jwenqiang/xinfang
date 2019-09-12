@@ -1,0 +1,5 @@
+.container{padding: 40rpx;}
+.dt{text-align: left;width: 100%;margin-bottom: 40rpx;border-left: 1px solid #dedede;padding-left: 40rpx;box-sizing: border-box;position: relative}
+.dt text{font-size: 24rpx;margin-right: 20rpx;color: #999}
+.dt label{font-weight: bold;}
+.dt image{width: 20rpx;height: 20rpx;position: absolute;top: 36%;left: -10rpx;z-index: 9}

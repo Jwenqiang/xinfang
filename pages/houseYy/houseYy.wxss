@@ -1,0 +1,17 @@
+.page{font-size: 28rpx;}
+.house{padding: 40rpx;box-sizing: border-box;}
+.house image{width: 200rpx;height: 140rpx;float: left;margin-right: 40rpx;border-radius: 3px}
+.hifMsg text{
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
+    font-weight: bold 
+}
+.hForm{padding: 40rpx;}
+.hInp{margin-bottom: 40rpx;border-bottom: 1px solid #f5f5f7;padding: 10rpx 0;font-size: 28rpx;position: relative}
+.hInp text{display: block;width: 150rpx;float: left;height: 60rpx;line-height: 60rpx;font-weight: bold}
+.hInp input{height: 60rpx;line-height: 60rpx;width: 400rpx}
+.hInp image.qk{position: absolute;right: 0;bottom:26rpx;width: 26rpx;height: 26rpx;}
+button.yy{background: #fe483a;color: #fff;margin-top: 100rpx}

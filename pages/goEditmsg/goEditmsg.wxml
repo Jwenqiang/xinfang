@@ -1,0 +1,262 @@
+<!-- 房源信息 -->
+<view class='page'>
+<!-- 已成交状态显示 -->
+  <view class='top'>
+    <view class='ycj'>
+      <view class='tTitle'>成交信息</view>
+      <view class='ycjMsg outer'>
+        <text>签约日期</text>
+        <input type='text' disabled value='{{qyDate}}'></input>
+      </view> 
+      <view class='ycjMsg outer'>
+        <text>成交金额</text>
+        <input type='text' disabled value='{{cjPrice}}'></input>
+      </view>    
+      <view class='ycjMsg outer'>
+        <text>成交客户</text>
+        <input type='text' disabled value='{{cjUser}}' wx:if='{{cjUser!=""&&cjUser!=null}}'></input>
+        <input type='text' placeholder-class="inputTip" disabled placeholder='未填写' wx:else></input>
+      </view>     
+      <view class='ycjMsg outer'>
+        <text>联系电话</text>
+        <input type='text' disabled value='{{cjPhone}}' wx:if='{{cjPhone!=""&&cjPhone!=null}}'></input>
+        <input type='text' placeholder-class="inputTip" disabled placeholder='未填写' wx:else></input>
+      </view>                    
+    </view>
+  </view>
+  <view class='hr10'></view>
+  <view class='content'>
+    <view class='outer hInp'>
+      <text decode="{{true}}">所在区域</text>
+      <input type='text' disabled value='{{cityInfo}}' placeholder-class="inputTip" ></input>
+    </view>  
+    <view class='outer hInp'>
+      <text decode="{{true}}">小区名称</text>
+      <input type='text' value='{{houseName}}' disabled></input>
+    </view>  
+    <view class='outer hInp'>
+      <text decode="{{true}}">小区地址</text>
+      <input type='text' disabled value='{{houseAddr}}'></input>
+    </view>    
+     <!-- <view class='outer hInp'>
+      <text style="color:#ff0000;width:20rpx;">*</text><text decode="{{true}}">所在楼层</text>
+      <picker mode="selector" value="{{index}}"  bindchange="lcMsg" range="{{lcArr}}">
+        <input type='text' disabled  placeholder='请选择楼层高低' value='{{lcInfo}}'></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view>           -->
+    <view class='outer hInp'>
+      <text decode="{{true}}">楼栋号</text>
+      <picker disabled>
+        <input type='text'  style='float:right' value='{{ldInfo}}' bindblur='setNum' data-t='ld' disabled></input>
+      </picker>
+    </view>    
+    <view class='outer hInp'>
+      <text decode="{{true}}">单元号</text>
+      <picker disabled>
+        <input type='text' disabled style='float:right' value='{{dyInfo}}' bindblur='setNum' data-t='dy'></input>
+      </picker>
+    </view>   
+    <view class='outer hInp'>
+      <text decode="{{true}}">门牌号</text>
+      <picker disabled>
+        <input type='text'  disabled style='float:right' value='{{mpInfo}}' bindblur='setNum' data-t='mp'></input>
+      </picker>
+    </view>   
+    <view class='hr10'></view>      
+  </view>
+  <view class='content'> 
+     <view class='outer hInp'>
+      <text decode="{{true}}">户型</text>
+        <input type='text' disabled value='{{hxInfo}}'></input>
+    </view>   
+     <view class='outer hInp'>
+      <text decode="{{true}}">面积(㎡)</text>
+      <picker disabled>
+        <input type='digit'  disabled style='float:right' value='{{mj}}' bindblur='setNum' data-t='mj'></input>
+      </picker>
+    </view> 
+     <view class='outer hInp'>
+      <text decode="{{true}}">朝向</text>
+        <input type='text' disabled value='{{cxInfo}}'></input>
+    </view> 
+     <view class='outer hInp'>
+      <text decode="{{true}}">物业类型</text>
+        <input type='text' disabled value='{{wyInfo}}'></input>
+    </view> 
+
+     <view class='outer hInp'>
+      <text decode="{{true}}">产权年限</text>
+        <input type='text' disabled value='{{cqInfo}}'></input>
+    </view>        <view class='outer hInp'>
+      <text decode="{{true}}">建成年代</text>
+        <input type='text' disabled value='{{ndInfo}}'></input>
+    </view>   
+
+
+    <view class='outer hInp'>
+      <text decode="{{true}}">上次交易时间</text>
+        <input type='text' disabled value='{{jyInfo}}'></input>
+    </view> 
+     <view class='outer hInp'>
+      <text decode="{{true}}">配套学区</text>
+        <input type='text' placeholder='暂无信息' disabled value='{{xq}}'></input>
+    </view>   
+
+  </view>
+  <view class='hr10'></view>
+  <view class='outer hInp'>
+    <text decode="{{true}}">原价(万元)</text>
+    <picker disabled>
+      <input type='digit' disabled style='float:right' value='{{yj}}'></input>
+    </picker>
+  </view> 
+  <view class='outer hInp'>
+    <text decode="{{true}}">抢购价(万元)</text>
+    <picker disabled>
+      <input type='digit' disabled' style='float:right' value='{{qgj}}'></input>
+    </picker>
+  </view>
+  <view class='hr10'></view>
+  <view class='sectionA'>
+    <view class='hlabel'>购置年限</view>
+    <view class="hsque">
+      <block wx:for="{{nx}}" wx:key="item.id">
+        <text data-idx="{{index}}"  class="{{index==nxSub?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view> 
+  <view class='hr10'></view>
+  <view class='sectionA'>
+    <view class='hlabel'>是否唯一</view>
+    <view class="hsque">
+      <block wx:for="{{wy}}" wx:key="item.id">
+        <text class="{{index==wySub?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view>  
+  <view class='hr10'></view>
+  <view class='sectionA'>
+    <view class='hlabel'>有无抵押</view>
+    <view class="hsque">
+      <block wx:for="{{dy}}" wx:key="item.id">
+        <text class="{{index==dySub?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view>  
+  <view class='hr10'></view>
+  <view class='sectionA'>
+    <view class='hlabel'>红本在手</view>
+    <view class="hsque">
+      <block wx:for="{{hb}}" wx:key="item.id">
+        <text class="{{index==hbSub?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view>   
+  <view class='hr10'></view>
+  <view class='sectionA'>
+    <view class='hlabel'>装修情况</view>
+    <view class="hsque zxqk">
+      <block wx:for="{{zx}}" wx:key="item.id">
+        <text class="{{index==zxSub?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view>    
+  <view class='hr10'></view> 
+     <!--第三版  -->
+  <view class='section'>
+    <view class='hlabel title'>房源标签</view>
+    <view class="hsque">
+      <block wx:for="{{fy}}" wx:key="item.id">
+        <text class="{{item.isOn?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view> 
+  <view class='hr10'></view> 
+<view class='picAll'>
+  <view class='section'>
+    <view class='upTop title'><label>房源图片</label></view> 
+    <view class='upload outer'>
+      <label data-t="fm">封面图 </label>
+      <scroll-view scroll-x="true">
+      <block wx:for="{{fmPic}}" wx:key="*this" wx:if="{{fmPic.length>0}}">
+        <label>
+          <image src="{{item.Url}}" mode='aspectFill' data-idx="{{index}}"  data-t="fm"></image>
+        </label>     
+      </block>                                                       
+      </scroll-view> 
+    </view>
+  </view>   
+  <view class='section'>
+    <view class='upload outer'>
+      <label data-t="sl">室内图 </label>
+      <scroll-view scroll-x="true">
+      <block wx:for="{{slPic}}" wx:key="*this" wx:if="{{slPic.length>0}}">
+        <label>
+          <image src="{{item.Url}}" mode='aspectFill' data-idx="{{index}}"  data-t="sl"></image>
+        </label>     
+      </block>                                                       
+      </scroll-view> 
+    </view>
+  </view> 
+  <view class='section'>
+    <view class='upload outer'>
+      <label data-t="hx">户型图 </label>
+      <scroll-view scroll-x="true">
+      <block wx:for="{{hxPic}}" wx:key="*this" wx:if="{{hxPic.length>0}}">
+        <label style='background:none'>
+          <image src="{{item.Url}}" mode='aspectFill' data-idx="{{index}}" data-t="hx"></image>
+        </label>     
+      </block>                                                       
+      </scroll-view> 
+    </view>
+  </view> 
+  <view class='section'>
+    <view class='upload outer'>
+      <label data-t="zb">周边 </label>
+      <scroll-view scroll-x="true">
+      <block wx:for="{{zbPic}}" wx:key="*this" wx:if="{{zbPic.length>0}}">
+        <label>
+          <image src="{{item.Url}}" mode='aspectFill' data-idx="{{index}}" data-t="zb"></image>
+        </label>     
+      </block>                                                       
+      </scroll-view> 
+    </view>
+  </view>  
+</view>     
+  <view class='hr10'></view>    
+
+  <view class='textList'>   
+    <view class='outer title'><label>笋评</label><text style='float:right;color:#6699ff;font-size:24rpx'>50字以内</text></view> 
+    <textarea maxlength='50' value='{{spMsg}}' disabled></textarea>            
+  </view>
+  <view class='hr10'></view> 
+  <view class='textList'>   
+    <view class='outer title'><label>合作方案（选填）</label><text style='float:right;color:#6699ff;font-size:24rpx'>50字以内</text></view> 
+    <textarea maxlength='50' value='{{hzMsg}}' disabled placeholder='暂无'></textarea>   
+    <view class='ctip'>说明：如果房源开放与其它经纪人合作，可写明合作方案，增加合作机会。</view>         
+  </view>  
+
+     <!--第四版  -->
+  <view class='content'>
+     <view class='outer hInp'>
+      <text decode="{{true}}">推广展示标题</text>
+      <view>
+        <input type='text' style='float:right' disabled value='{{tgTitle}}'></input>
+      </view>
+    </view> 
+    <view class='hr10'></view>  
+     <view class='outer hInp'>
+      <text decode="{{true}}">业主姓名</text>
+      <view>
+        <input type='text' style='float:right' disabled value='{{xm}}' placeholder='暂无' placeholder-class="inputTip"></input>
+      </view>
+    </view> 
+     <view class='outer hInp'>
+      <text decode="{{true}}">业主电话</text>
+      <view>
+        <input type='text' style='float:right' disabled value='{{dh}}' placeholder='暂无' placeholder-class="inputTip"></input>
+      </view>
+    </view>         
+  </view>     
+</view>

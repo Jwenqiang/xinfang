@@ -1,0 +1,12 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <view class='mifT'>    
+{{msgInfo.Title}}
+  </view>
+  <view  class='miTime'>
+    <text>{{msgInfo.AddTime}}</text>
+  </view>
+  <view class='miContent'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>

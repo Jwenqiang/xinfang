@@ -1,0 +1,7 @@
+<view class="container">
+  <view class='searchM'>
+    <text class='iconfont icon-sousuo'></text>
+    <input type='text' focus="{{focus}}" placeholder='请输入标题/小区/片区等' confirm-type="search" placeholder-style="color:#ccc" bindconfirm="search"></input>
+    <text class='cancel' bindtap='back'>取消</text>
+  </view>
+</view>

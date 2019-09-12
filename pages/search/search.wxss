@@ -1,0 +1,29 @@
+@import "../font.wxss";
+
+
+.searchM {
+  width: 670rpx;
+  height: 80rpx;
+  position: relative;
+
+}
+
+.searchM input {
+  width: 570rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 24rpx;
+  padding-left: 80rpx;
+  box-sizing: border-box;
+  border: 1px solid #ededed;
+  float: left;
+}
+.searchM .icon-sousuo{
+  position: absolute;
+  top:20rpx;
+  left: 26rpx;
+  color: #ccc
+}
+.cancel{display: block;width: 100rpx;height: 70rpx;float: left;text-align: right;line-height: 70rpx;}

@@ -1,0 +1,5 @@
+<view class="container">
+  <view class='title'><text style='color:#ff0000;'>*</text>无效原因</view>
+  <textarea placeholder='请输入无效原因' bindinput='changeV'></textarea>
+  <button bindtap='setMsg'>确定</button>
+</view>

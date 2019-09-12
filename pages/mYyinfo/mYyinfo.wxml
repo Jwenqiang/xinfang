@@ -1,0 +1,66 @@
+<wxs module="phone">
+var toHide = function(array) {
+  if(array!=undefined){
+    var mphone = array.substring(0, 3) + '****' + array.substring(7);
+    return mphone;
+  }
+}
+module.exports.toHide = toHide;
+</wxs>
+<wxs module="name">
+var toN = function(array) {
+  if(array!=undefined){
+    var mname = array.substring(0, 1) + '*' + array.substring(2);
+    return mname;
+  }
+}
+module.exports.toN = toN;
+</wxs>
+<view class="page">
+  <view class='hr10'></view>
+  <view class='outer house'>
+    <image src='{{house.MainImg}}'></image>
+    <view class='hifMsg'>
+      <text class='title'>{{house.Name}}</text>
+      <view style='margin-top:10rpx;font-size:24rpx;color:#999'>总价<label style="color:#ff0000;font-size:32rpx;font-weight:bold">{{house.BuySalePrice}}</label>万<label style='margin-left:40rpx;'>均价{{house.AveragePrice}}元/㎡</label></view>
+    </view>
+  </view>
+  <view class='hr10'></view>
+  <view class='hForm'>
+    <text style='font-size:32rpx;font-weight:bold;margin-bottom:40rpx;display:block'>联系人信息</text>
+    <view class='outer hInp'>
+      <text decode="{{true}}">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</text>
+      <input type='text' disabled value='{{uMsg.FullName}}'></input>
+    </view>
+    <view class='outer hInp'>
+      <text decode="{{true}}">看房时间</text>
+      <input type='text' disabled value='{{uMsg.LookHouseTime}}'></input>
+    </view>  
+ <!-- 中小经纪人权限 -->
+    <!-- <view class='outer hInp' wx:if="{{role!=4}}">
+      <text decode="{{true}}">电话号码</text>
+      <input type='text' disabled value='{{uMsg.Mobile}}' data-phone="{{uMsg.Mobile}}"></input>
+    </view> 
+    <view class='hStatus' wx:if="{{role==5&&uMsg.State==1}}">
+      <button bindtap='goYdk' data-yid="{{uMsg.Id}}" data-state="{{uMsg.State}}">已带看</button>      
+      <button bindtap='goYsx' data-yid="{{uMsg.Id}}" data-state="{{uMsg.State}}">已失效</button>     
+    </view>        -->
+
+    <view class='outer hInp' wx:if="{{who==1}}">
+      <text decode="{{true}}">电话号码</text>
+      <input type='text' disabled value='{{uMsg.Mobile}}' data-phone="{{uMsg.Mobile}}"></input>
+    </view> 
+    <view class='outer hInp' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/i-phone.png) right center no-repeat;background-size:50rpx;' wx:else>
+      <text decode="{{true}}">电话号码</text>
+      <input type='text' disabled value='{{uMsg.Mobile}}' data-phone="{{uMsg.Mobile}}" bindtap='callPhone'></input>
+    </view>        
+    <view class='hStatus' wx:if="{{(role==4||role==5)&&uMsg.State==1&&who==2}}">
+      <button bindtap='goYdk' data-yid="{{uMsg.Id}}" data-state="{{uMsg.State}}">已带看</button>      
+      <button bindtap='goYsx' data-yid="{{uMsg.Id}}" data-state="{{uMsg.State}}">已失效</button>     
+    </view>      
+    <view class='hStatus' wx:if="{{uMsg.State>1&&who==2}}">
+      <button style='background:#ededed;color:#999' wx:if="{{uMsg.State==2}}">已带看</button>      
+      <button style='background:#ededed;color:#999' wx:if="{{uMsg.State==3||uMsg.State==4}}">已失效</button>     
+    </view>      
+  </view>
+</view>

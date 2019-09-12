@@ -1,0 +1,55 @@
+<view class='page'>
+  <view class='top'>
+    <view class='top-t'>
+      <label>1</label><text></text><label>2</label><text></text><label>3</label><text></text><label>4</label>
+    </view>
+    <view class='top-b'>
+      <text>房源地址</text>
+      <text>基本信息</text>
+      <text>特色信息</text>
+      <text>上架发布</text>
+    </view>
+  </view>
+  <view class='hr10'></view>
+  <view class='top-q'>
+    <view class='ydk'>
+      <view class="ydkL">抢购结束时间</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view>
+          <input value='{{time}}' placeholder='请设置抢购结束时间' disabled="false" placeholder-class="inputTip"/>
+        </view>
+        <text class='iconfont icon-right' style='float:right;font-size:24rpx'></text>
+      </picker>
+    </view>
+  </view>
+  <view class='hr10'></view>  
+  <view class='content'>
+     <view class='outer hInp'>
+      <text decode="{{true}}">推广展示标题</text>
+      <view>
+        <input type='text' placeholder='请输入标题' style='float:right' bindinput='setMsg' data-t='bt' value='{{tgTitle}}' placeholder-class="inputTip"></input>
+      </view>
+    </view> 
+    <view class='hr10'></view>  
+     <view class='outer hInp'>
+      <text decode="{{true}}">业主姓名(选填)</text>
+      <view>
+        <input type='text' placeholder='请输入业主姓名' style='float:right' bindinput='setMsg' data-t='xm' value='{{xm}}' placeholder-class="inputTip"></input>
+      </view>
+    </view> 
+     <view class='outer hInp'>
+      <text decode="{{true}}">业主电话(选填)</text>
+      <view>
+        <input type='number' placeholder='请输入业主电话' style='float:right' bindinput='setMsg' data-t='dh' value='{{dh}}' placeholder-class="inputTip"></input>
+      </view>
+    </view>         
+  </view>
+  <view class='hr10'></view>   
+  <radio-group class="agree" bindtap='radioChange' data-t="{{isOn}}">
+    <radio value='{{isOn}}' checked="{{isOn}}"/>本人承诺所发布房源信息全部为真实信息，并且为业主真实委托，已取得《业主委托书》。
+  </radio-group> 
+  <view class="btn">
+    <button bindtap='goFinal' data-t="yes">立即上架</button>
+    <button bindtap='goFinal' data-t="no">保存到待上架</button>
+  </view>  
+</view>

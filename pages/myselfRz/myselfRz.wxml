@@ -1,0 +1,39 @@
+<view class='page'>
+  <view class='top'>
+    <view class='li'>（1）平台确保您个人信息安全，不会泄露他人。</view>
+    <view class='li'>（2）实名认证成功后不支持修改。</view>
+    <view class='li'>（3）经纪人完成实名认证即可对外发布房源，并与其它经纪人联动。</view>
+  </view>
+  <!-- 认证显示 -->
+  <view class='content'>
+    <view class='area' bindtap='goRz' data-t="sm" wx:if="{{isRz==0||isRz==3}}">
+      <view class='bigF'>实名认证 ></view>
+      <view>红包提现等操作需要进行个人实名认证</view>
+    </view>  
+    <view class='area' bindtap='goRz' data-t="sm" wx:if="{{isRz==1}}" style='background:#fe877a url(http://hfugweb.centaline.com.cn/img/smallR/img/shz.png) 94% 40rpx no-repeat;background-size:146rpx; '>
+      <view class='bigF'>实名认证 ></view>
+      <view>红包提现等操作需要进行个人实名认证</view>
+    </view>     
+    <view class='area' bindtap='goRz' data-t="sm" wx:if="{{isRz==2}}" style='background:#fe877a url(http://hfugweb.centaline.com.cn/img/smallR/img/yrz.png) 90% 40rpx no-repeat;background-size:146rpx; '>
+      <view class='bigF'>实名认证 ></view>
+      <view class='msg'><label>姓名：</label><text>{{name}}</text></view>
+      <view class='msg'><label>性别：</label><text>{{sex}}</text></view>
+      <view class='msg'><label>身份证：</label><text>{{num}}</text></view>
+    </view>
+    <view class='area' bindtap='goRz' data-t="jjr"  wx:if="{{isJjr==0||isJjr==3}}">
+      <view class='bigF'>经纪人认证  ></view>
+      <view>认证完成即可发布房源并与其它经纪人联动</view>
+    </view>  
+    <view class='area' bindtap='goRz' data-t="jjr"  wx:elif="{{isJjr==1}}" style='background:#5083ff url(http://hfugweb.centaline.com.cn/img/smallR/img/shz.png) 90% 40rpx no-repeat;background-size:146rpx; '>
+      <view class='bigF'>经纪人认证  ></view>
+      <view>认证完成即可发布房源并与其它经纪人联动</view>
+    </view>         
+    <view class='area' bindtap='goRz' data-t="jjr" wx:elif="{{isJjr==2}}" style='background: #5083ff url(http://hfugweb.centaline.com.cn/img/smallR/img/yrz.png) 90% 40rpx no-repeat;background-size:146rpx; '>
+      <view class='bigF'>经纪人认证  ></view>
+      <view class='msg'><label>公司：</label><text>{{company}}</text></view>
+      <view class='msg'><label>门店：</label><text>{{store}}</text></view>
+      <view class='msg'><label>岗位：</label><text>{{job}}</text></view>
+    </view>  
+
+  </view> 
+</view>

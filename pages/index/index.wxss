@@ -1,0 +1,454 @@
+canvas {
+  width: 200rpx;
+  height: 38rpx;
+  float: left
+}
+.weui-flex {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:flex;
+}
+.weui-flex__item {
+  -webkit-box-flex:1;
+  -webkit-flex:1;
+  flex:1;
+}
+.weui-cell {
+padding:10px 15px;
+position:relative;
+display:-webkit-box;
+display:-webkit-flex;
+display:flex;
+-webkit-box-align:center;
+-webkit-align-items:center;
+align-items:center;
+
+}
+.weui-cell__bd {
+-webkit-box-flex:1;
+-webkit-flex:1;
+flex:1;
+}
+
+
+/**index.wxss**/
+@import "../font.wxss";
+.container {
+  padding: 20rpx 0 240rpx;
+  /* background: #f6f6f6 */
+}
+
+.swipercontent {
+  position: relative;
+  height: 320rpx;
+  width: 100%;
+  padding: 0 35rpx;
+  box-sizing: border-box;
+}
+
+.swipercontent swiper {
+  width: 100%;
+  height: 320rpx;
+}
+
+.swipercontent swiper image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx
+}
+.il{
+  width: 132rpx;
+  height: 254rpx;
+  position: absolute;
+  left: 0;
+  bottom:0;
+}
+.ir{
+  width: 96rpx;
+  height: 200rpx;
+  position: absolute;
+  right: 0
+}
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  margin: 0 8rpx;
+  width: 18rpx;
+  height: 8rpx;
+  background: #ddd;
+  border-radius: 20px;
+}
+
+.dot.active {
+  width: 22rpx;
+  background: #000;
+  border-radius: 20px;
+}
+
+/*  */
+
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+
+.name {
+  font-size: 58rpx;
+  color: #333;
+  font-weight: bold;
+  margin-left: 20rpx;
+  margin-top: 50rpx;
+  padding-bottom: 100rpx;
+}
+
+.text {
+  font-size: 48rpx;
+  color: #333;
+  font-weight: bold;
+  margin-left: 120rpx;
+  margin-top: 40rpx;
+  margin-right: 20rpx;
+}
+
+.indexTab {
+  width: 100%;
+  margin: 40rpx 0 0;
+  height: 210rpx;
+  text-align: center;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.indexTab .weui-flex{height: 210rpx;}
+.indexTab .weui-flex__item {
+  margin-right: 20rpx;
+  background: #fff;
+  padding: 24rpx 20rpx;
+  text-align: right;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+  /* box-shadow: 0 0 20px #ededed; */
+
+}
+
+.indexTab .weui-flex__item image {
+  width: 95rpx;
+  height: 114rpx;
+}
+
+.indexTab .weui-flex__item text {
+  color: #999;
+  font-size: 20rpx;
+  position: relative;
+  top:-2rpx;
+}
+
+.indexTab .placeholder {
+  font-weight: bold;
+  font-size: 30rpx;
+  color: #FFF
+}
+
+.indexTab .weui-flex__item:last-child {
+  margin: 0;
+}
+.bigT{font-size:44rpx;font-weight:bold;margin-bottom: 6rpx;color: #000}
+.smallT{font-size:24rpx;color:#999}
+.section {
+  width: 100%;
+  margin-top: 50rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+.section swiper{
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.section swiper-item {
+  padding: 12rpx;
+  box-sizing: border-box;
+  border: none !important;
+}
+
+.sTitle {
+  margin-bottom: 40rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+
+.sTitle .weui-cell {
+  padding: 0;
+}
+
+.sTitle .weui-cell__bd text {
+  display: block;
+}
+
+.sContent {
+  width: 100%;
+}
+.icon-right{color: #999}
+.saleContent {
+  margin-bottom: 40rpx;
+  background: #fff;
+  /* width: 660rpx; */
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  padding: 30rpx 26rpx 40rpx;
+  box-shadow: 0 0 14rpx #dedede;
+  border-radius: 5px;
+}
+
+.sContent image {
+  border-radius: 8rpx;
+}
+
+.scLeft {
+  width: 400rpx;
+  float: left;
+  position: relative;
+  height: 400rpx;
+}
+
+.scLeft image {
+  width: 400rpx;
+  height: 400rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+.scLeft .tsp{
+  position: absolute;
+  width: 101rpx;
+  height: 43rpx;
+  left: 0;
+  top: 0;
+  z-index: 3
+}
+.scLeft .scInfo {
+  position: absolute;
+  left: 0;
+  top: 240rpx;
+  padding: 0 20rpx;
+  z-index: 3;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.day, .hour, .minute {
+  background: #000;
+  padding: 0 8rpx;
+}
+
+.scRight {
+  width: 202rpx;
+  height: 400rpx;
+  float: right;
+  position: relative;
+}
+
+.scRight .scrOne {
+  height: 190rpx;
+  margin-bottom: 12rpx;
+  position: relative;
+}
+
+.scrOne image {
+  height: 190rpx;
+  width: 202rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.scrOne .scInfo {
+  position: absolute;
+  left: 0;
+  bottom: 20rpx;
+  z-index: 3;
+  font-size: 24rpx;
+  color: #fff;
+  padding: 0 10rpx;
+}
+
+.saleContent .scLeft, .saleContent .scLeft image {
+  height: 320rpx;
+  width: 418rpx;
+}
+
+.saleContent .scInfo {
+  top: 200rpx;
+}
+
+.saleContent .scRight {
+  height: 320rpx;
+}
+.scPrice{width: 70%;float: left}
+.saleContent .scRight .scrOne, .saleContent .scrOne image {
+  height: 154rpx;
+}
+.houseSz{display: inline-block;line-height: 80rpx;float: right;color: #5bd5d5;font-weight: bold;font-size: 24rpx}
+.schTitle {
+  padding-top: 20rpx;
+  clear: both;
+  color: #000;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.schTitle text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  font-size: 32rpx;
+}
+
+.house_tag text {
+  font-size: 24rpx;
+  padding: 5rpx;
+  background: #ddd;
+  margin-right: 20rpx;
+  color: #999;
+}
+
+.housePeople {
+  width: 300rpx;
+  float: left;
+  margin: 20rpx 0;
+}
+
+.housePeople image {
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin-right: -5rpx;
+  border-radius: 50%;
+  border: 1px solid #ededed;
+}
+
+.housePeople text {
+  display: block;
+  border: 1px solid #ededed;
+  text-align: center;
+  border-radius: 50%;
+  width: 56rpx;
+  height: 56rpx;
+  float: left;
+  background: #fff
+}
+
+.orderH {
+  width: 300rpx;
+  float: right;
+  margin: 20rpx 0;
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 60rpx;
+  height: 60rpx;
+}
+
+.orderH text {
+  color: #4fbcdc;
+  font-weight: bold;
+}
+
+.xjDate {
+  clear: both;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  width: 400rpx;
+  float: left;
+}
+
+.xjDate text {
+  background: #000;
+  padding: 2rpx 8rpx;
+  color: #fff;
+  margin: 0 6rpx;
+  border-radius: 3px;
+  font-weight: 400;
+  font-size: 24rpx
+}
+.spDate{color: #333}
+.spDate text{
+  background: #000;
+  color: #fff
+}
+
+.orderTime {
+  margin-top: 25rpx;
+}
+
+.orderTime, .orderTime button {
+  display: block;
+  float: right;
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  border:none;
+  font-weight: bold;
+  background: -webkit-linear-gradient(#fc7c75,#f63e37); /* Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#fc7c75,#f63e37); /* Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#fc7c75,#f63e37); /* Firefox 3.6 to 15 */
+  background: linear-gradient(#fc7c75,#f63e37); /* 标准语法 (必须在最后) */
+  color: #fff;
+  border-radius: 30rpx;
+  box-shadow: 2rpx 10rpx 20rpx #f8cecb;
+}
+.timeN{
+  margin-top: 25rpx;
+  display: block;
+  float: right;
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #999;
+  text-align: center
+}
+/* 笋盘专题 */
+.back {
+  width: 100%;
+  height: 280rpx;
+  border-radius: 10rpx;
+}
+.spzt{
+  border-radius: 3rpx;
+  position: relative;
+  height: 600rpx
+
+}
+.ztSwiper{height: 460rpx;}
+.aStatus{position: absolute;display: block; left: 12rpx;top: 12rpx;width:90rpx;text-align: center; background: #000;color: #fff;font-size: 20rpx;border-radius: 6rpx;height: 40rpx;line-height: 40rpx;border-top-right-radius: 20rpx;border-bottom-right-radius: 20rpx;border-bottom-left-radius: 0rpx;}
+.ztName{
+  font-weight: bold;
+  color: #000;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden  
+}
+.sName{
+  font-size: 24rpx;
+  color: #666;
+  margin: 10rpx 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden   
+}
+

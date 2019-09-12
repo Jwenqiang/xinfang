@@ -1,0 +1,56 @@
+<view class="page">
+  <view class='hr10'></view>
+  <view class='outer house'>
+    <image src='{{house.MainImg}}'></image>
+    <view class='hifMsg'>
+      <text class='title'>{{house.Name}}</text>
+      <view class='hifT'>
+        {{house.RegionName}} |
+        <block wx:if="{{house.PropertyType==1}}">住宅</block>
+          <block wx:if="{{house.PropertyType==2}}">公寓</block>
+          <block wx:if="{{house.PropertyType==3}}">别墅</block>
+          <block wx:if="{{house.PropertyType==4}}">商铺</block>
+          <block wx:if="{{house.PropertyType==5}}">写字楼</block>
+          <block wx:if="{{house.PropertyType==6}}">洋房</block>
+          <block wx:if="{{house.PropertyType==7}}">商住楼</block>
+          <block wx:if="{{house.PropertyType==8}}">综合体</block>
+          <block wx:if="{{house.PropertyType==9}}">统建房</block>
+          <block wx:if="{{house.PropertyType==10}}">福利房</block>
+          <block wx:if="{{house.PropertyType==11}}">军产房</block>
+      |  {{house.ProductionAcreage}}㎡ | {{house.CountF}}室<block wx:if="{{house.CountT>0}}">{{house.CountT}}厅</block> | {{house.Orientation}}</view>      
+          <view style='color:#999;font-size:24rpx;'>抢购价<label style="color:#ff0000;font-weight:bold;font-size:32rpx;">{{house.BuySalePrice}}</label>万<label style='margin-left:20rpx;text-decoration: line-through'>原价{{house.BuySalePrice}}万</label></view>
+    </view>
+  </view>
+  <view class='hr10'></view>
+  <view class='hForm'>
+    <text style='font-size:32rpx;font-weight:bold;margin-bottom:40rpx;display:block'>成交信息</text>
+    <view class='outer hInp'>
+      <text style="color:#ff0000;width:20rpx;float:left;">*</text><text decode="{{true}}" class='tleft'>签约日期</text>
+      <picker    
+      mode="date"
+    value="{{date}}"
+    end="{{currentTime}}"
+    bindchange="jyMsg">
+        <input type='text' disabled  placeholder='请选择交易日期' value='{{jyInfo}}'></input>
+      </picker>
+      <text class='iconfont icon-right' style='float:right;font-size:26rpx;color:#ccc'></text>
+    </view>
+    <view class='outer hInp'>
+      <text style="color:#ff0000;width:20rpx;float:left;">*</text><text decode="{{true}}" class='tleft'>成交金额</text>
+      <input type='digit' bindblur='setPrice' placeholder='请输入成交金额'></input>
+      <text style='float:right'>万元</text>
+    </view>  
+
+    <view class='outer hInp'>
+      <text style="width:20rpx;float:left;"></text><text decode="{{true}}" class='tleft'>成交客户</text>
+      <input type='text' placeholder='请输入客户名称' data-t="name" bindblur='setMsg'></input>
+    </view> 
+    <view class='outer hInp'>
+      <text style="width:20rpx;float:left;"></text><text decode="{{true}}" class='tleft'>联系电话</text>
+      <input type='digit' placeholder='请输入客户联系电话' data-t="phone" bindblur='setMsg'></input>
+    </view>       
+    <view class='hStatus'>
+      <button bindtap='save'>保存</button>          
+    </view>         
+  </view>
+</view>

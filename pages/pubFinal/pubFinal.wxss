@@ -1,0 +1,26 @@
+@import "../font.wxss";
+.page{width: 100%;font-size: 28rpx;padding-bottom: 160rpx}
+.top{height: 160rpx;width: 100%}
+.top-t{height: 40rpx;line-height: 40rpx;width: 100%;text-align: center;margin: 40rpx 0}
+.top-t label,.top-t text{display: inline-block}
+.top-t label{width: 40rpx;height: 40rpx;background: #000;line-height: 40rpx;text-align: center;border-radius: 50%;color: #fff;font-size: 24rpx}
+.top-t text{width: 140rpx;height: 2rpx;background: #000;position: relative;top: -10rpx;margin: 0 2rpx}
+.top-b{width: 100%;text-align: center}
+.top-b text{margin-left: 84rpx;font-size: 24rpx;color: #000}
+.top-b text:first-child{margin: 0;}
+
+.ydk{width: 100%;padding: 20rpx 0;border-bottom: 1px solid #ededed;height: 60rpx;line-height: 60rpx}
+.ydkL{float: left;width: 220rpx;font-weight: bold}
+.ydk picker input{width: 400rpx;float: left;height: 60rpx;text-align: right}
+
+.top-q{padding: 0 40rpx;box-sizing: border-box}
+.hInp{border-bottom: 1px solid #f5f5f7;padding: 20rpx 40rpx;font-size: 28rpx;position: relative}
+.hInp text{display: inline-block;width: 220rpx;float: left;height: 60rpx;line-height: 60rpx;font-weight: bold}
+.hInp input{height: 60rpx;line-height: 60rpx;width: 430rpx;float: left;text-align: right;font-size: 28rpx;color: #333;font-weight: bold}
+
+.hInp text.iconfont{width: 40rpx;display: inline-block;float: right;color: #999;font-weight: 400;font-size: 24rpx;text-align: right}
+.agree{margin: 80rpx 40rpx 60rpx}
+.agree radio{transform:scale(0.5);}
+.btn{position: fixed;padding: 20rpx 40rpx 40rpx;background: #fff;bottom: 0;box-sizing: border-box;width: 100%;left: 0;box-shadow: 0 -2px 6px #f5f5f7;z-index: 999}
+.btn button{background: #ff8075;color: #fff;margin-bottom: 40rpx}
+.btn button:last-child{background: #477aff}

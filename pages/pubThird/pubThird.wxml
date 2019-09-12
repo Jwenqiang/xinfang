@@ -1,0 +1,112 @@
+<view class='page {{isHide?"hide":""}}'>
+  <view class='top'>
+    <view class='top-t'>
+      <label>1</label><text></text><label>2</label><text></text><label>3</label><text></text><label>4</label>
+    </view>
+    <view class='top-b'>
+      <text>房源地址</text>
+      <text>基本信息</text>
+      <text>特色信息</text>
+      <text>上架发布</text>
+    </view>
+  </view>
+  <view class='hr10'></view>
+  <view class='section'>
+    <view class='hlabel title'>房源标签（最多选5个）</view>
+    <view class="hsque">
+      <block wx:for="{{nx}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.name}}" class="{{item.isOn?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view> 
+  <!-- <view class='hr10'></view>  -->
+  <view style='height：80rpx;line-height:80rpx;padding-left:40rpx;font-size:22rpx;font-weight:bold;color:#ff0000;background:#f5f5f7'>注意：封面图必须传三张,其他图片不限制</view>  
+<view class='picAll' catchtap='hideLoad'>
+  <view class='section'>
+    <view class='upTop title'><label>房源图片</label><text style='float:right;color:#6699ff;font-size:24rpx' catchtap='show'>图片上传标准 >></text></view> 
+    <view class='upload outer'>
+      <label bindtap='selectPic' data-t="fm"><text style='display:block;height:40rpx'>+</text>封面图 </label>
+      <scroll-view scroll-x="true">
+      <block wx:for="{{fmPic}}" wx:key="index" wx:if="{{fmPic.length>0}}">
+        <label>
+          <image src="{{item.Url}}" mode='aspectFill' data-idx="{{index}}" bindtap="handleImagePreview"  data-t="fm"></image>
+           <text class='iconfont icon-guanbi' data-idx="{{index}}" bindtap="removeImage"  data-t="fm"></text>
+        </label>     
+      </block>                                                       
+      </scroll-view> 
+    </view>
+  </view>   
+  <view class='section'>
+    <view class='upload outer'>
+      <label bindtap='selectPic' data-t="sl"><text style='display:block;height:40rpx'>+</text>室内图 </label>
+      <scroll-view scroll-x="true">
+      <block wx:for="{{slPic}}" wx:key="index" wx:if="{{slPic.length>0}}">
+        <label>
+          <image src="{{item.Url}}" mode='aspectFill' data-idx="{{index}}" bindtap="handleImagePreview"  data-t="sl"></image>
+           <text class='iconfont icon-guanbi' data-idx="{{index}}" bindtap="removeImage"  data-t="sl"></text>
+        </label>     
+      </block>                                                       
+      </scroll-view> 
+    </view>
+  </view> 
+  <view class='section'>
+    <view class='upload outer'>
+      <label bindtap='selectPic' data-t="hx"><text style='display:block;height:40rpx'>+</text>户型图 </label>
+      <scroll-view scroll-x="true">
+      <block wx:for="{{hxPic}}" wx:key="index" wx:if="{{hxPic.length>0}}">
+        <label style='background:none'>
+          <image src="{{item.Url}}" mode='aspectFill' data-idx="{{index}}" bindtap="handleImagePreview" data-t="hx"></image>
+           <text class='iconfont icon-guanbi' data-idx="{{index}}" bindtap="removeImage" data-t="hx"></text>
+        </label>     
+      </block>                                                       
+      </scroll-view> 
+    </view>
+  </view> 
+  <view class='section'>
+    <view class='upload outer'>
+      <label bindtap='selectPic' data-t="zb"><text style='display:block;height:40rpx'>+</text>周边 </label>
+      <scroll-view scroll-x="true">
+      <block wx:for="{{zbPic}}" wx:key="index" wx:if="{{zbPic.length>0}}">
+        <label>
+          <image src="{{item.Url}}" mode='aspectFill' data-idx="{{index}}" bindtap="handleImagePreview" data-t="zb"></image>
+           <text class='iconfont icon-guanbi' data-idx="{{index}}" bindtap="removeImage" data-t="zb"></text>
+        </label>     
+      </block>                                                       
+      </scroll-view> 
+    </view>
+  </view>  
+</view>     
+  <view class='hr10'></view>    
+
+  <view class='content' style='padding-bottom:40rpx'>   
+    <view class='outer title'><label>笋评</label><text style='float:right;color:#6699ff;font-size:24rpx'>50字以内</text></view> 
+    <textarea maxlength='50' focus='true' value='{{spMsg}}' placeholder='请输入你对该房源的评价' bindblur="getSp" placeholder-class="inputTip" wx:if="{{showS}}"></textarea> 
+    <view class='textarea' bindtap='showS' wx:if="{{showS==false}}">{{spMsg}}</view>            
+  </view>
+  <view class='hr10'></view> 
+  <view class='content'>   
+    <view class='outer title'><label>合作方案（选填）</label><text style='float:right;color:#6699ff;font-size:24rpx'>50字以内</text></view> 
+    <textarea maxlength='50' focus='true' value='{{hzMsg}}' placeholder='请输入你的合作方案' bindblur="getHz" placeholder-class="inputTip" wx:if="{{showT}}"></textarea>  
+    <view class='textarea' bindtap='showT' wx:if="{{showT==false}}">{{hzMsg}}</view> 
+    <view class='ctip'>说明：如果房源开放与其它经纪人合作，可写明合作方案，增加合作机会。</view>         
+  </view> 
+  <view class='hr10'></view>    
+  <view class="btn">
+    <button bindtap='goNext'>下一步</button>
+  </view>
+</view>
+
+   <!--弹窗  -->
+   <view class='show' wx:if="{{isShow}}">
+      <view class='bj' bindtap='show'></view>
+      <view class='showMsg'>
+        <text class='iconfont icon-guanbi' bindtap='show'></text>
+        <view class='showTip'>提示：请勿上传违反法律犯规等违规图片，如有违反将作封号处理！</view>
+        <view><label>图片尺寸：</label>尽量保持图片尺寸统一。</view>
+        <view><label>图片数量：</label>所有图片数量和不低于6张，最多50张。</view>
+        <view><label>封面图：</label>作为首页推荐展示。</view>
+        <view><label>室内图：</label>拍摄内容必须涵盖所有房间，包括不限于客厅、卧室、卫生间、厨房、阳台等。</view>
+        <view><label>图片效果：</label>拍摄对焦准确，图片清晰美观。</view>
+        <view><label>图片内容：</label>不得出现人物、动物、内衣裤等物品</view>
+      </view>
+   </view>

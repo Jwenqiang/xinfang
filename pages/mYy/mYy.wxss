@@ -1,0 +1,22 @@
+page{font-size: 28rpx;background: #f6f6f6;}
+.section{background: #fff;margin-bottom: 20rpx;}
+.secStatus{padding: 0 40rpx;height: 100rpx;line-height: 100rpx;font-size: 28rpx;font-weight: bold;color: #999;border-bottom: 1px solid #f5f5f7}
+.secStatus label{float: left}
+.secStatus text{float: right}
+.house{padding: 40rpx;box-sizing: border-box;}
+.house image{width: 200rpx;height: 150rpx;float: left;margin-right: 40rpx;border-radius: 4rpx}
+.hifMsg text{
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: bold
+}
+.house{border-bottom: 1px solid #f5f5f7}
+.hifT{margin-top: 10rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #999;font-size: 24rpx;}
+.secB{height: 100rpx;line-height: 100rpx;padding-left: 40rpx;font-weight: bold}
+.secB button{width: 160rpx;height: 60rpx;line-height: 60rpx;font-size: 24rpx;border-radius: 20px;border: 1px solid #ff6262;color: #ff6262;background: none;margin-top: 20rpx;float: right;margin-right: 40rpx;padding: 0}
+
+.myTab{height: 100rpx;width: 100%;padding: 0 40rpx;white-space: nowrap; position: fixed;top: 0;left: 0; box-sizing: border-box;background: #fff;z-index: 999;box-shadow: 0 2px 6px #f5f5f7}
+.myTab label{width: 50%; display: inline-block;height: 100rpx;text-align: center;line-height: 100rpx;font-weight: bold;color: #999}
+.myTab label.on{color: #000}

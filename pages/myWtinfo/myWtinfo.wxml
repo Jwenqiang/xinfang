@@ -1,0 +1,51 @@
+<view class="page">
+  <view class='hr10'></view>
+  <view class='wtMsg'>
+    <view class='msg outer'>
+      <label>小区名称</label>
+      <input placeholder='请输入小区名称' placeholder-class="inputTip" value='{{xqName}}' bindblur='setMsg' data-type="xqName"></input>
+    </view>
+    <view class='msg outer'>
+      <label>楼栋</label>
+      <input placeholder='请输入房源所在楼栋' placeholder-class="inputTip" value='{{xqAddr}}' bindblur='setMsg' data-type="xqAddr"></input>
+    </view>  
+    <view class='msg outer'>
+      <label>单元</label>
+      <input placeholder='请输入房源所在单元' placeholder-class="inputTip" value='{{dy}}' bindblur='setMsg'  data-type="dy"></input>
+    </view>    
+    <view class='msg outer'>
+      <label>门牌号</label>
+      <input placeholder='请输入房源所在门牌号' placeholder-class="inputTip" value='{{mph}}' bindblur='setMsg'  data-type="mph"></input>
+    </view>  
+    <view class='msg outer'>
+      <label>面积(㎡)</label>
+      <input type="digit" placeholder='请输入房源面积' placeholder-class="inputTip" value='{{mj}}' bindblur='setMsg'  data-type="mj"></input>
+    </view>       
+    <view class='outer hInp'>
+      <text style='font-weight:blod'>房型</text>
+      <picker mode="multiSelector"  bindchange="hxMsg" value="{{multiIndex}}" range="{{hxArr}}">
+        <input type='text' disabled  placeholder='请选择户型' placeholder-class="inputTip" value='{{hxInfo}}'></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view>
+    <view class='msg outer'>
+      <label>期望售价(万元)</label>
+      <input type="digit" placeholder='请输入期望售价' placeholder-class="inputTip" value='{{qwPrice}}' bindblur='setMsg'  data-type="qwPrice"></input>
+    </view>  
+    <view class='hr10'></view>
+    <view class='msg outer'>
+      <label>称呼</label>
+      <input placeholder='请输入对您的称呼' placeholder-class="inputTip" value='{{uName}}' bindblur='setMsg'  data-type="uName"></input>
+    </view>    
+    <view class='msg outer'>
+      <label>联系方式</label>
+      <input type="number" placeholder='请输入您的联系方式' placeholder-class="inputTip" value='{{uPhone}}' type='digit' bindblur='setMsg'  data-type="uPhone"></input>
+    </view>      
+  </view>
+  <view class='tip' style='height:320rpx; background:url(http://hfugweb.centaline.com.cn/img/smallR/img/wt.png) center 40rpx no-repeat;background-size:80%;'>
+    <view class='wtTitle'>- 房源委托流程 -</view>
+  </view> 
+  <view class='btn'>
+    <button bindtap='pushInfo'>委托房源</button>
+  </view>   
+</view>

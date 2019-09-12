@@ -1,0 +1,10 @@
+/* pages/maps/maps.wxss */
+@import "../font.wxss";
+page{
+  height: 100%
+}
+.map_ico{text-align: center;margin-top: 20rpx;}
+.map_ico label{color: #bec6de;display: inline-block;width: 80rpx;height: 80rpx; font-size: 28rpx;margin: 0 10rpx;}
+.map_ico label text{display: block;border-radius: 50%;background: #ededfa;height: 80rpx;width: 80rpx;line-height: 80rpx;font-size: 40rpx;color: #bec6de;}
+.map_ico label.on{color:#fa5e3c; }
+.map_ico label.on text{color: #fff;background: #fa5e3c !important;border-radius: 50%;}

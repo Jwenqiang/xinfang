@@ -1,0 +1,48 @@
+@import "../font.wxss";
+/* .mContent{padding: 20rpx 40rpx 40rpx;} */
+.mContent{padding: 0;}
+.mcT{font-size: 44rpx;margin-bottom: 56rpx;}
+.hli{height: 60rpx;}
+.hli view{width: 30%;float: left;font-size: 28rpx;text-align: center}
+.hli view text{font-size: 24rpx;margin-left: 8rpx}
+.hliC{width: 100%;height: 400rpx;box-shadow: 0 0 5px #f5f6f5}
+.hliC view{font-size: 28rpx;width: 100%;text-align: center;line-height: 80rpx;border-bottom: 1px solid #f6f6f6}
+.mhTag{width: 750rpx;padding: 0 40rpx;box-sizing: border-box}
+.mhTag text{display: inline-block;width: 114rpx;height: 40rpx; border: 1px solid #f5f5f7; line-height: 40rpx;font-size: 20rpx;background: #f5f5f7;border-radius: 20rpx;text-align: center;margin-left: 20rpx; margin-bottom: 20rpx; color: #999}
+.mhTag text:first-child{margin-left: 0}
+.mhTag text.on{border: 1px solid #fe7269;background: #fe7269;color: #fff}
+
+
+.ztlist{margin-top: 30rpx;margin-left: 40rpx; padding-bottom: 40rpx;border-bottom: 1px solid #f5f5f7;box-sizing: border-box}
+.mContent .ztlist:last-child{border-bottom:0;}
+.ztlist image{width:100%;height: 300rpx;border-radius: 3px}
+.thTop label,.thTop label image{width: 44rpx;height: 54rpx;float: left;margin-right: 30rpx;text-align: center;line-height: 54rpx;font-weight: bold;font-size: 32rpx;}
+image.hmsg{width: 200rpx;height: 154rpx;float: left;margin-right: 30rpx;margin-top: 10rpx}
+.bigT{font-size: 28rpx;font-weight: bold;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;padding-right: 40rpx;box-sizing: border-box}
+.smallT{float: left;color: #999;line-height: 1;font-size: 22rpx;width: 450rpx;margin-bottom: 4rpx}
+.smallT text.price{font-size: 32rpx;color: #fe483a;font-weight: 600;}
+.smallT .label{margin-left: 20rpx;text-decoration: line-through;font-size: 22rpx;color: #999;}
+.thBot{margin-top: 40rpx;}
+.maxT{margin-bottom: 20rpx;font-size: 38rpx;font-weight: bold;}
+.hinfo{font-size: 22rpx;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;color: #999;margin-bottom: 4rpx}
+.signT{font-size: 20rpx;color: #999}
+.tag{width: 100%;font-size: 24rpx;}
+.tag text{display: inline-block;width: 80rpx;height: 36rpx;line-height: 36rpx;font-size: 16rpx;background: #ebf3f8;border-radius: 3px;text-align: center;color: #999;margin-top: 12rpx;margin-left: 12rpx;font-weight: bold}
+.tag text:first-child{margin-left: 0}
+.zu{margin-top: 14rpx}
+.zu,.jun{width: 450rpx;float:left;margin-left: 230rpx; font-size: 23rpx;height: 50rpx;line-height: 50rpx}
+.zu .label{background: #f67b6f;font-size: 20rpx;width: 28rpx;height: 28rpx;line-height: 28rpx;color: #fff;border-radius: 3px;margin-right: 10rpx;margin-top: 9rpx}
+.jun .label{background: #51bbdd;font-size: 20rpx;width: 28rpx;height: 28rpx;line-height: 28rpx;color: #fff;border-radius: 3px;margin-right: 10rpx;margin-top: 9rpx}
+.jun text{color: #f67b6f}
+.jun .iconfont{font-size: 20rpx}
+.noL{text-align: center;padding: 580rpx 0 0;height: 730rpx;box-sizing: border-box}
+.noL image{width: 504rpx;height: 408rpx;display: block;margin: 0 auto 40rpx}
+.noL text{font-size: 24rpx;color: #999;}
+.noL button{background: #f16d62;color: #fff;height: 60rpx;width: 280rpx;line-height: 60rpx;margin-top: 80rpx;font-size: 28rpx}
+
+.mhSun{font-size: 22rpx;width: 480rpx;height: 40rpx;line-height: 40rpx;float: right;color: #33cccc;margin-top: 20rpx}
+.mhSun label{font-size: 22rpx;height: 40rpx;line-height: 40rpx; width: 70rpx;text-align: left;margin-right: 0;}
+/* .mhSun text{float: right;} */
+.mhSun progress{width: 250rpx;margin-top: 16rpx;float: left;margin-right: 20rpx}
+
+

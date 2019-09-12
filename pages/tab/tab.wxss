@@ -1,0 +1,18 @@
+/**index.wxss**/
+page,
+.page,
+.page__bd{
+    height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+.weui-tab__content{
+    padding-top: 60px;
+    text-align: center;
+}
+.weui-navbar{border:0;}
+.weui-navbar__item.weui-bar__item_on{color: #000;font-weight: 600;border: 0;background: #fff;}
+.weui-navbar__item{background: #f5f5f7;}
+.index-top{height: 400rpx;}
+.index-top image{width: 100%;min-height: 400rpx;}

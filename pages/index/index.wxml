@@ -1,0 +1,193 @@
+
+<wxs module="filter" src="../fun.wxs"></wxs>
+<wxs module="cNum">
+var toF = function(val) {
+  var n = val.toFixed(0)
+  return n;
+}
+module.exports.toF = toF;
+</wxs>
+<import src="../../template/nav" />
+  <view class="flex fix_nav_wp {{isX?'pd-b60':''}}">
+  <block wx:for="{{navData}}" wx:key="index">
+      <template is="nav" data="{{...item}}"/>
+  </block>
+  </view> 
+
+<view class='container'>
+  <view class='swipercontent'>
+    <!-- <image src='../../img/il.png' class='il'></image>
+    <image src='../../img/ir.png' class='ir'></image> -->
+    <swiper autoplay="{{autoplay}}" indicator-active-color="#fff" interval="{{interval}}" indicator-dots="true" duration="{{duration}}" current="{{swiperCurrent}}"  circular="true" bindchange="swiperChange" >
+      <block wx:for="{{imgUrls}}" wx:key="index" class="block">
+        <swiper-item bindtap="goBan" data-u="{{item.LinkUrl}}">
+          <image src="{{item.ImageUrl}}" class="image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+      <!-- <view class="dots">
+      <block wx:for="{{imgUrls}}" wx:key="index">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+      </block>
+    </view> -->
+  </view>
+  <view class='indexTab'>
+    <view class="weui-flex">
+        <view class="weui-flex__item" bindtap='goJx' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/isp.png) center no-repeat;background-size:100%'>
+          <view class="placeholder">精选笋盘</view>
+          <text style='color:#ededed'>优质笋盘限量抢</text>
+        </view>
+        <view class="weui-flex__item" bindtap='goTop' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/iph.png) center no-repeat;background-size:100%'>
+          <view class="placeholder">笋盘排行版</view>
+          <text style='color:#ededed'>必买低价笋盘</text>
+        </view>
+        <view class="weui-flex__item" bindtap='goHistory' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/ils.png) center no-repeat;background-size:100%'>
+          <view class="placeholder">历史成交</view>
+          <text style='color:#ededed'>真实成交数据</text>
+        </view>
+    </view>  
+  </view>
+<!-- <view wx:for="{{bzHouse}}"  wx:for-item="item" wx:key="id">
+  <view class='dates'>{{item.djs}}</view>
+</view>   -->
+  <!-- 本周笋盘 -->
+  <view class='section'>
+    <view class="sTitle">
+        <view class="weui-cell" bindtap='goMain'>
+            <view class="weui-cell__bd">
+              <text class='bigT'>本周最笋</text>
+              <text class='smallT'>一周最笋房源大放送，好房不等人</text>
+            </view>
+            <text class='iconfont icon-right' style='float:right'></text>
+        </view>
+    </view> 
+    <swiper next-margin='20rpx' display-multiple-items="1.005"  style='height:740rpx;'>
+      <block wx:for="{{bzHouse}}" wx:key="index">
+        <swiper-item>
+          <view class='sContent outer saleContent' bindtap='goHouseInfo' data-id="{{item.Id}}">
+            <view class='scLeft'>
+              <image class='scImg' src='{{item.MainImg}}' mode='aspectFill'></image>
+              <view class='tsp' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/tsp.png) left top no-repeat;background-size:101rpx;'></view>
+            </view>
+            <view class='scRight'>
+              <view class='scrOne'>
+                <image class='scImg' src='{{item.ShootEstatePicViceList[0].Url}}' mode='aspectFill'></image>   
+              </view>
+              <view class='scrOne'>
+                <image class='scImg' src='{{item.ShootEstatePicViceList[1].Url}}' mode='aspectFill'></image>     
+              </view>      
+            </view>
+            <view class='schTitle'>
+              <text>{{item.Name}}</text>
+            </view>
+            <view class='scInfo'>
+              <view class='scPrice' style='colord：#666'>抢购价<text style='font-weight:bold;font-size:46rpx;color:#fe483a;'>{{item.BuySalePrice}}</text>万<text style="font-size:24rpx;text-decoration: line-through;margin-left:16rpx;color:#999">原价{{item.OriginalSalePrice}}万</text></view> 
+              <text class='houseSz'>笋值:{{cNum.toF(item.ShootHotValueProportion*100)}}%</text>
+            </view>      
+            <view class='housePeople' wx:if="{{item.ShootEstateLookUserList!=''}}">
+              <block wx:for="{{item.ShootEstateLookUserList}}" wx:key="index" wx:for-item="itemImg">
+                <image src='{{itemImg.HeadImg}}' wx:if="{{index<4&&itemImg.HeadImg!=''&&itemImg.HeadImg!=null}}" mode='aspectFill'></image>
+                <image src='../../img/tx.png' wx:if="{{index<4&&(itemImg.HeadImg==''||itemImg.HeadImg==null)}}"></image>
+              </block>  
+              <text>...</text>
+            </view>
+            <view class='orderH'>
+              <label style='margin-right:10rpx'><text>{{item.Hot}}</text>人围观</label><label><text>{{item.ReserveCount}}</text>人预约看房</label>
+            </view>
+            <!-- 倒计时 -->
+            <view class='xjDate' wx:if="{{item.ReserveTimeState==true}}"><text style='margin-left:0'>{{filter.dTime(item.djs)[0]}}</text>天<text>{{filter.dTime(item.djs)[1]}}</text>时<text>{{filter.dTime(item.djs)[2]}}</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view>
+            <view class='xjDate' wx:else><text style='margin-left:0'>0</text>天<text>0</text>时<text>0</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>抢购已结束</text></view>
+            <view  class='orderTime' wx:if="{{item.ReserveTimeState==true}}"><button catchtap='goYy' data-id="{{item.Id}}">预约看房</button></view>
+            <view class='timeN' wx:else>预约已结束</view> 
+          </view>     
+        </swiper-item>
+      </block>
+    </swiper>   
+ <!--内容结束  -->  
+  </view> 
+  <!--笋盘专题-->
+  <view class='section'>
+    <view class="sTitle" bindtap='goZt'>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <text class='bigT'>笋盘专题</text>
+              <text class='smallT'>专题笋盘批量推送，预告早知道</text>
+            </view>
+            <text class='iconfont icon-right' style='float:right'></text>
+        </view>
+    </view> 
+    <swiper next-margin='10rpx' display-multiple-items="1.5" class='ztSwiper'>
+      <block wx:for="{{ztHouse}}" wx:key="index" class="block">
+        <swiper-item class="spzt" data-id="{{item.Id}}" catchtap='goZtInfo'>   
+          <image src="{{item.MainImg}}" class="back" mode='aspectFill'/>
+          <text class='aStatus' decode="{{true}}" wx:if="{{item.Type==1}}">预告</text>
+          <text class='aStatus' decode="{{true}}" wx:if="{{item.Type==2}}">专题</text>
+          <view class='ztName'>
+            {{item.Name}}
+          </view>
+          <view class='sName'>{{item.SecondName}}</view>
+          <view class='xjDate spDate' style='margin-top:10rpx;font-size:24rpx;' wx:if="{{item.Type==1&&item.StartTimeState==true}}"><text style='margin-left:0'>{{filter.dTime(item.djs)[0]}}</text>天<text>{{filter.dTime(item.djs)[1]}}</text>时<text>{{filter.dTime(item.djs)[2]}}</text>分</view>  
+          <!-- 专题显示 -->
+          <view style='color:#00bfdc;font-size:24rpx;' wx:else>抢购火热进行中</view>        
+        </swiper-item>
+      </block>
+    </swiper> 
+ <!--内容结束  --> 
+  </view> 
+
+  <!--性价比最高-->
+  <view class='section'>
+    <view class="sTitle">
+        <view class="weui-cell" bindtap='goMain'>
+            <view class="weui-cell__bd">
+              <text class='bigT'>热门笋盘</text>
+              <text class='smallT'>围观人数最多的房源，帮你买的值</text>
+            </view>
+            <text class='iconfont icon-right' style='float:right'></text>
+        </view>
+    </view> 
+    <swiper next-margin='20rpx' display-multiple-items="1.005"  style='height:740rpx;'>
+      <block wx:for="{{xjbHouse}}" wx:key="index" class="block">
+        <swiper-item>
+          <view class='sContent outer saleContent' bindtap='goHouseInfo' data-id="{{item.Id}}">
+            <view class='scLeft'>
+              <image class='scImg' src='{{item.MainImg}}' mode='aspectFill'></image>
+              <view class='tsp' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/ico-rx.png) left top no-repeat;background-size:101rpx;'></view>              
+            </view>
+            <view class='scRight'>
+              <view class='scrOne'>
+                <image class='scImg' src='{{item.ShootEstatePicViceList[0].Url}}' mode='aspectFill'></image>   
+              </view>
+              <view class='scrOne'>
+                <image class='scImg' src='{{item.ShootEstatePicViceList[1].Url}}' mode='aspectFill'></image>     
+              </view>      
+            </view>
+            <view class='schTitle'>
+              <text>{{item.Name}}</text>
+            </view>
+            <view class='scInfo'>
+              <view class='scPrice' style='colord：#666'>抢购价<text style='font-weight:bold;font-size:46rpx;color:#fe483a;'>{{item.BuySalePrice}}</text>万<text style="font-size:24rpx;text-decoration: line-through;margin-left:16rpx;color:#999">原价{{item.OriginalSalePrice}}万</text></view> 
+              <text class='houseSz'>笋值:{{cNum.toF(item.ShootHotValueProportion*100)}}%</text>
+            </view>      
+            <view class='housePeople' wx:if="{{item.ShootEstateLookUserList!=''}}">
+              <block wx:for="{{item.ShootEstateLookUserList}}" wx:key="index" wx:for-item="itemImg">
+                <image src='{{itemImg.HeadImg}}' wx:if="{{index<4&&itemImg.HeadImg!=''&&itemImg.HeadImg!=null}}" mode='aspectFill'></image>
+                <image src='../../img/tx.png' wx:if="{{index<4&&(itemImg.HeadImg==''||itemImg.HeadImg==null)}}"></image>
+              </block>  
+              <text>...</text>
+            </view>
+            <view class='orderH'>
+              <label style='margin-right:10rpx'><text>{{item.Hot}}</text>人围观</label><label><text>{{item.ReserveCount}}</text>人预约看房</label>
+            </view>
+            <!-- 倒计时 -->
+            <view class='xjDate' wx:if="{{item.ReserveTimeState==true}}"><text style='margin-left:0'>{{filter.dTime(item.djs)[0]}}</text>天<text>{{filter.dTime(item.djs)[1]}}</text>时<text>{{filter.dTime(item.djs)[2]}}</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view>
+            <view class='xjDate' wx:else><text style='margin-left:0'>0</text>天<text>0</text>时<text>0</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>抢购已结束</text></view>            
+            <view  class='orderTime' wx:if="{{item.ReserveTimeState==true}}"><button catchtap='goYy' data-id="{{item.Id}}">预约看房</button></view> 
+            <view class='timeN' wx:else>预约已结束</view> 
+          </view>     
+        </swiper-item>
+      </block>
+    </swiper> 
+ <!--内容结束  --> 
+  </view> 
+</view>

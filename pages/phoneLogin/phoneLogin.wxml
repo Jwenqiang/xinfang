@@ -1,0 +1,16 @@
+<view class="container">
+  <view class='plTop'>
+    <view class='strong'>手机快捷登录</view>
+    <text>未注册手机号快捷登录后将自动创建账号</text>
+  </view>
+  <form class='loginForm'>
+    <view class='lfInput'>
+      <input type="number" placeholder='请输入手机号码' maxlength="11" bindinput="getNum" disabled='{{dis}}'></input>
+      <text hover-class="hover" class='{{eleven?"yes":""}}' bindtap='getCode'>{{code}}</text>
+    </view>   
+    <view class='lfInput'>
+      <input type="number" placeholder='请输入验证码' bindinput='setCode'></input>
+    </view>   
+    <button class="lfBtn weui-btn" type="warn" bindtap="login">立即登录</button>     
+  </form>
+</view>

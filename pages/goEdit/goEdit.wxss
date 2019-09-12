@@ -1,0 +1,62 @@
+@import "../font.wxss";
+.page{width: 100%;height: 100%;font-size: 28rpx;padding-bottom: 160rpx;}
+.top-t{height: 40rpx;line-height: 40rpx;width: 100%;text-align: center;margin: 40rpx 0}
+.top-t label,.top-t text{display: inline-block}
+.top-t label{width: 40rpx;height: 40rpx;background: #999;line-height: 40rpx;text-align: center;border-radius: 50%;color: #fff;font-size: 24rpx}
+.top-t text{width: 140rpx;height: 2rpx;background: #ccc;position: relative;top: -10rpx;margin: 0 2rpx}
+.top-t label:first-child{background: #000}
+.top-b{width: 100%;text-align: center}
+.top-b text{margin-left: 84rpx;font-size: 24rpx;color: #999}
+.top-b text:first-child{margin: 0;color: #000}
+
+.hInp{border-bottom: 1px solid #f5f5f7;padding: 20rpx 40rpx;font-size: 28rpx;position: relative}
+.hInp text{display: inline-block;width: 180rpx;float: left;height: 60rpx;line-height: 60rpx;font-weight: bold}
+.hInp input{height: 60rpx;line-height: 60rpx;width: 450rpx;float: left;text-align: right;font-size: 28rpx;color: #333;font-weight: bold}
+.hInp text.iconfont,text.iconfont{width: 40rpx;display: inline-block;float: right;color: #999;font-weight: 400;font-size: 24rpx;text-align: right}
+.hlabel{font-weight: bold}
+.btn{position: fixed;padding: 20rpx 40rpx 40rpx;background: #fff;bottom: 0;box-sizing: border-box;width: 100%;left: 0;box-shadow: 0 -2px 6px #f5f5f7;z-index: 999}
+.btn button{background: #ff8075;color: #fff}
+.btn button:last-child{background: #477aff;margin-top: 20rpx}
+
+.top{padding: 0 40rpx;box-sizing: border-box}
+.ydk{width: 100%;padding: 20rpx 0;height: 60rpx;line-height: 60rpx}
+.ydkL{float: left;width: 220rpx;font-weight: bold}
+.ydk picker input{width: 400rpx;float: left;height: 60rpx;text-align: right}
+
+.sectionA{padding: 40rpx}
+.hsque{margin: 40rpx 0 0}
+.hsque text{display: inline-block;width: 200rpx;height: 60rpx;margin-left: 30rpx;background: #f3f5f7;text-align: center;line-height: 60rpx;border-radius: 3px;color: #999;font-size: 24rpx;font-weight: bold}
+.zxqk text{width: 144rpx}
+.hsque text:nth-of-type(4n+1){margin-left: 0}
+.hsque text.on{background: #fe7269;color: #fff}
+
+
+
+.section{padding: 40rpx 0 0rpx 40rpx}
+.hsque{margin: 40rpx 0 0}
+.hsque text{display: inline-block;width: 150rpx;height: 60rpx;margin-left: 20rpx; margin-bottom: 30rpx; background: #f3f5f7;text-align: center;line-height: 60rpx;border-radius: 3px;color: #999;font-size: 24rpx;font-weight: bold}
+.zxqk text{width: 144rpx}
+.hsque text:nth-of-type(4n+1){margin-left: 0}
+.hsque text.on{background: #fe7269;color: #fff}
+
+.picAll{padding-bottom: 40rpx}
+.upTop{padding-right: 40rpx;margin-bottom: 40rpx}
+.upload label{display: inline-block;width: 140rpx;height: 140rpx;border: 1px dashed #ccc;text-align: center;line-height: 100rpx;border-radius: 2px;margin-left: 20rpx;float: left}
+.upload label:first-child{margin-left: 0}
+.upload scroll-view{width: 530rpx;float: right;height: 140rpx;box-sizing: border-box;position: relative;white-space: nowrap; display: flex}
+.upload scroll-view image{width: 100%; height: 140rpx}
+.upload scroll-view label{border: 0;float: none;position: relative}
+.upload scroll-view .iconfont{position: absolute;right: 0rpx;top: 0rpx;width: 28rpx;height: 28rpx;line-height: 1;font-size: 28rpx;z-index: 9}
+
+.textList{padding: 40rpx;}
+.textList textarea,.textList .textarea{height: 220rpx;width: 100%;border: 1px solid #ddd;margin-top: 40rpx;border-radius: 3px;padding: 20rpx;box-sizing: border-box}
+.ctip{margin-top: 10rpx;color: #666;font-size: 24rpx;font-weight: bold}
+
+.show{position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 9995}
+.bj{width: 100%;height: 100%;background: #000;opacity: 0.5;z-index: 9996}
+.showMsg{position: fixed;top: 10%;left: 40rpx;height: 800rpx;width: 670rpx;background: #fff;z-index: 9997;border-radius: 6px;box-sizing: border-box;padding: 80rpx 40rpx;}
+.showMsg image{width: 100%;height: 100%}
+.showMsg .icon-guanbi{position: absolute;right: 10rpx;top: 10rpx;font-size: 40rpx;}
+.showMsg view{margin-bottom: 40rpx}
+.showMsg view label{color: #333;font-weight: bold}
+.showMsg .showTip{background: #dedede;padding: 40rpx}

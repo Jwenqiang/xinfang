@@ -1,0 +1,100 @@
+.page{padding: 10rpx 40rpx;}
+.ztTop{width: 100%;overflow: hidden;box-sizing: border-box;border-radius: 5px;position: relative}
+.ztTop image{width: 100%;border-radius: 5px}
+.ztContent{padding: 10rpx 0rpx 180rpx;box-sizing: border-box;font-size: 28rpx;}
+.ztTime{font-size: 28rpx;color: #999;padding: 20rpx 0 40rpx;border-bottom: 1px solid #f5f5f7;}
+.ztBig{font-size: 34rpx;font-weight: bold;line-height: 60rpx;color: #333}
+.smallT{font-size: 24rpx;color: #999;display: block;float: left}
+.ztLab{font-size: 34rpx;font-weight: bold;margin: 40rpx 0 60rpx;border-top: 1px solid #f5f5f7;padding-top: 40rpx}
+.labC{width: 100%; box-shadow: 0 0 6px #ededed;border-radius: 5px;padding: 40rpx;box-sizing: border-box;margin-bottom: 40rpx}
+.labC .noMsg image{width: 518rpx;height: 324rpx;display: block;margin: 80rpx auto 0;}
+.yMsg{position: relative}
+.yMsg .image{width: 196rpx;height: 140rpx;float: left;margin-right: 20rpx;border-radius: 3px}
+/* .label image{
+  width:50rpx;
+  height:85rpx;
+  float:left;
+  margin-right:30rpx;
+  text-align:center;
+  line-height:54rpx;
+  font-weight:bold;
+  font-size:38rpx;
+  color:#72f6ff;
+  position: relative;
+  top: -40rpx  
+} */
+.bigT{font-size: 28rpx;font-weight: bold;margin-bottom: 10rpx;}
+.smallT text{font-size: 36rpx;color: #ff3141;font-weight: 600}
+.smallT label{margin-left: 20rpx;text-decoration: line-through}
+.maxT{margin: 40rpx 0 20rpx;font-size: 44rpx;font-weight: bold;clear: both;color: #999}
+.mText{color: #333}
+.ygFt{position: fixed;height: 100rpx;padding: 0 40rpx;background: #fff;left: 0;bottom: 0;width: 100%;box-sizing: border-box;border-radius: none;border: 0;z-index: 9;border-top: 1px solid #f5f5f7}
+.yMsg button{margin-top: 60rpx;color: #4fbcdc}
+.ygC{padding: 40rpx 0 0}
+.xjDate {
+  clear: both;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #999;
+  width: 440rpx;
+  float: left;
+}
+
+.xjDate text {
+  background: #000;
+  padding: 0 8rpx;
+  color: #fff;
+  margin: 0 6rpx;
+  border-radius: 3px;
+  font-size: 24rpx;
+}
+
+.orderTime {
+  margin-top: 20rpx;
+}
+
+.orderTime{
+  display: block;
+  text-align: center;
+  float: right;
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  border:none;
+  background: #f16d62;
+  color: #fff;
+  border-radius: 30rpx;
+}
+.orderTime, .orderTime button {
+  display: block;
+  float: right;
+  width:160rpx;
+  height:60rpx;
+  line-height:60rpx;
+  font-size:24rpx;
+  background: #f16d62;
+  border:0;
+  color: #fff;
+  border-radius: 30rpx;
+}
+.orderTime button.yes{background: #ccc}
+.aStatus{
+position:absolute;
+display:block;
+left:0rpx;
+top:0rpx;
+width:90rpx;
+text-align:center;
+background:#000;
+color:#fff;
+font-size:20rpx;
+border-radius:6rpx;
+height:40rpx;
+line-height:40rpx;
+border-top-right-radius:20rpx;
+border-bottom-right-radius:20rpx;
+border-bottom-left-radius:0rpx;
+}
+.lline{width: 8rpx;height: 30rpx;background: #ff0000;display: inline-block;float: left;margin-right: 10rpx;position: relative;top: 12rpx}

@@ -1,0 +1,18 @@
+<view class='page'>
+  <view class='topBan' style='background:#333;'>
+    <text style='color:#fff;font-size:32rpx'>100%真实房源，支持编号查真伪</text>
+  </view>
+  <view class='hNum'>
+    <label>房屋编号：</label>
+    <text style='font-size:34rpx;font-weight:bold'>{{num}}</text>
+  </view>
+  <view class='container' style='margin-top:220rpx;'>
+    <view><text>支持“深圳市房地产信息系统”核验房源真伪，保证交易安全，守护买家利益！ </text> </view>
+    <view><text>复制房源编码，一键校验：</text>  </view>
+    <view><text style='color:#6289fe'>http://zjj.sz.gov.cn/ris/default.aspx</text><label bindtap='copyText' data-text="{{contents}}">复制</label></view>
+    <view style='text-align:center;margin-top:200rpx;'>
+      <view><text style='font-size:32rpx;'>假房源举报电话</text></view>
+      <view><text bindtap='callPhone' style="color:#333;font-weight:bold;font-size:36rpx;">18319437931</text> </view>    
+    </view>
+  </view>
+</view>

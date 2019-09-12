@@ -1,0 +1,14 @@
+@import "../font.wxss";
+.page{font-size: 28rpx;color: #333;}
+.msg{padding: 0 40rpx;box-sizing: border-box;font-size: 28rpx;border-bottom: 1px solid #ededed}
+.msg label{width: 200rpx;display: inline-block;float: left;height: 100rpx;line-height: 100rpx;font-weight: bold}
+.msg input{width: 450rpx;height: 100rpx;line-height: 100rpx;float: left;color: #333;font-weight: bold}
+
+.hInp{border-bottom: 1px solid #f5f5f7;padding: 20rpx 40rpx;font-size: 28rpx;position: relative}
+.hInp text{display: inline-block;width: 200rpx;float: left;height: 60rpx;line-height: 60rpx;color: #333}
+.hInp input{height: 60rpx;line-height: 60rpx;width: 410rpx;float: left;font-size: 28rpx;}
+.hInp text.iconfont{width: 40rpx;display: inline-block;float: right;color: #999;font-weight: 400;font-size: 24rpx;text-align: right}
+.tip{margin: 80rpx 0 160rpx}
+.wtTitle{text-align: center;font-weight: bold}
+.btn{position: fixed;padding: 20rpx 40rpx 40rpx;background: #fff;bottom: 0;box-sizing: border-box;width: 100%;left: 0;box-shadow: 0 -2px 6px #f5f5f7;z-index: 999}
+.btn button{background: #ff8075;color: #fff}

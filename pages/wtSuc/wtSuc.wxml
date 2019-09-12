@@ -1,0 +1,54 @@
+<view class='page'>
+  <view class='top'>
+    <view class='tip'>
+      <icon type='success' size="60" color="#33cccc"></icon>
+      <view class='tipMsg'>委托房源提交成功</view>
+      <text>平台工作人员会24小时内与您核实信息</text>
+      <text>请留意电话接听</text>
+      <view class='btn'>
+        <button open-type='contact'>联系客服</button>      
+        <button bindtap='goMy'>返回个人中心</button>      
+      </view>
+
+    </view>    
+  </view>
+  <view class='wtMsg'>
+    <view class='msg outer'>
+      <label>小区名称</label>
+      <input disabled value='{{wtHouse.DictionariesHouseName}}'></input>
+    </view>
+    <view class='msg outer'>
+      <label>楼栋</label>
+      <input disabled value='{{wtHouse.Building}}'></input>
+    </view>  
+    <view class='msg outer'>
+      <label>单元</label>
+      <input disabled value='{{wtHouse.Unit}}'></input>
+    </view>    
+    <view class='msg outer'>
+      <label>门牌号</label>
+      <input disabled value='{{wtHouse.HouseNumber}}'></input>
+    </view>  
+    <view class='msg outer'>
+      <label>面积(㎡)</label>
+      <input disabled value='{{wtHouse.ProductionAcreage}}'></input>
+    </view>       
+    <view class='msg outer'>
+      <label>房型</label>
+      <input disabled value='{{wtHouse.Apartment}}'></input>
+    </view>   
+    <view class='msg outer'>
+      <label>期望售价(万元)</label>
+      <input disabled value='{{wtHouse.BuySalePrice}}'></input>
+    </view>  
+    <view class='hr10'></view>
+    <view class='msg outer'>
+      <label>称呼</label>
+      <input disabled value='{{wtHouse.NickName}}'></input>
+    </view>    
+    <view class='msg outer'>
+      <label>联系方式</label>
+      <input disabled value='{{wtHouse.Mobile}}' type='digit'></input>
+    </view>      
+  </view>
+</view>

@@ -1,0 +1,6 @@
+@import"../../wxParse/wxParse.wxss";
+.page{font-size: 28rpx;}
+.hdtMsg{padding: 40rpx;}
+.hcontent{width: 50%;float: left;margin-bottom: 20rpx;}
+.hcontent label{color: #999;font-size: 24rpx;font-weight: bold}
+.hcontent text{font-weight: bold;font-size: 24rpx}

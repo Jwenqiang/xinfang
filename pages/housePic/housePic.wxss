@@ -1,0 +1,96 @@
+@import "../font.wxss";
+page{background: #333}
+.ip_tab_comtainer {
+    width: 100%;
+    padding: 20rpx 0 0;
+    white-space: nowrap;
+    margin-bottom: 40rpx;
+}
+
+.ip_tab_comtainer_padd {
+    display: inline-block;
+    width: 24rpx;
+}
+
+.ip_tab_item_s {
+    display: inline-block;
+    line-height: 40rpx;
+    padding: 12rpx 32rpx;
+    color: #fe483a;
+    margin-right: 8rpx;
+    margin-left: 8rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 4rpx;
+    /* border-bottom: 4px solid #f16d62; */
+}
+
+.ip_tab_item_n {
+    display: inline-block;
+    padding: 12rpx 32rpx;
+    line-height: 40rpx;
+    color: #fff;
+    margin-right: 8rpx;
+    margin-left: 8rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 4rpx;
+}
+.swiperC{position: relative}
+swiper{min-height: 500rpx;}
+.slide-image{width: 100%;min-height: 500rpx;margin-bottom: 10rpx}
+
+.imageCount {
+  width: 60rpx;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  line-height: 58rpx;
+  color: #333;
+  text-align: center;
+  font-size: 26rpx;
+  position: absolute;
+  right: 26rpx;
+  bottom: 20rpx;
+}
+
+/**
+去除横向滚动条
+*/
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.content{
+  width: 100%;
+  height: 500rpx;
+}
+
+.footBar{position: fixed;bottom:0;width: 100%;height: 100rpx;padding: 10rpx 40rpx;box-sizing: border-box;}
+.footBar image{width: 80rpx;height: 80rpx;display: inline-block;float: left;border-radius: 50%}
+.fbName{padding-left:20rpx;width: 200rpx;float: left;color: #fff}
+.fbName text{display: block;font-size: 24rpx;}
+.fbtn{width: 360rpx;float: right;padding-top: 10rpx;}
+.fbtn button{width: 160rpx;height: 60rpx;float: right;margin-left: 40rpx;font-size: 28rpx;line-height: 60rpx;padding: 0;background: #fe483a;border: 0;color: #fff;}
+.fbtn button:last-child{margin: 0;background: #5580fe;}
+.fbtn button:first-child{background: #fe483a;}
+.fbtn button.only{width: 300rpx}
+
+.show{position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 9995}
+.bj{width: 100%;height: 100%;background: #000;opacity: 0.5;z-index: 9996}
+.showMsg{position: fixed;top: 20%;left: 80rpx;height: 600rpx;width: 590rpx;background: #fff;z-index: 9997;border-radius: 6px}
+.showMsg image{width: 500rpx;margin: 45rpx}
+.showMsg .msgTip{display: block;width: 100%;position: absolute;bottom: 40rpx;left: 0;text-align: center;padding: 5rpx 0}
+.showSun{width: 670rpx;left: 40rpx;top: 500rpx; margin-left: 0;padding: 60rpx 40rpx;box-sizing: border-box;height: 440rpx;margin-top: -250rpx}
+.showTitle{text-align: center;margin-bottom: 40rpx;font-weight: bold;font-size: 38rpx}
+.showTitle text{font-size: 24rpx;color: #999;font-weight: 400}
+.showTip{color: #999;font-size: 22rpx}
+.showMsg .icon-guanbi{position: absolute;right: 10rpx;top: 10rpx;font-size: 40rpx;}

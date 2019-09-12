@@ -1,0 +1,33 @@
+<view class='msgSp'>
+  <view class='section'>
+    <view class='sTime'>2018-10-18 13:56:00</view>
+    <view class='secMsg'>
+      <view class='msTitle'>根据您2019-02-30日提交的找笋盘需求，平台人员为您匹配了以下房源：</view>
+      <view class='outer house'>
+        <image src='../../img/house.jpg'></image>
+        <view class='hifMsg'>
+          <text class='houseTitle'>金碧御水山庄 精装两房 满五唯一红本在手业主急售  直降50万</text>
+          <view style='margin-top:20rpx;color:#999'>抢购价<label style="color:#ff0000;font-weight:bold">588</label>万<label style='margin-left:30rpx;color:#999;font-size:24rpx;text-decoration: line-through'>原价683万</label></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='section'>
+    <view class='sTime'>2018-10-18 13:56:00</view>
+    <view class='secMsg'>
+      <view class='msTitle'>根据您2019-02-30日提交的找笋盘需求，平台人员为您匹配了以下房源：</view>
+      <view class='outer house'>
+        <image src='../../img/house.jpg'></image>
+        <view class='hifMsg'>
+          <text class='houseTitle'>金碧御水山庄 精装两房 满五唯一红本在手业主急售  直降50万</text>
+          <view style='margin-top:20rpx;color:#999'>抢购价<label style="color:#ff0000;font-weight:bold">588</label>万<label style='margin-left:30rpx;color:#999;font-size:24rpx;text-decoration: line-through'>原价683万</label></view>
+        </view>
+      </view>
+    </view>
+  </view>  
+  <!-- 无消息 -->
+  <!-- <view style="text-align:center;padding-top:500rpx;background:url(../../img/noMsg.png) center no-repeat;background-size:320rpx;color:#999">
+    <text>暂无消息</text>
+    <button class='goFind'>去找笋盘</button>
+  </view> -->
+</view>

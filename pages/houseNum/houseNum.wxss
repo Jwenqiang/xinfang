@@ -1,0 +1,6 @@
+
+.topBan{height: 240rpx;width: 100%;text-align:  center;padding-top: 80rpx;box-sizing: border-box}
+.hNum{text-align: center;height: 240rpx;padding: 60rpx 0 0;border: 1px solid #f5f5f7; box-sizing: border-box;width: 670rpx;position: absolute;left: 40rpx;top: 180rpx;background: #fff;border-radius: 3px;}
+.hNum label{display: block;font-size: 26rpx;margin-bottom: 20rpx;}
+.container view{width: 100%;color: #333;margin-bottom: 10rpx}
+.container view label{float: right;font-size: 20rpx;background: #6289fe;height: 40rpx;width: 80rpx;line-height: 40rpx;text-align: center;color: #fff;border-radius: 20px;}

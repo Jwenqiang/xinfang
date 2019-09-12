@@ -1,0 +1,19 @@
+
+<!--地图容器-->
+<map id="myMap"
+   markers="{{markers}}"
+   style="width:100%;height:84%;"
+   longitude="113.940640"
+   latitude="22.512290" scale='17'  bindmarkertap='gotohere'>
+</map>
+<view class='map_ico'>
+
+  <label bindtap="nearby_search" data-name='地铁' class='{{selectName=="地铁"?"on":""}}'><text class='iconfont icon-ditie'></text>地铁</label>
+  <label bindtap="nearby_search" data-name='公交' class='{{selectName=="公交"?"on":""}}'><text class='iconfont icon-gongjiao'></text>公交</label> 
+  <label bindtap="nearby_search" data-name='学校' class='{{selectName=="学校"?"on":""}}'><text class='iconfont icon-school'></text>学校</label> 
+  <label bindtap="nearby_search" data-name='楼盘' class='{{selectName=="楼盘"?"on":""}}'><text class='iconfont icon-loufang'></text>楼盘</label> 
+  <label bindtap="nearby_search" data-name='医院' class='{{selectName=="医院"?"on":""}}'><text class='iconfont icon-yiyuan'></text>医院</label> 
+  <label bindtap="nearby_search" data-name='商场' class='{{selectName=="商场"?"on":""}}'><text class='iconfont icon-gouwu'></text>商场</label> 
+  <label bindtap="nearby_search" data-name='银行' class='{{selectName=="银行"?"on":""}}'><text class='iconfont icon-yinhang'></text>银行</label> 
+</view>
+<!-- <view>当前位置为：{{markers[0].title}}</view> -->

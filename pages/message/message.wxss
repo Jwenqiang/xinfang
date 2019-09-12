@@ -1,0 +1,31 @@
+.message{padding-left: 40rpx;font-size: 28rpx;}
+.mCon{
+    padding: 40rpx;
+    display: block;
+    width: 100%;
+    border-bottom: 0.8px solid #f5f5f7; 
+    padding-left: 120rpx;
+    position: relative; 
+    box-sizing: border-box
+}
+.mTime{
+    float: right;
+    color: #C0C4C9;
+    font-size: 24rpx;  
+}
+.mName{margin-bottom: 10rpx;font-size: 32rpx;font-weight: bold}
+.mInfo{font-size: 24rpx;color: #999}
+.mNum{
+    position: absolute;
+    top: 40rpx;
+    left: 64rpx;
+    display: block;
+    width: 30rpx;
+    height: 30rpx;
+    line-height: 28rpx;
+    text-align: center;
+    background: #F43530;
+    color: #fff;
+    border-radius: 50%;
+    font-size:20rpx;
+}  

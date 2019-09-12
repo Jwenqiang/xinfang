@@ -1,0 +1,27 @@
+<!-- <import src="../../template/nav" />
+  <view class="flex fix_nav_wp {{isX?'pd-b60':''}}">
+  <block wx:for="{{navData}}" wx:key="index">
+      <template is="nav" data="{{...item}}"/>
+  </block>
+  </view>  -->
+
+<view class="page">
+  <view class='content'>
+    <view class='stitle'>找笋盘平台保证：</view>
+    <text class='text'>（1）在找笋盘平台录入的房源，平台保障房源信息安全，不会泄露给他人。</text>
+    <view class='text'>
+      <text>（2）录入房源需要填写房源部分真实信息，房源的楼层、门牌号、业主姓名、业主电话等私密信息仅为平台校核房源的真实性之用，不会展示在前端，前端用户和经纪人均不可见，不会泄露给任何人。</text>
+    </view>
+    <view class='stitle'>在找笋盘平台发布房源需要满足以下几项要求：</view>
+    <text class='text'>（1）保证房源的真实性：房源信息、图片的真实性。</text>
+    <text class='text'>（2）保证房源真实在售：房源当前处于在售状态。</text>
+    <text class='text'>（3）保证房源业主真实委托：尽量提供业主的真实信息，保证业主授权经纪人发布在平台出售。</text>
+    <text class='text'>（4）平台会对房源真行真实性核验，如发现虚假房源会对房源进行下架处理和对违规经纪人进行封号等处理。</text>
+    <radio-group class="agree" bindtap='radioChange' data-t="{{isOn}}">
+      <radio value='{{isOn}}' checked="{{isOn}}"/>本人承诺所发布房源信息全部为真实信息，并且为业主真实委托，已取得《业主委托书》。
+    </radio-group>
+    <view class='fbtn'>
+      <button class='{{isOn?"yes":""}}' hover-class="none" bindtap='goPublish'>立即录入房源</button>    
+    </view>
+  </view>
+</view>

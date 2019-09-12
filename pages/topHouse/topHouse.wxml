@@ -1,0 +1,56 @@
+<!--笋盘排行版-->
+<!-- <wxs module="filter" src="../index/fun.wxs"></wxs> -->
+<!-- <view class='page'>
+  <view class='ztTop'>
+    <image src='../../img/toph.jpg'></image>
+  </view>
+  <view class='ztContent'>
+    <view class='outer ztlist' wx:for="{{topHouse}}" wx:key="index" bindtap='goHouseInfo'>
+      <view class='outer thTop'>
+          <label wx:if="{{index==0}}"><image src='../../img/th1.png'></image></label>
+          <label wx:elif="{{index==1}}"><image src='../../img/th2.png'></image></label>
+          <label wx:elif="{{index==2}}"><image src='../../img/th3.png'></image></label>
+          <label wx:else>{{index+1}}</label>
+          <image src='../../img/house.jpg' class='hmsg'></image>
+          <view class='bigT'>向南瑞峰花园 精装三房 朝南 双向南瑞峰花园 精装三房 朝南 双</view>
+          <view class="smallT">抢购价<text class='price'>555</text>万<text class='label'>原价650万</text></view> 
+      </view>
+      <view class='thBot'>
+        <view class='maxT'>“笋评</view>
+        <view class='thbT'>业主急售，降价幅度大，地段好配套齐全交通方便，性价比超高；业主急售，降价幅度大，地段好配套齐全交通其齐全，性价比超高。</view>
+      </view>
+    </view>
+  </view>
+</view> -->
+<!-- 新样式 -->
+<view class='page'>
+  <view class='ztTop'>
+    <image src='http://hfugweb.centaline.com.cn/img/smallR/img/toph1.png'></image>
+  </view>
+  <view class='ztContent'>
+    <view class='outer ztlist' wx:for="{{topHouse}}" wx:key="index" bindtap='goHouseInfo' data-id="{{item.ShootEstateId}}" wx:if="{{topHouse.length>0}}">
+      <view class='lbj'><image src='http://hfugweb.centaline.com.cn/img/smallR/img/list-bj.png'></image> </view>
+      <view class='outer thTop'>
+          <label wx:if="{{index==0}}"><image src='http://hfugweb.centaline.com.cn/img/smallR/img/thh1.png'></image></label>
+          <label wx:elif="{{index==1}}"><image src='http://hfugweb.centaline.com.cn/img/smallR/img/thh2.png'></image></label>
+          <label wx:elif="{{index==2}}"><image src='http://hfugweb.centaline.com.cn/img/smallR/img/thh3.png'></image></label>
+          <label wx:else>{{index+1}}</label>
+          <image src='{{item.MainImg}}' class='hmsg'></image>
+          <view class='bigT'>{{item.Name}}</view>
+          <view class="smallT">抢购价<text class='price' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/priceb.png) center no-repeat;background-size:100%'>{{item.BuySalePrice}}</text>万<text class='label'>原价{{item.OriginalSalePrice}}万</text></view> 
+      </view>
+      <view class='thBot'>
+        <view class='maxT'><image src='http://hfugweb.centaline.com.cn/img/smallR/img/sp.png'></image></view>
+        <view class='thbT'>{{item.ShootEvaluate}}</view>
+      </view>          
+    </view>
+      <view style='text-align:center;width:100%;line-height:80rpx;color:#ccc;font-size:22rpx;' wx:if="{{no}}">
+        到底了~
+      </view>      
+      <view wx:if="{{topHouse.length==0&&isN}}" class='noL' style='background: url(http://hfugweb.centaline.com.cn/img/smallR/img/hl-no.png) center no-repeat;background-size:504rpx;'>
+      <text style='color:#dedede'>暂无信息</text>
+      </view>     
+  </view>
+  <view class="gohome" style='background: #fff url(http://hfugweb.centaline.com.cn/img/smallR/img/gh.png) center 20% no-repeat;background-size: 44rpx;'  wx:if="{{isShare==true}}" bindtap='goIndex'>首页</view>  
+</view>
+

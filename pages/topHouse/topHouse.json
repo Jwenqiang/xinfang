@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#59009b",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "笋盘排行版"
+}

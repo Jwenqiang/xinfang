@@ -1,0 +1,124 @@
+<import src="../../template/nav" />
+  <view class="flex fix_nav_wp {{isX?'pd-b60':''}}">
+  <block wx:for="{{navData}}" wx:key="index">
+      <template is="nav" data="{{...item}}"/>
+  </block>
+  </view> 
+
+<view class='htitle' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/fban.png) center top no-repeat;background-size:100%'>
+  <text>提交找笋盘需求，平台一对一为您甄选房源</text>
+  <view>将最笋的房源推荐给您！</view>
+</view>
+<view class='container'>
+  <view class='hcontent'>
+    <view class='hlabel'>总价预算</view>
+    <view class='hprice'>
+      <view class='select-construct'>
+        <view class='select-area'>
+          <text style="font-weight:bold;font-size:32rpx;color:4fbcdc" wx:if="{{slider2Value*scale<990}}">{{slider1Value*scale+'~'+slider2Value*scale+"万"}}</text>
+          <text style="font-weight:bold;font-size:32rpx;color:4fbcdc" wx:else>不限</text>
+          <view class='slider-container'>
+            <slider style='width:{{slider1W+"%"}}' class='slider-left' block-size="20" min='{{min}}' max='{{slider1Max}}' color='#fc958d' selected-color='#e5e5e5' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='1' value='{{slider1Value}}'></slider>
+            <slider wx:if='{{!change}}' style='width:{{slider2W+"%"}}' class='slider-right' block-size="20" min='{{slider2Min}}' max='{{max}}' color='#e5e5e5' selected-color='#fc958d' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='2' value='{{slider2Value}}'></slider>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='hlabel'>意向面积</view>
+    <view class='hprice' style='margin-bottom:40rpx;'>
+      <view class='select-construct'>
+        <view class='select-area'>
+          <text style="font-weight:bold;font-size:32rpx;color:4fbcdc" wx:if="{{slider4Value*scale<490}}">{{slider3Value*scale+'~'+slider4Value*scale+"㎡"}}</text>
+          <text style="font-weight:bold;font-size:32rpx;color:4fbcdc" wx:else>不限</text>
+          <view class='slider-container'>
+            <slider style='width:{{slider3W+"%"}}' class='slider-left' block-size="20" min='{{min1}}' max='{{slider3Max}}' color='#fc958d' selected-color='#e5e5e5' bindchanging='changing1' catchtouchstart='changeStart1' bindchange='changed1' data-idx='1' value='{{slider3Value}}'></slider>
+            <slider wx:if='{{!change1}}' style='width:{{slider4W+"%"}}' class='slider-right' block-size="20" min='{{slider4Min}}' max='{{max1}}' color='#e5e5e5' selected-color='#fc958d' bindchanging='changing1' catchtouchstart='changeStart1' bindchange='changed1' data-idx='2' value='{{slider4Value}}'></slider>
+          </view>
+        </view>
+      </view>
+    </view>    
+    <view class='hlabel'>物业类型</view>
+    <view class="hsque">
+      <block wx:for="{{lx}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.name}}" class="{{index==lxSub?'on':''}}">{{item.name}}</text>
+      </block>  
+      <!-- <text>住宅</text>
+      <text>公寓</text>
+      <text>别墅</text>
+      <text>商铺</text>
+      <text>写字楼</text>
+      <text>洋房</text>
+      <text>商住楼</text>
+      <text>综合体</text> -->
+    </view>
+    <view class='hlabel'>意向户型</view>
+    <view class="hsque">
+      <block wx:for="{{hx}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.name}}" class="{{index==hxSub?'on':''}}">{{item.name}}</text>
+      </block>      
+      <!-- <text>不限</text>
+      <text>一室</text>
+      <text>二室</text>
+      <text>三室</text>
+      <text>四室</text>
+      <text>五室</text>
+      <text>五室以上</text> -->
+    </view>  
+    <view class='hlabel'>户型朝向</view>
+    <view class="hsque">
+      <block wx:for="{{cx}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.name}}" class="{{index==cxSub?'on':''}}">{{item.name}}</text>
+      </block>      
+      <!-- <text>东</text>
+      <text>南</text>
+      <text>西</text>
+      <text>北</text>
+      <text>东南</text>
+      <text>西南</text>
+      <text>东北</text>
+      <text>西北</text> -->
+    </view>     
+    <view class='hlabel'>楼层高低</view>
+    <view class="hsque">
+      <block wx:for="{{lc}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.name}}" class="{{index==lcSub?'on':''}}">{{item.name}}</text>
+      </block>      
+      <!-- <text>低层</text>
+      <text>中高层</text>
+      <text>高层</text> -->
+    </view>           
+    <view class='hlabel'>房源特色（可多选）</view>
+    <view class="hsque">
+      <block wx:for="{{ts}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.name}}" class="{{item.isOn?'on':''}}">{{item.name}}</text>
+      </block> 
+    </view>
+    <view class='hlabel'>意向区域</view>
+    <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker {{isSel?'black':''}}">
+        {{yxqy}}
+        <text class='iconfont icon-right' style='float:right'></text>
+      </view>
+    </picker> -->
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+    <view class="picker black">
+      {{region[0]}}-{{region[1]}}-{{region[2]}}
+      <text class='iconfont icon-right' style='float:right'></text>
+    </view>
+  </picker>    
+    <view class='hlabel' style='margin-top:80rpx;'>其他要求（非必填）</view>
+    <view class='otherT'>
+      <textarea bindinput='changeV' placeholder="最多输入200个字" maxlength="200"></textarea>
+    </view>
+    <view class='hlabel'>姓名</view>
+    <view class="otherT">
+      <input type='text' placeholder='请填写您的姓名' bindinput='changeName' value='{{uName}}'></input>
+    </view>    
+    <view class='hlabel'>手机号</view>
+    <view class="otherT">
+      <input type='number' placeholder='请填写您的手机号码' bindinput='changePhone' value='{{uPhone}}'></input>
+      <image src='../../img/qk.png' class='qk' wx:if="{{show}}" bindtap='clearNum'></image>
+    </view>
+  </view>
+  <button bindtap='goOrder' class='button'>提交需求</button>
+</view>

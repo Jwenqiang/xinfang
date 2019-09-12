@@ -1,0 +1,12 @@
+
+<view class='container login'>
+  <view class='loginTop'>
+    <image src='../../img/logo.png'></image>
+    <!-- <text>笋盘大全</text> -->
+  </view>
+  <view class='loginBtn'>
+    <button bindtap='getCode' data-href="wxLogin" id='wx' open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">微信登录</button>
+    <button bindtap='goLogin' data-href="phoneLogin" id='phone'>手机号快捷登录</button> 
+  </view>
+</view>
+

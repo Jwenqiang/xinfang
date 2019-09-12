@@ -1,0 +1,38 @@
+<wxs module="name">
+var toHide = function(array) {
+  var mName = array.substring(0, 3) + '****' + array.substring(7);
+  return mName;
+}
+module.exports.toHide = toHide;
+</wxs>
+<view class='suc'>
+  <view class='top'>
+    <view class='tip'>
+      <icon type='success' size="60" color="#33cccc"></icon>
+      <view wx:if="{{isRz<2}}">
+        <view class='tipMsg'>身份认证提交成功</view>
+        <text>平台工作人员会24小时内审核您的信息</text>
+        <text>审核结果会消息通知您</text>
+        <view class='btn'>
+          <button bindtap='goBack'>完成</button>
+          <button open-type='contact'>联系客服</button>      
+        </view>  
+      </view> 
+      <view wx:else><view class='tipMsg'>实名认证成功</view></view>   
+    </view>
+  </view>
+  <view class='rzMsg'>
+    <view class='msg outer'>
+      <label>姓名</label>
+      <input value='{{uname}}' disabled></input>
+    </view>
+    <view class='msg outer'>
+      <label>性别</label>
+      <input value='{{usex}}' disabled></input>
+    </view>    
+    <view class='msg outer'>
+      <label>身份证号码</label>
+      <input value='{{unum}}' disabled></input>
+    </view>  
+  </view>
+</view>

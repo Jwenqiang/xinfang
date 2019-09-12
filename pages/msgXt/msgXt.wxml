@@ -1,0 +1,55 @@
+
+<view class='msgXt' wx:if="{{isQg}}">
+  <view class='section' wx:for="{{msgList}}" wx:key="{{index}}" wx:if="{{msgList.length>0}}">
+    <view class='sTime'>{{item.AddTime}}</view>
+    <!--降价通知  -->
+    <view class='secMsg' wx:if='{{item.Type==9}}' style='padding-bottom:40rpx' bindtap='goHouse' data-id="{{item.ComId}}">
+      <view class='msTitle'>{{item.Title}}</view>
+      <view class='outer house'>
+        <image src='{{item.MainImg}}'></image>
+        <view class='hifMsg'>
+          <text class='houseTitle'>{{item.SecondName}}</text>
+          <view style='margin-top:20rpx;color:#999'>抢购价<label style="color:#ff0000;font-weight:bold">{{item.BuySalePrice}}</label>万<label style='margin-left:30rpx;color:#999;font-size:24rpx;text-decoration: line-through'>原价{{item.OriginalSalePrice}}万</label></view>
+        </view>
+      </view>    
+    </view>
+    <!-- 抢购通知 -->
+    <view class='secMsg' wx:else>
+      <image src='{{item.MainImg}}' wx:if="{{item.MainImg!=''&&item.MainImg!=null}}" mode="widthFix"></image>
+      <view class='secT'>
+      【抢购开始】{{item.Title}}
+      </view>
+      <view class='secC'>
+      {{item.SecondName}}
+      </view>
+      <view class='secGo' bindtap='goInfo' data-type="qg" data-id="{{item.Id}}" style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/right.png) right center no-repeat;background-size:28rpx;'>
+      查看详情
+      </view>
+    </view>
+  </view>
+  <!-- 无消息 -->
+  <view style="text-align:center;padding-top:500rpx;background:url(http://hfugweb.centaline.com.cn/img/smallR/img/noMsg.png) center no-repeat;background-size:320rpx;color:#999" wx:if="{{msgList.length==0&&isN}}">
+    <text>暂无消息</text>
+  </view>
+</view>
+<view class='msgXt' wx:if="{{isQg==false}}">
+  <view class='section' wx:for="{{msgList}}" wx:key="{{index}}" wx:if="{{msgList.length>0}}">
+    <view class='sTime'>{{item.AddTimeT}}</view>
+    <view class='secMsg'>
+      <image src='{{item.MainImg}}' wx:if="{{item.MainImg!=''&&item.MainImg!=null}}"></image>
+      <view class='secT'>
+      {{item.Title}}
+      </view>
+      <view class='secC'>
+        <rich-text nodes="{{item.Introduction}}"></rich-text>  
+      </view>
+      <view class='secGo' bindtap='goInfo' data-id="{{item.Id}}" data-type="sp" style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/right.png) right center no-repeat;background-size:28rpx;'>
+      查看详情
+      </view>
+    </view>
+  </view>
+  <!-- 无消息 -->
+  <view style="text-align:center;padding-top:500rpx;background:url(http://hfugweb.centaline.com.cn/img/smallR/img/noMsg.png) center no-repeat;background-size:320rpx;color:#999" wx:if="{{msgList.length==0&&isN}}">
+    <text>暂无消息</text>
+  </view>
+</view>

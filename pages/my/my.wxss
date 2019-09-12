@@ -1,0 +1,147 @@
+/*个人中心--我的*/
+@import "../font.wxss";
+
+page {
+  background: #f6f6f6;
+}
+
+.container {
+  padding: 0 0 240rpx;
+  background: #f6f6f6;
+}
+
+.account {
+  width: 100%;
+}
+
+.account-top {
+  padding: 40rpx 0;
+  text-align: center;
+  background: #fff;
+}
+
+.account-top image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+
+.account-top .account-name {
+  color: #203140;
+  font-size: 32rpx;
+  font-weight: bolder;
+  margin-top: 20rpx;
+}
+
+.account-top .account-zw {
+  font-size: 24rpx;
+  color: #c0c4c9;
+  margin-top: 10rpx;
+}
+
+.pt {
+  width: 100%;
+}
+
+.account-m {
+  padding: 40rpx;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.account-m .h3 {
+  font-size: 32rpx;
+  margin-bottom: 40rpx;
+  font-weight: bold;
+}
+
+.msgInfo {
+  padding: 30rpx 40rpx;
+  border-radius: 3px;
+  width: 670rpx;
+  height: 269rpx;
+  box-sizing: border-box;
+}
+
+.msgL {
+  width: 100%;
+  float: left;
+  line-height: 60rpx;
+  height: 120rpx;
+  overflow: hidden;
+}
+
+.msgL .mmsg {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold; 
+  /* -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;    */
+}
+
+.msgInfo button {
+  background: -webkit-linear-gradient(left, #ff875d, #ff463b);
+  background: linear-gradient(left, #ff875d, #ff463b);
+  color: #fff;
+  height: 60rpx;
+  padding: 0;
+  border-radius: 20px;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  margin-top: 0rpx;
+  width: 120rpx;
+  float: right;
+}
+
+.account-b {
+  background: #fff;
+  width: 100%;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.account-b .iconfont {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.li {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 110rpx;
+  line-height: 110rpx;
+  color: #203140;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.accountTip {
+  height: 100rpx;
+  padding: 0 40rpx;
+  margin: 20rpx 0;
+  background: #fff;
+  line-height: 100rpx;
+  width: 100%;
+  box-sizing: border-box;
+  color:#203140;
+font-weight: 600
+}
+
+.accountTip label {
+  float: right;
+  font-size: 20rpx;
+  background: #f3f5f7;
+  height: 46rpx;
+  width: 100rpx;
+  line-height: 46rpx;
+  text-align: center;
+  margin-top: 28rpx;
+  color: #999;
+  border-radius: 20px;
+}
+ button.exit{width: 510rpx;height: 80rpx;display: block;margin: 100rpx auto 0;  background: #ccc;color: #fff;font-size: 32rpx;}

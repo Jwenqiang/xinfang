@@ -1,0 +1,141 @@
+<view class='page'>
+  <view class='top'>
+    <view class='top-t'>
+      <label>1</label><text></text><label>2</label><text></text><label>3</label><text></text><label>4</label>
+    </view>
+    <view class='top-b'>
+      <text>房源地址</text>
+      <text>基本信息</text>
+      <text>特色信息</text>
+      <text>上架发布</text>
+    </view>
+  </view>
+  <view class='hr10'></view>
+  <view class='content'> 
+     <view class='outer hInp'>
+      <text decode="{{true}}">户型</text>
+      <picker mode="multiSelector"  bindchange="hxMsg" value="{{multiIndex}}" range="{{hxArr}}">
+        <input type='text' disabled  placeholder='请选择户型' value='{{hxInfo}}' placeholder-class="inputTip"></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view>   
+     <view class='outer hInp'>
+      <text decode="{{true}}">面积(㎡)</text>
+      <picker disabled>
+        <input type='digit' placeholder='请填写面积' style='float:right' value='{{mj}}' bindinput='setNum' data-t='mj' placeholder-class="inputTip"></input>
+      </picker>
+    </view> 
+     <view class='outer hInp'>
+      <text decode="{{true}}">朝向</text>
+      <picker bindchange="cxMsg" range="{{cxArr}}">
+        <input type='text' disabled  placeholder='请选择朝向' value='{{cxInfo}}' placeholder-class="inputTip"></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view> 
+     <view class='outer hInp'>
+      <text decode="{{true}}">物业类型</text>
+      <picker bindchange="wyMsg" range="{{wyArr}}">
+        <input type='text' disabled  placeholder='请选择物业类型' value='{{wyInfo}}' placeholder-class="inputTip"></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view> 
+
+     <view class='outer hInp'>
+      <text decode="{{true}}">产权年限</text>
+      <picker bindchange="cqMsg" range="{{cqArr}}">
+        <input type='text' disabled  placeholder='请选择产权年限' value='{{cqInfo}}' placeholder-class="inputTip"></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view> 
+     <view class='outer hInp'>
+      <text decode="{{true}}">建成年代</text>
+      <picker bindchange="ndMsg" range="{{ndArr}}">
+        <input type='text' disabled  placeholder='请选择建成年代' value='{{ndInfo}}' placeholder-class="inputTip"></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view> 
+
+
+    <view class='outer hInp'>
+      <text decode="{{true}}">上次交易时间</text>
+      <picker    
+      mode="date"
+    value="{{date}}"
+    end="{{currentTime}}"
+    bindchange="jyMsg">
+        <input type='text' disabled  placeholder='请选择上次交易时间' value='{{jyInfo}}' placeholder-class="inputTip"></input>
+        <text class='iconfont icon-right' style='float:right'></text>
+      </picker>
+    </view>  
+     <view class='outer hInp'>
+      <text style='width:200rpx'>配套学区(选填)</text>
+      <picker disabled>
+        <input type='type' placeholder='请填写配套学区' style='float:right' value='{{xq}}' bindinput='setNum' data-t='xq' placeholder-class="inputTip"></input>
+      </picker>
+    </view> 
+
+
+  </view>
+  <view class='hr10'></view>
+  <view class='outer hInp'>
+    <text decode="{{true}}">原价(万元)</text>
+    <picker disabled>
+      <input type='digit' placeholder='请填写原价格' style='float:right' value='{{yj}}' bindinput='setNum' data-t='yj' placeholder-class="inputTip"></input>
+    </picker>
+  </view> 
+  <view class='outer hInp'>
+    <text decode="{{true}}">抢购价(万元)</text>
+    <picker disabled>
+      <input type='digit' placeholder='请填写抢购价格' style='float:right' value='{{qgj}}' bindinput='setNum' data-t='qgj' placeholder-class="inputTip"></input>
+    </picker>
+  </view>
+  <view class='hr10'></view>
+  <view class='section'>
+    <view class='hlabel'>购置年限</view>
+    <view class="hsque">
+      <block wx:for="{{nx}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.value}}" class="{{index==nxSub?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view> 
+  <view class='hr10'></view>
+  <view class='section'>
+    <view class='hlabel'>是否唯一</view>
+    <view class="hsque">
+      <block wx:for="{{wy}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.value}}" class="{{index==wySub?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view>  
+  <view class='hr10'></view>
+  <view class='section'>
+    <view class='hlabel'>有无抵押</view>
+    <view class="hsque">
+      <block wx:for="{{dy}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.value}}" class="{{index==dySub?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view>  
+  <view class='hr10'></view>
+  <view class='section'>
+    <view class='hlabel'>红本在手</view>
+    <view class="hsque">
+      <block wx:for="{{hb}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.value}}" class="{{index==hbSub?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view>   
+  <view class='hr10'></view>
+  <view class='section'>
+    <view class='hlabel'>装修情况</view>
+    <view class="hsque zxqk">
+      <block wx:for="{{zx}}" wx:key="item.id">
+        <text bindtap='addOn' data-idx="{{index}}" data-type="{{item.type}}" data-name="{{item.value}}" class="{{index==zxSub?'on':''}}">{{item.name}}</text>
+      </block>      
+    </view>    
+  </view>    
+  <view class='hr10'></view>    
+  <view class="btn">
+    <button bindtap='goNext'>下一步</button>
+  </view>
+</view>

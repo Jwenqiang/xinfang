@@ -1,0 +1,30 @@
+<view class="page">
+  <view class='hr10'></view>
+  <view class='outer house'>
+    <image src='{{house.MainImg}}'></image>
+    <view class='hifMsg'>
+      <text class='title'>{{house.Name}}</text>
+      <view style='margin-top:20rpx;'>总价<label style="color:#ff0000">{{house.BuySalePrice}}</label>万<label style='margin-left:40rpx;'>均价{{house.AveragePrice}}元/㎡</label></view>
+    </view>
+  </view>
+  <view class='hr10'></view>
+  <view class='hForm'>
+    <text style='font-size:32rpx;font-weight:bold;margin-bottom:40rpx;display:block'>联系人信息</text>
+    <view class='outer hInp'>
+      <text style="color:#ff0000;width:20rpx;">*</text><text decode="{{true}}">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</text>
+      <input type='text' placeholder='请输入姓名' bindblur="getval" maxlength='6'></input>
+    </view>
+    <view class='outer hInp'>
+      <text style="color:#ff0000;width:20rpx;">*</text><text decode="{{true}}">看房时间</text>
+      <picker class="weui-btn" mode="date" value="{{date}}"  bindchange="bindDateChange" style='margin:0'>
+        <input type='text' disabled  placeholder='请选择预约时间' value='{{date}}'></input>
+      </picker>
+    </view>   
+    <view class='outer hInp'>
+      <text style="color:#ff0000;width:20rpx;">*</text><text decode="{{true}}">电话号码</text>
+      <input type='number' placeholder='请输入电话号码' value='{{ytel}}' bindinput='setPhone' maxlength='11'></input>
+      <image src='../../img/qk.png' class='qk' wx:if="{{show}}" bindtap='clearNum'></image>
+    </view> 
+    <button class="yy" bindtap='confimY'>确定预约</button>     
+  </view>
+</view>

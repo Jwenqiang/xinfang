@@ -1,0 +1,42 @@
+<view class="page">
+  <view class='top'>
+    <view>委托文案</view>
+    <view>委托文案</view>
+  </view>
+  <view class='wtHouse'>
+    <view class='wtTitle'>- 已委托房源 -</view>
+      <view class='outer house'>
+        <image src='../../img/share.jpg' mode='aspectFit'></image>
+        <view class='hifMsg'>
+          <text>向南瑞峰花园 精装三房 朝南 双地精装三房 朝南</text>
+          <view class='hifT'>
+            深圳福田区 |
+            <block>住宅</block>
+          |  88㎡ | 3室2厅 | 南</view>
+          <view style='margin-top:20rpx;color:#999;font-size:24rpx;'>抢购价<label style="color:#ff0000;font-weight:bold;font-size:32rpx;">889</label>万<label style='margin-left:20rpx;text-decoration: line-through'>原价900万</label></view>
+        </view>
+      </view>
+      <!-- 已成交状态 -->
+      <view class='outer house' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/ycj.png) 98% 40rpx no-repeat;background-size:100rpx; '>
+        <image src='../../img/share.jpg' mode='aspectFit'></image>
+        <view class='hifMsg'>
+          <text>向南瑞峰花园 精装三房 朝南 双地精装三房 朝南</text>
+          <view class='hifT'>
+            深圳福田区 |
+            <block>住宅</block>
+          |  88㎡ | 3室2厅 | 南</view>
+          <view style='margin-top:20rpx;color:#999;font-size:24rpx;'>抢购价<label style="color:#ff0000;font-weight:bold;font-size:32rpx;">889</label>万<label style='margin-left:20rpx;text-decoration: line-through'>原价900万</label></view>
+        </view>
+      </view>  
+    <!-- 无数据时 -->
+    <view style="text-align:center;padding-top:300rpx;background:url(http://hfugweb.centaline.com.cn/img/smallR/img/noMsg.png) center no-repeat;background-size:200rpx;color:#999">
+    您还没有委托过房源
+    </view>
+  </view>
+  <view class='tip' style='height:280rpx; background:url(http://hfugweb.centaline.com.cn/img/smallR/img/wtlc.png) center 80rpx no-repeat;background-size:100%;'>
+    <view class='wtTitle'>服务流程</view>
+  </view>  
+  <view class='btn'>
+    <button bindtap='goWt'>委托卖房</button>
+  </view>
+</view>

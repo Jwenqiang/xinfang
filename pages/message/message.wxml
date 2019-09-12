@@ -1,0 +1,16 @@
+
+
+<view class="message">
+  <view class='mCon' bindtap='goXt' data-type="qg" style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/ico-xt.png) left center no-repeat;background-size:80rpx;'>
+    <view class='mName'>笋盘提醒<text class='mTime' wx:if="{{qgtx.Data.Id>0}}">{{qgtx.Data.AddTime}}</text></view>
+    <view class='mInfo' wx:if="{{qgtx.Data.Id>0}}">{{qgtx.Data.Title}} </view>
+    <view class='mInfo' wx:if="{{qgtx.Data.Id==0}}">暂无消息</view>
+    <label class='mNum' wx:if="{{qgtx.Count>0}}">{{qgtx.Count}}</label>
+  </view>
+  <view class='mCon' bindtap='goXt' data-type="sp" style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/ico-hd.png) left center no-repeat;background-size:80rpx;'>
+    <view class='mName'>笋盘头条<text class='mTime' wx:if="{{sptt.Information.Id>0}}">{{sptt.Information.AddTimeT}}</text></view>
+    <view class='mInfo' wx:if="{{sptt.Information.Id>0}}">{{sptt.Information.Title}}</view>
+    <view class='mInfo' wx:if="{{sptt.Information.Id==0}}">暂无消息</view>
+    <label class='mNum' wx:if="{{sptt.Count>0}}">{{sptt.Count}}</label>
+  </view>  
+</view>

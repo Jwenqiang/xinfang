@@ -1,0 +1,68 @@
+<wxs module="phone">
+var toHide = function(array) {
+  var mphone = array.substring(0, 3) + '****' + array.substring(7);
+  return mphone;
+}
+module.exports.toHide = toHide;
+</wxs>
+
+<import src="../../template/nav" />
+  <view class="flex fix_nav_wp {{isX?'pd-b60':''}}">
+  <block wx:for="{{navData}}" wx:key="index">
+      <template is="nav" data="{{...item}}"/>
+  </block>
+  </view> 
+
+<view class='container'>
+  <view class='account'>
+    <view class='account-top'>
+      <image src='{{userImg}}' bindtap='goMyself' wx:if="{{userImg!=''&&userImg!=null}}" mode='aspectFill'></image>
+      <image src='../../img/tx.png' bindtap='goMyself' wx:else data-n='{{name}}'></image>
+      <view style='font-weight:bold;font-size:34rpx;margin-top:20rpx' wx:if="{{name!=''}}"><text wx:if="{{name.length==11}}">{{phone.toHide(name)}}</text><text wx:else>{{name}}</text></view>
+      <view style='font-weight:bold;font-size:34rpx;margin-top:20rpx' bindtap='goLogin' wx:else>去登录</view>
+    </view>  
+  </view>  
+  <view class='hr10' wx:if="{{role>0}}"></view>
+  <view class='pt' wx:if="{{role>0}}">
+    <view class='account-m' wx:if="{{uMsg.Title!=null}}">
+      <view class='h3'>消息通知<text style='margin-left:10rpx;'>({{uMsg.Count}})</text></view>
+      <view class='outer msgInfo' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/mbg.png) center no-repeat;background-size:100%'>
+        <view class='msgL'><text class='iconfont icon-new' style='color:#fc958d;margin-right:10rpx;font-size:62rpx;float:left'></text><text class='mmsg'>“{{uMsg.Title}}”</text></view>
+        <view class='outer'>
+          <label style='position:relative;top:10rpx;color:#666'>{{uMsg.AddTimeT}}</label>
+          <button bindtap='goMessage'>查看 ></button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='hr10'></view>
+  <view class='account-b'>
+  <!-- 普通用户显示wx:if="{{role==1}}" -->
+    <view class='li' bindtap='goWt' wx:if="{{role==1}}">
+      我要委托卖房
+      <text class='iconfont icon-right' style='float:right'></text>
+    </view>
+    <!-- 经纪人显示 -->
+    <view class='li' bindtap='goMyhouse' wx:if="{{role==4||role==5}}">
+      我的房源
+      <text class='iconfont icon-right' style='float:right'></text>
+    </view>      
+    <view class='li' bindtap='goTip' wx:if="{{role>0}}">
+      抢购提醒
+      <text class='iconfont icon-right' style='float:right'></text>
+    </view>
+    <view class='li' bindtap='goYy' wx:if="{{role>0}}">
+      预约看房
+      <text class='iconfont icon-right' style='float:right'></text>
+    </view>  
+    <view class='li' bindtap='goKf'>
+      联系客服
+      <text class='iconfont icon-right' style='float:right'></text>
+    </view>        
+  </view>
+  <view class='accountTip'>   
+    官方公众号：微信搜索“好房U购”
+    <label bindtap='copyText' data-text="{{contents}}">复制</label>
+  </view>
+  <button class="exit" bindtap='exit' wx:if="{{isShow}}">退出登录</button>  
+</view>

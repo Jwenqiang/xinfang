@@ -1,0 +1,325 @@
+<wxs module="filter" src="../fun.wxs"></wxs>
+<wxs module="cNum">
+var toF = function(val) {
+  var n = val.toFixed(0)
+  return n;
+}
+module.exports.toF = toF;
+</wxs>
+<!--   -->
+<view class='page {{isHide?"hide":""}}' wx:if="{{showPage}}">
+  <view class='swiperC'>
+    <swiper bindchange="swiperChange" interval="5000" duration="300" circular="true" class='houseBan'>
+      <block wx:for="{{banImg}}" wx:key="index">
+        <swiper-item>
+          <image src="{{item.Url}}" class="slide-image" data-type="{{item.Type}}"  mode='aspectFill' bindtap="goPic"/>
+        </swiper-item>
+      </block>  
+    </swiper>
+    <view class="imageCount"><view class='bg'></view><text>{{current+1}}/{{banImg.length}}</text> </view>
+    <!-- <view class='topFix' wx:if="{{house.BrokerCompanyId==0}}">
+      平台甄选
+    </view> -->
+  </view>
+<!-- 未成交 -->
+<view class="container noPay" wx:if="{{house.State==4}}">
+  <view class='houseT'>
+    <text class='house_title'>{{house.Name}}</text>
+  </view>
+  <view class='outer houseM'>
+    <view class='house_tag'>
+      <block wx:for="{{filter.dTime(house.ShootEstateTag)}}" wx:for-item="sitem" wx:key="index"><text>{{sitem}}</text></block>
+    </view>
+    <view class='hshare'>
+      <button open-type="share" class='houseShare' style="background:url(http://hfugweb.centaline.com.cn/img/smallR/img/share.png) center no-repeat;background-size:48rpx"></button>
+      分享
+    </view>  
+  </view>
+  <view class='outer houseContent'>
+    <view class='outer house_price'>
+      <view class='house_tp'>
+        <view class='htPrice'>{{house.BuySalePrice}}<text>万</text></view>
+        <view class='htag'>抢购价</view>
+      </view>
+      <view class='house_tp' style='width:26%'>
+        <view class='hnPrice'>{{house.OriginalSalePrice}}万</view>
+        <view class='htag'>原价</view>
+      </view>    
+      <view class='house_tp' style='width:26%'>
+        <view class='houseMsg'>{{house.CountF}}室<block wx:if="{{house.CountT>0}}">{{house.CountT}}厅</block></view>
+        <view class='htag'>房型</view>
+      </view> 
+      <view class='house_tp' style='width:18%'>
+        <view class='houseMsg'>{{house.ProductionAcreage}}㎡</view>
+        <view class='htag'>面积</view>
+      </view>                 
+    </view>
+    <view class='housePeople' wx:if="{{house.ShootEstateLookUserList!=''}}">
+      <block wx:for="{{house.ShootEstateLookUserList}}" wx:key="index" wx:for-item="itemImg">
+        <image src='{{itemImg.HeadImg}}' wx:if="{{index<4&&itemImg.HeadImg!=''&&itemImg.HeadImg!=null}}" mode='aspectFill'></image>
+        <image src='../../img/tx.png' wx:if="{{index<4&&(itemImg.HeadImg==''||itemImg.HeadImg==null)}}"></image>
+      </block>  
+      <text>...</text>
+    </view>
+    <view class='orderH'>
+      <label style='margin-right:10rpx'><text>{{house.Hot}}</text>人围观</label><label><text>{{house.ReserveCount}}</text>人预约看房</label>
+    </view>  
+    <view class='xjDate' wx:if="{{house.ReserveTimeState}}"><text>{{xjDay}}</text>天<text>{{xjHour}}</text>时<text>{{xjMinute}}</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view>
+    <view class='xjDate' wx:else>预约已结束</view>
+    <view  class='orderTime' wx:if="{{house.ReserveTimeState}}"><button bindtap='goYy' data-id="{{house.Id}}">预约看房</button></view> 
+    <!-- <view  class='orderTime' wx:else>预约已结束</view>  -->
+  </view>  
+  <view class='zfy' style='line-height:80rpx; padding-left:10rpx;font-weight:bold;background:#dbe4f5 url(http://hfugweb.centaline.com.cn/img/smallR/img/zbg.png) left center no-repeat;background-size:100%;' data-code="{{house.ShootEstateCode}}"  bindtap='goNum'><image src='http://hfugweb.centaline.com.cn/img/smallR/img/zhen.png'></image>100%真实房源，支持编码验真伪 <text style='float:right;color:#666;font-size:24rpx;font-weight:400;padding-right:20rpx;'>了解更多 >></text></view>
+</view>
+<!-- 已成交 -->
+<view class="container hasPay"  wx:if="{{house.State==6}}" style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/ycj.png) 74% 40rpx no-repeat;background-size:146rpx; '>
+  <view class='houseT'>
+    <text class='house_title'>{{house.VillageName}} {{house.CountF}}室<block wx:if="{{house.CountT>0}}">{{house.CountT}}</block>厅 {{house.ProductionAcreage}}㎡</text>
+  </view>
+  <view class='outer houseM'>
+    <view class='house_tag'>
+     <text decode="{{true}}" style='background:none'> 签约日期:</text><text style='background:none;color:#000;font-weight:bold;'>{{house.DealDate}}</text>
+    </view>
+    <view class='house_tag'>
+      <text decode="{{true}}" style='background:none'>原&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价:</text><text style='background:none;color:#000;font-weight:bold;'>{{house.OriginalSalePrice}}万</text>
+    </view>    
+    <view class='hshare'>
+      <button open-type="share" class='houseShare' style="background:url(http://hfugweb.centaline.com.cn/img/smallR/img/share.png) center no-repeat;background-size:100%"></button>
+      分享
+    </view>  
+  </view>
+  <view class='outer houseContent' style='margin-bottom:0;'>
+    <view class='outer house_price'>
+      <view class='house_tp' style='width:49%'>
+        <view class='htPrice'>{{house.DealAmount}}<text>万</text></view>
+        <view class='htag'>成交价</view>
+      </view>
+      <view style='width:1rpx;height:60rpx;background:#ddd;float:left;margin-top:10px;'></view>
+      <view class='house_tp' style='width:49%;padding-left:10%;box-sizing: border-box;'>
+        <view class='htPrice'>{{house.DealAveragePrice}}<text>元/㎡</text></view>
+        <view class='htag'>成交均价</view>
+      </view>                   
+    </view>
+  </view>  
+</view>
+
+<block wx:if="{{jjr==true}}">
+<view class='hr10'></view>
+<!-- 经纪人权限增加 -->
+<view class='hzfa' wx:if="{{role!=1}}">
+  <view style='font-weight:bold;color:#000;margin-bottom:30rpx'>合作方案</view>
+  <text style='font-size:24rpx' wx:if="{{house.CooperationScheme!=''}}">{{house.CooperationScheme}}</text>
+  <text style='font-size:24rpx' wx:else>暂无方案</text>
+</view>
+<!-- 结束 -->
+</block>
+
+<view class='hr10'></view>
+<view class='priceDt outer' bindtap='goDt' data-id="{{house.Id}}" wx:if="{{house.State==4}}">
+  <label class='pbtn' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/i-p.png) center no-repeat;background-size:100%' >价格动态</label>
+  <text style='color:#999;font-size:24rpx;margin-right:10rpx;display:inline-block;float:left'>{{house.ShootEstateBuySalePriceList[0].AddTimeT}}</text>
+  <label class='pBtn' style='color:#000;margin-right:10rpx;font-size:24rpx;' wx:if="{{house.ShootEstateBuySalePriceList[0].Type==1}}">
+  挂牌房源，报价为“{{house.ShootEstateBuySalePriceList[0].BuySalePriceNew}}万”</label>
+  <label class='pBtn' style='color:#000;margin-right:10rpx;' wx:if="{{house.ShootEstateBuySalePriceList[0].Type==2}}">抢购价从“{{house.ShootEstateBuySalePriceList[0].BuySalePriceOld}}万”修改为“{{house.ShootEstateBuySalePriceList[0].BuySalePriceNew}}万”</label>
+  <label class='pBtn' style='color:#000;margin-right:10rpx;' wx:if="{{house.ShootEstateBuySalePriceList[0].Type==3}}">房源成交价为“{{house.ShootEstateBuySalePriceList[0].DealAmount}}万”</label>
+  <text class='iconfont icon-right' style='float:right;font-size:24rpx;'></text>
+</view>
+<view class='priceDt' bindtap='goDt' data-id="{{house.Id}}" data-t="y" wx:if="{{house.State==6}}">
+  <label class='pbtn' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/i-p.png) center no-repeat;background-size:100%' >价格动态</label>
+  <text style='color:#999;font-size:24rpx;margin-right:10rpx;display:inline-block;float:left'>{{house.DealDate}}</text>
+  <label style='color:#000;margin-right:10rpx;'>
+  房源成交价为“{{house.DealAmount}}万”</label>
+  >
+</view>
+<view class='msgTip' wx:if="{{house.State==4}}">
+  <view class='setPrice'>
+    <text>¥</text>
+    <input type='digit' value='{{informPrice}}' bindblur='informY'></input>
+    <text style='color: #ff6262'>万</text>
+    <text style='margin-left:60rpx;color:#ccc'>低于此价格会通知你</text>
+    <label bindtap='setTip'>降价通知</label>
+  </view>
+</view>
+<view class='hr10'></view>
+<view class='sameHouse' wx:if="{{house.PlatformHouseList.length>0}}">
+  <view class='sameTitle'>相似房源其他平台报价：<text style='color:#999;font-weight:400;font-size:24rpx'>50分钟前更新</text></view>
+  <view class='sameMsg' wx:for="{{house.PlatformHouseList}}" wx:key="index">
+    <view class='sameT'>
+      <label wx:if="{{item.PlatformType==2}}" style='padding-left:80rpx; background:url(http://hfugweb.centaline.com.cn/img/smallR/img/i-lj.png) left top no-repeat;background-size:50rpx'>链家网</label>
+      <label wx:if="{{item.PlatformType==3}}" style='padding-left:80rpx; background:url(http://hfugweb.centaline.com.cn/img/smallR/img/i-ajk.png) left top no-repeat;background-size:50rpx'>安居客</label>
+      <label wx:if="{{item.PlatformType==4}}" style='padding-left:80rpx; background:url(http://hfugweb.centaline.com.cn/img/smallR/img/i-fdd.png) left top no-repeat;background-size:50rpx'>房多多</label>
+      <text style='float:right;color: #ff6262'>{{item.BuySalePrice}}万</text>
+    </view>
+    <view style="text-align:right">{{item.DictionariesHouseName}}  {{item.CountF}}室{{item.CountT}}厅  <block wx:if="{{item.ProductionAcreage>0}}">{{item.ProductionAcreage}}㎡</block> {{item.Storey}}层</view>
+  </view>
+  <!-- <view class='sameMsg'>
+    <view class='sameT'>
+      <label>Q房网</label>
+      <text style='float:right;color: #ff6262'>650万</text>
+    </view>
+    <view style="text-align:right">金碧御水山庄  2室1厅  79㎡ 朝南 中层</view>
+  </view>   -->
+</view>
+<view class='hr10'></view>
+<view class='container'>
+  <view class='outer houseInfo'>
+    <view><label>房源单价：</label><text>{{house.AveragePrice}}元/㎡</text></view>
+    <view><label>房源朝向：</label><text>{{house.Orientation}}</text></view>
+    <view><label>物业类型：</label>
+    <text>
+      <block wx:if="{{house.PropertyType==1}}">住宅</block>
+      <block wx:if="{{house.PropertyType==2}}">公寓</block>
+      <block wx:if="{{house.PropertyType==3}}">别墅</block>
+      <block wx:if="{{house.PropertyType==4}}">商铺</block>
+      <block wx:if="{{house.PropertyType==5}}">写字楼</block>
+      <block wx:if="{{house.PropertyType==6}}">洋房</block>
+      <block wx:if="{{house.PropertyType==7}}">商住楼</block>
+      <block wx:if="{{house.PropertyType==8}}">综合体</block>
+      <block wx:if="{{house.PropertyType==9}}">统建房</block>
+      <block wx:if="{{house.PropertyType==10}}">福利房</block>
+      <block wx:if="{{house.PropertyType==11}}">军产房</block>
+    </text>
+    </view>
+    <view><label>房源户型：</label><text>{{house.CountF}}室<block>{{house.CountT}}厅</block><block>{{house.CountW}}卫</block></text></view>
+    <view><label>建成年代：</label><text wx:if="{{house.BuildYears>0}}">{{house.BuildYears}}</text><text wx:else>暂无信息</text></view>
+    <view><label>装修情况：</label>
+      <text wx:if="{{house.ShootEstateRenovation==1}}">毛坯</text>
+      <text wx:if="{{house.ShootEstateRenovation==2}}">简装</text>
+      <text wx:if="{{house.ShootEstateRenovation==3}}">精装</text>
+      <text wx:if="{{house.ShootEstateRenovation==4}}">豪装</text>
+    </view>
+    <view><label>产权年限：</label><text wx:if="{{house.PropertyYears!=null&&house.PropertyYears!=''}}">{{house.PropertyYears}}</text><text wx:else>暂无信息</text></view>
+    <view><label>配套学区：</label><text wx:if="{{house.MatchingSchool!=''&&house.MatchingSchool!=null}}">{{house.MatchingSchool}}</text><text wx:else>暂无信息</text></view>
+    <view style='width:100%'><label>所属小区：</label><text>{{house.VillageName}}</text></view>
+    <view style='width:100%'><label>所在位置：</label><text>{{house.Address}}</text></view>
+  </view>
+  <view class='housePl' style='background: url(http://hfugweb.centaline.com.cn/img/smallR/img/hsp.png) 10px top no-repeat;background-size:71rpx;'>
+    <text style='font-size:46rpx;font-weight:bold;margin-bottom:20rpx;color:#333'>笋评</text>
+    <text>{{house.ShootEvaluate}}</text>
+  </view>
+  <view class='readM'>
+    <button bindtap='goDetail'>查看全部房源信息</button>
+  </view>
+  <view class='line'></view>
+  <view class='outer houseHx'>
+    <text style='display:block;font-size:32rpx;font-weight:bold;margin:40rpx 0;'>户型格局：{{house.ProductionAcreage}}㎡  {{house.CountF}}室<block>{{house.CountT}}厅</block><block>{{house.CountW}}卫</block>  朝{{house.Orientation}}</text>
+    <view class='hhxL'>
+      <image src='{{house.ShootEstatePicApartmentList[0].Url}}' bindtap="goPic" data-type="4" mode="widthFix"></image>
+    </view>    
+    <view class='hhxR'>
+    <block  wx:for="{{house.ShootEstateRoomTList}}" wx:key="{{index}}">
+      <view><label>客厅：</label><text>{{item.Acreage}}㎡</text></view>
+    </block> 
+    <block  wx:for="{{house.ShootEstateRoomFList}}" wx:key="{{index}}">
+      <view><label>卧室：</label><text>{{item.Acreage}}㎡</text></view>
+    </block> 
+    <block  wx:for="{{house.ShootEstateRoomWList}}" wx:key="{{index}}">
+      <view><label>卫生间：</label><text>{{item.Acreage}}㎡</text></view>
+    </block> 
+    <block  wx:for="{{house.ShootEstateRoomCList}}" wx:key="{{index}}">
+      <view><label>厨房：</label><text>{{item.Acreage}}㎡</text></view>
+    </block>              
+    </view>
+  </view>
+</view>
+<view class='hr10'></view>
+<!-- <view class='container' style='padding-bottom:120rpx;'>
+    <view class="adrTitle"  bindtap="goMap">
+        <view class="weui-cell" style='padding:0'>
+            <view class="weui-cell__bd">
+              <text style='font-size:36rpx;font-weight:bold;'>位置及周边</text>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+                <view style="display: inline-block;vertical-align:middle; font-size: 17px;"></view>
+            </view>
+        </view>
+    </view> 
+    <view style='margin:40rpx 0;'>深圳市 龙岗区 布吉港铁4号线清湖北清湖北清湖北清湖北清湖北清湖北清湖北清</view>
+    <view class='addrMap'>
+      <map id="myMap"
+   markers="{{markers}}"
+   style="width:100%;height:200px;"
+   longitude="113.940640"
+   latitude="22.512290" scale='17'  bindmarkertap='gotohere'></map>
+      <view>配套学位：<text>南山小学</text></view>
+      <view>附近地铁：<text>后海地铁站，南山地铁站</text></view>
+    </view>
+</view> -->
+<view class='hr60'></view>
+<view class="footBar {{isX?'pd-b60 height160':''}}" wx:if="{{jjr==false}}">
+  <view class='sun' bindtap='sun'>
+    <label>笋值</label>
+    <text>{{cNum.toF(house.ShootHotValueProportion*100)}}%</text>
+  </view>
+  <image src='{{house.ShootEstateSale.HeadImg}}' wx:if="{{house.ShootEstateSale.HeadImg!=''&&house.ShootEstateSale.HeadImg!=null}}"  mode='aspectFill'></image>
+  <image src='../../img/tx3.png' wx:else></image>
+  <view class='fbName'>
+    <text>{{house.ShootEstateSale.FullName}}</text>
+    <text>平台客服</text>
+  </view>
+  <view class='fbtn'>
+    <button data-tel="{{house.ShootEstateSale.TelePhone}}" data-m="{{house.ShootEstateSale.Mobile}}"  catchtap="openConfirm">电话咨询</button>  
+    <button open-type='contact'>在线咨询</button>
+  </view>
+</view>
+<view class="footBar {{isX?'pd-b60 height160':''}}" wx:if="{{jjr==true}}">
+  <view class='sun' bindtap='sun'>
+    <label>笋值</label>
+    <text>{{cNum.toF(house.ShootHotValueProportion*100)}}%</text>
+  </view>
+  <image src='{{house.BrokerStoreSale.HeadImg}}' wx:if="{{house.BrokerStoreSale.HeadImg!=''&&house.BrokerStoreSale.HeadImg!=null}}"  mode='aspectFill'></image>
+  <image src='../../img/tx3.png' wx:else></image>
+  <view class='fbName'>
+    <text>{{house.BrokerStoreSale.FullName}}</text>
+    <text>经纪人</text>
+  </view>
+  <view class='fbtn'>
+    <button class="{{(house.BrokerStoreSale.WxQRcode==''||house.BrokerStoreSale.WxQRcode==null)?'only':''}}" data-tel="{{house.BrokerStoreSale.TelePhone}}" data-m="{{house.BrokerStoreSale.Mobile}}"  catchtap="openConfirm">电话咨询</button>
+    <button bindtap='show' wx:if="{{house.BrokerStoreSale.WxQRcode!=''&&house.BrokerStoreSale.WxQRcode!=null}}">添加微信</button>
+  </view>
+</view>
+  <view class="gohome" style='background: #fff url(http://hfugweb.centaline.com.cn/img/smallR/img/gh.png) center 20% no-repeat;background-size: 44rpx;' bindtap='goIndex'>首页</view> 
+   <!--弹窗  -->
+   <view class='show' wx:if="{{isShow}}">
+      <view class='bj' bindtap='show'></view>
+      <view class='showMsg' animation="{{animationData}}">
+        <text class='iconfont icon-guanbi' bindtap='show'></text>
+        <image src='{{house.BrokerStoreSale.WxQRcode}}' mode='aspectFit' bindtap='mBig' data-u=""></image>
+        <text class='msgTip'>tip:点击图片放大长按可保存</text>
+      </view>
+   </view>
+   <!--弹窗 wx:if="{{isSun}}" -->
+   <view class='show' wx:if="{{isSun}}">
+      <view class='bj' bindtap='sun'></view>
+      <view class='showMsg showSun' animation="{{animationData}}">
+        <text class='iconfont icon-guanbi' bindtap='sun'></text>
+        <view class='showTitle'>
+          <view>你觉着这套房源“笋不笋”？</view>
+          <text>该打“笋”时就打“笋”</text>
+        </view>
+        <view class='showTip'><text class='iconfont icon-renqun' style='margin-right:6rpx;position:relative;top:4rpx'></text>{{joinNum}} 人已参与</view>
+        <view class='showBtn' wx:if="{{isClick==false}}">
+          <label catchtap='setSun' data-n='1'>超级笋</label>
+          <image src='../../img/vs.png'></image> 
+          <label catchtap='setSun' data-n='2'>一般笋</label>
+        </view>
+        <view class='showNum' wx:else>
+        <block wx:if="{{house.ShootHotValueProportion>0.5}}">
+          <view class='msgBtn' style='background: url(http://hfugweb.centaline.com.cn/img/smallR/img/redC.png) left center no-repeat;background-size: 364rpx;width:364rpx'><label>超级笋</label><text>{{cNum.toF(house.ShootHotValueProportion*100)}}%</text> <image src='../../img/zw.png' wx:if="{{sNum==1}}"></image></view>
+          <view class='msgBtn' style='background: url(http://hfugweb.centaline.com.cn/img/smallR/img/blueD.png) left center no-repeat;background-size: 170rpx;width:170rpx'><label>一般笋</label><text>{{cNum.toF((1-house.ShootHotValueProportion)*100)}}%</text><image src='../../img/zw.png' wx:if="{{sNum==2}}" style='left:30rpx'></image></view>
+        </block>
+        <block wx:elif="{{house.ShootHotValueProportion==0.5}}">
+          <view class='msgBtn' style='background: url(http://hfugweb.centaline.com.cn/img/smallR/img/redE.png) left center no-repeat;background-size: 267rpx;width:267rpx'><label>超级笋</label><text>{{cNum.toF(house.ShootHotValueProportion*100)}}%</text> <image src='../../img/zw.png' wx:if="{{sNum==1}}" style='left:80rpx'></image></view>
+          <view class='msgBtn' style='background: url(http://hfugweb.centaline.com.cn/img/smallR/img/blueE.png) left center no-repeat;background-size: 267rpx;width:267rpx'><label>一般笋</label><text>{{cNum.toF((1-house.ShootHotValueProportion)*100)}}%</text><image src='../../img/zw.png' wx:if="{{sNum==2}}" style='left:80rpx'></image></view>
+        </block>        
+        <block wx:else>
+          <view class='msgBtn' style='background: url(http://hfugweb.centaline.com.cn/img/smallR/img/redD.png) left center no-repeat;background-size: 170rpx;width:170rpx'><label>超级笋</label><text>{{cNum.toF(house.ShootHotValueProportion*100)}}%</text><image src='../../img/zw.png' wx:if="{{sNum==1}}" style='left:30rpx'></image></view>
+          <view class='msgBtn' style='background: url(http://hfugweb.centaline.com.cn/img/smallR/img/blueC.png) left center no-repeat;background-size: 364rpx;width:364rpx'><label>一般笋</label><text>{{cNum.toF((1-house.ShootHotValueProportion)*100)}}%</text><image src='../../img/zw.png' wx:if="{{sNum==2}}"></image></view>
+        </block>        
+        </view>        
+      </view>
+   </view>   
+</view>  
+
+
+

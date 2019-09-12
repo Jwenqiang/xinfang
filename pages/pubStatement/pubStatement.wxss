@@ -1,0 +1,10 @@
+page,.page{font-size: 28rpx;padding-bottom: 60rpx}
+.title{font-size: 40rpx;text-align: center;color: #000;font-weight: bold; padding: 40rpx 0}
+.content{padding: 40rpx;}
+.content .text{display: block;margin-bottom: 20rpx;color: #666;font-size: 26rpx;line-height: 1.8}
+.stitle{font-size: 28rpx;color: #333;font-weight: bold;margin-bottom: 20rpx}
+.agree{margin: 80rpx 0 160rpx}
+.agree radio{transform:scale(0.5);}
+button{background: #ddd;color: #fff}
+button.yes{background: #fe6c65}
+.fbtn{position: fixed;padding: 20rpx 40rpx 40rpx;background: #fff;bottom: 0;box-sizing: border-box;width: 100%;left: 0;box-shadow: 0 -2px 6px #f5f5f7}

@@ -1,0 +1,27 @@
+<view class="container">
+  <view class='searchM'>
+    <text class='iconfont icon-sousuo'></text>
+    <input type='text' focus="{{focus}}" placeholder='请输入小区名/地址等' confirm-type="search" placeholder-style="color:#ccc"  bindinput="search" bindblur='setHistory' value='{{hName}}'></input>
+    <text class='cancel' bindtap='back'>取消</text>
+  </view>
+  <view class='allData'>
+    <block wx:for="{{dList}}" wx:key="{{index}}" wx:if="{{dList.length>0}}">
+      <view class='dList' bindtap='setMsg' data-n="{{item.Name}}" data-a="{{item.Address}}">
+        <label>{{item.Name}}</label>
+        <text>{{item.Address}}</text>
+      </view>
+    </block>
+    <view class='noList' wx:if="{{dList.length==0}}">
+      <view class='sTitle'>
+        <text style='font-weight:bold;'>搜索历史</text>
+        <text style='float:right;color:#fb4f3b' wx:if="{{recordList.length>0}}" bindtap="clearH">清空</text>      
+      </view>
+      <view class='sRecord'>
+        <block wx:for="{{recordList}}" wx:key="index" wx:if="{{recordList.length>0}}">
+          <text bindtap='setInput' data-t="{{item}}">{{item}}</text>
+        </block>  
+        <label wx:if="{{recordList.length==0}}" style='color:#999'>暂无搜索记录</label>
+      </view>
+    </view>    
+  </view>
+</view>

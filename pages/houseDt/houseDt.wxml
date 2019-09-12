@@ -1,0 +1,15 @@
+<view class='container'>
+  <view class='dt' wx:if="{{isY}}">
+    <image src='http://hfugweb.centaline.com.cn/img/smallR/img/point.png'></image>
+    <text>{{priceDt.DealDate}}</text>
+    <label>成交价格：房源成交价为“{{priceDt.DealAmount}}万”。</label>
+  </view>
+  <view class='dt' wx:for="{{priceDt.ShootEstateBuySalePriceList}}" wx:key="index">
+    <image src='http://hfugweb.centaline.com.cn/img/smallR/img/point.png'></image>
+    <text>{{item.AddTimeT}}</text>
+    <label wx:if="{{item.Type==1}}">挂牌房源，报价为“{{item.BuySalePriceNew}}万”。</label>
+    <label wx:if="{{item.Type==2}}">抢购价从“{{item.BuySalePriceOld}}万”修改为“{{item.BuySalePriceNew}}万”。</label>
+    <label wx:if="{{item.Type==3}}">房源成交价为“{{item.DealAmount}}万”。</label>
+  </view>
+
+</view>

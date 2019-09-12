@@ -1,0 +1,9 @@
+.container{width: 100%}
+.ydk{width: 100%;padding: 20rpx 0;border-bottom: 1px solid #ededed;height: 60rpx;line-height: 60rpx}
+.ydkL{float: left;width: 180rpx;font-weight: bold}
+.ydk picker input{width: 490rpx;float: left;height: 60rpx}
+.ytime{color: #999}
+.s{color: #333}
+.yx{width: 100%;margin-top: 40rpx;}
+.yx textarea{width: 100%;height: 400rpx;border: 1px solid #ededed;margin-top: 40rpx;padding: 40rpx;box-sizing: border-box}
+button{width: 100%;margin-top: 100rpx;background: #ff0000;color: #fff}

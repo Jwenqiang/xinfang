@@ -1,0 +1,17 @@
+<view class='container'>
+  <view class='ydk'>
+    <view class="ydkL"><text style='color:#ff0000'>*</text>带看时间</view>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view>
+        <input value='{{time}}' placeholder='请选择带看时间' disabled="false"/>
+      </view>
+    </picker>
+  </view>
+  <view class='yx'>
+    <view style='font-weight:bold'><text style='color:#ff0000'>*</text>购房意向</view>
+    <textarea placeholder='请输入购房意向' value='{{ymsg}}' bindinput='changeV'></textarea>
+  </view>
+  <button bindtap='setMsg'>确定</button>
+</view>
+
+

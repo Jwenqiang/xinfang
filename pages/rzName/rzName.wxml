@@ -1,0 +1,60 @@
+<view class="page">
+  <view class='hr10'></view>
+  <!-- 已认证状态 -->
+  <!-- <view class='content' wx:if="{{isRz==2}}">
+    <view class='area' bindtap='setImg' data-t='z'>
+      <image src='{{imgZ}}' mode='aspectFit'></image>
+      <view class='yrz' wx:if="{{bjz}}">
+        身份证正面（人像面）已上传
+        <view>点击重新上传</view>
+      </view>
+    </view>
+    <view class='area' bindtap='setImg' data-t='f'>
+      <image src='{{imgF}}' mode='aspectFit'></image>
+      <view class='yrz' wx:if="{{bjf}}">
+        身份证反面（国徽面）已上传
+        <view>点击重新上传</view>
+      </view>      
+    </view>    
+  </view>   -->
+  <!-- 未认证状态 -->
+  <view class='content'>
+    <view class='area' bindtap='setImg' data-t='z'>
+      <view class='noMsg' wx:if="{{imgZ==''||imgZ==null}}">
+        请上传身份证正面
+        <view>(人像面)</view>
+      </view>
+      <image src='{{imgZ}}' mode='aspectFit'></image>
+      <view class='yrz' wx:if="{{imgZ!=''&&imgZ!=null}}">
+        身份证正面（人像面）已上传
+        <view>点击重新上传</view>
+      </view>      
+    </view>
+    <view class='area' bindtap='setImg' data-t='f'>
+      <view class='noMsg' wx:if="{{imgF==''||imgZ==null}}">
+        请上传身份证反面
+        <view>(国徽面)</view>
+      </view>
+      <image src='{{imgF}}' mode='aspectFit'></image>
+      <view class='yrz'  wx:if="{{imgF!=''&&imgF!=null}}">
+        身份证反面（国徽面）已上传
+        <view>点击重新上传</view>
+      </view>       
+    </view>    
+  </view>  
+  <view class='hr10'></view>
+  <view class='rzMsg'>
+    <view class='msg outer'>
+      <label>姓名</label>
+      <input type='text' placeholder='请输入姓名' placeholder-class="inputTip" value='{{rzName}}' bindblur='setInfo' data-t="name"></input>
+    </view>
+    <view class='msg outer'>
+      <label>身份证号码</label>
+      <input type="idcard" placeholder='请输入身份证号码' placeholder-class="inputTip" value='{{rzNum}}' bindblur='setInfo' data-t="num"></input>
+    </view>  
+  </view>
+  <view class="btn">
+    <button bindtap='goSuc' wx:if="{{isRz==2}}">重新提交</button>
+    <button bindtap='goSuc' wx:else>提交审核</button>
+  </view>    
+</view>
