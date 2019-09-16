@@ -105,7 +105,7 @@ Page({
           role: res.data.RoleType,
           isShow:true
         })
-        if (res.data.RoleType == 4 || res.data.RoleType == 5) {
+        if (res.data.RoleType == 4 ) {
           that.data.navData[2].style = 1;
           that.setData({
             navData: that.data.navData

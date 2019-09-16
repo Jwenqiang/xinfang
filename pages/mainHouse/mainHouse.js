@@ -178,7 +178,7 @@ Page({
     wx.getStorage({
       key: 'userInfo',
       success: function (res) {
-        if (res.data.RoleType == 4 || res.data.RoleType == 5) {
+        if (res.data.RoleType == 4) {
           that.data.navData[2].style = 1;
           that.setData({
             navData: that.data.navData
@@ -315,7 +315,7 @@ Page({
     wx.request({
       url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstatePageList',
       method:"post",
-      data: { State: 4, PageIndex: num, PageSize: 10 },
+      data: { State: 4, PageIndex: num, PageSize: 10, ShootEstateDirectionType: 2 },
       success(res){
         console.log(res);
         if(res.data.code==1001){
@@ -777,7 +777,7 @@ selectC(e){
     wx.request({
       url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstatePageList',
       method: "post",
-      data: { State: 4, PageIndex: num, PageSize: 10, ShootEstateTag: that.data.allv.toString(), RegionId: that.data.qy, BuySalePrice: that.data.zj, Apartment: that.data.fx, ProductionAcreage: that.data.mj, Orientation: that.data.cx, PropertyType: that.data.wy, ShootEstateRenovation: that.data.zx, StoreyH: that.data.lc, Keyword:that.data.keyword},
+      data: { ShootEstateDirectionType: 2,State: 4, PageIndex: num, PageSize: 10, ShootEstateTag: that.data.allv.toString(), RegionId: that.data.qy, BuySalePrice: that.data.zj, Apartment: that.data.fx, ProductionAcreage: that.data.mj, Orientation: that.data.cx, PropertyType: that.data.wy, ShootEstateRenovation: that.data.zx, StoreyH: that.data.lc, Keyword:that.data.keyword},
       success(res) {
         console.log(res);
         if (res.data.code == 1001) {

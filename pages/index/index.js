@@ -242,7 +242,7 @@ Page({
     wx.getStorage({
       key: 'userInfo',
       success: function(res) {    
-        if (res.data.RoleType == 4 || res.data.RoleType== 5){
+        if (res.data.RoleType == 4){
           that.data.navData[2].style = 1;
           that.setData({
             navData: that.data.navData
@@ -316,7 +316,7 @@ getData:function(){
     wx.request({
       url: 'https://spapi.centaline.com.cn/SPXinFangApi/System/GetBanner',
       data:{
-        AdPositionId:30
+        AdPositionId:32
       },
       success(res){
         console.log(res);
@@ -342,6 +342,7 @@ getWeekAndHot:function(){
   return new Promise(function (resolve) {
     wx.request({
       url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateWeekAndHotList',
+      data: { ShootEstateDirectionType:2},
       method:"post",
       success(res){
         console.log(res);
@@ -364,6 +365,7 @@ getZt:function(){
   return new Promise(function (resolve) {
     wx.request({
       url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateSpecialPageList',
+      data: { ShootEstateDirectionType: 2 },
       success(res){
         console.log(res);
         if(res.data.code==1001){

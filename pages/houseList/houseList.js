@@ -111,7 +111,7 @@ Page({
     wx.request({
       url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstatePageList',
       method: "post",
-      data: { State: 4, PageIndex: num, PageSize: 10, Recommend:3 },
+      data: { State: 4, PageIndex: num, PageSize: 10, Recommend: 3, ShootEstateDirectionType:2 },
       success(res) {
         console.log(res);
         if (res.data.code == 1001) {

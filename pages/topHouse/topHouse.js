@@ -132,7 +132,7 @@ Page({
     }    
     wx.request({
       url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateRankingPageList',
-      data: { State: 4, PageIndex: num, PageSize: 10 },
+      data: { State: 4, PageIndex: num, PageSize: 10, ShootEstateDirectionType:2 },
       success(res) {
         console.log(res);
         if (res.data.code == 1001) {
