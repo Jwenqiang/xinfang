@@ -121,7 +121,8 @@ Page({
                 },
                 data: {
                   ShootEstateSpecialId: e.currentTarget.dataset.id,
-                  Mobile: res.data.Mobile
+                  Mobile: res.data.Mobile,
+                  ShootEstateDirectionType:2
                 },
                 success(r) {
                   console.log(r);

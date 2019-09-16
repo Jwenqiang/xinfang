@@ -129,7 +129,7 @@ Page({
         token:that.data.utoken
       },
       data:{
-        PageIndex: num, PageSize: 10,Type:state
+        PageIndex: num, PageSize: 10, Type: state, ShootEstateDirectionType:2
       },
       success(res){
         console.log(res);

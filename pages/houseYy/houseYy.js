@@ -196,7 +196,8 @@ Page({
             Mobile: this.data.ytel,
             ShootEstateId: this.data.hid,
             LookHouseTime: this.data.date,
-            Type: 1
+            Type: 1,
+            ShootEstateDirectionType:2
           },
           success(res) {
             console.log(res);

@@ -106,7 +106,7 @@ Page({
     var that=this;
     wx.request({
       url: 'https://spapi.centaline.com.cn/SPXinFangApi/ShootEstate/GetShootEstateSpecialRemindPageList',
-      data: { PageIndex: num, PageSize: 10,},
+      data: { PageIndex: num, PageSize: 10, ShootEstateDirectionType: 2},
       header:{
         token:that.data.utoken
       },
