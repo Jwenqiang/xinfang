@@ -69,7 +69,9 @@ module.exports.toF = toF;
     <view  class='orderTime' wx:if="{{house.ReserveTimeState}}"><button bindtap='goYy' data-id="{{house.Id}}">预约看房</button></view> 
     <!-- <view  class='orderTime' wx:else>预约已结束</view>  -->
   </view>  
-  <view class='zfy' style='line-height:80rpx; padding-left:10rpx;font-weight:bold;background:#dbe4f5 url(http://hfugweb.centaline.com.cn/img/smallR/img/zbg.png) left center no-repeat;background-size:100%;' data-code="{{house.ShootEstateCode}}"  bindtap='goNum'><image src='http://hfugweb.centaline.com.cn/img/smallR/img/zhen.png'></image>100%真实房源，支持编码验真伪 <text style='float:right;color:#666;font-size:24rpx;font-weight:400;padding-right:20rpx;'>了解更多 >></text></view>
+  <view class='zfy' style='line-height:80rpx; padding-left:10rpx;font-weight:bold;background:#dbe4f5 url(http://hfugweb.centaline.com.cn/img/smallR/img/zbg.png) left center no-repeat;background-size:100%;' data-code="{{house.ShootEstateCode}}"  bindtap='goNum'><image src='http://hfugweb.centaline.com.cn/img/smallR/img/zhen.png'></image>100%真实房源，支持编码验真伪 
+  <!-- <text style='float:right;color:#666;font-size:24rpx;font-weight:400;padding-right:20rpx;'>了解更多 >></text> -->
+  </view>
 </view>
 <!-- 已成交 -->
 <view class="container hasPay"  wx:if="{{house.State==6}}" style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/ycj.png) 74% 40rpx no-repeat;background-size:146rpx; '>
@@ -131,7 +133,7 @@ module.exports.toF = toF;
   房源成交价为“{{house.DealAmount}}万”</label>
   >
 </view>
-<view class='msgTip' wx:if="{{house.State==4}}">
+<!-- <view class='msgTip' wx:if="{{house.State==4}}">
   <view class='setPrice'>
     <text>¥</text>
     <input type='digit' value='{{informPrice}}' bindblur='informY'></input>
@@ -139,7 +141,7 @@ module.exports.toF = toF;
     <text style='margin-left:60rpx;color:#ccc'>低于此价格会通知你</text>
     <label bindtap='setTip'>降价通知</label>
   </view>
-</view>
+</view> -->
 <view class='hr10'></view>
 <view class='sameHouse' wx:if="{{house.PlatformHouseList.length>0}}">
   <view class='sameTitle'>相似房源其他平台报价：<text style='color:#999;font-weight:400;font-size:24rpx'>50分钟前更新</text></view>

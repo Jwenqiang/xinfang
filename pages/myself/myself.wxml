@@ -24,21 +24,19 @@ module.exports.toHide = toHide;
       </view>
     </view>   
     <view class='hr10'></view>
-    <view class='li'>
+    <!-- <view class='li'>
       <label>身份认证</label>
       <view class='rz'>
         <label wx:if="{{isRz==2&&isJjr==2}}">已认证</label>
         <label wx:elif="{{isRz==2&&isJjr!=2}}">已实名</label>
         <label wx:elif="{{isRz!=2&&isJjr==2}}">经纪人</label>
-        <!-- <label class='rzing' wx:elif="{{isRz==1}}">审核中</label> -->
         <label class="noR" wx:else>未认证</label>
       </view>
       <view class='outer uName' bindtap='goRz'>
         <text class='iconfont icon-right' style='float:right;font-weight:400;font-size:24rpx;margin-left:10rpx;color:#ccc'></text>
-        <!-- <text style='color:#ccc;font-weight:400'>去认证</text> -->
         <text>{{fullName}}</text>
       </view>
-    </view>     
+    </view>      -->
     <view class='li'>
       <label>手机号</label>
       <text>{{phone.toHide(mobile)}}</text>
@@ -51,7 +49,7 @@ module.exports.toHide = toHide;
         <text style='font-weight:400;color:#ccc' wx:else>已上传</text>      
       </view>
     </view>
-    <view class='hr10'></view>
+    <!-- <view class='hr10'></view>
     <view class='li'>
       <label>所在公司</label>
       <text>{{company}}</text>   
@@ -63,7 +61,7 @@ module.exports.toHide = toHide;
     <view class='li'>
       <label>岗位名称</label>
       <text>{{job}}</text>   
-    </view> 
+    </view>  -->
     <view class='hr10'></view>  
     <view class='intro'>
       <view class='li'>
@@ -117,24 +115,22 @@ module.exports.toHide = toHide;
       <label>手机号</label>
       <text>{{phone.toHide(mobile)}}</text>
     </view>   
-    <view class='li'>
+    <!-- <view class='li'>
       <label>身份认证</label>
       <view class='rz'>
         <label wx:if="{{isRz==2}}">已实名</label>
-        <!-- <label class='rzing' wx:elif="{{isRz==1}}">审核中</label> -->
         <label class="noR" wx:else>未认证</label>
       </view>
       <view class='outer uName' wx:if="{{isRz==1}}" bindtap='goRz'>
         <text class='iconfont icon-right' style='float:right;font-weight:400;font-size:24rpx;margin-left:10rpx;color:#ccc'></text>
         <text style='color:#ccc;font-weight:400'>去认证</text>
-        <!-- <text>{{fullName}}</text> -->
       </view>
       <view class='outer uName' bindtap='goRz' wx:else>
         <text class='iconfont icon-right' style='float:right;font-weight:400;font-size:24rpx;margin-left:10rpx;color:#ccc'></text>
         <text style='color:#ccc;font-weight:400' wx:if="{{isRz==0||isRz==3}}">去认证</text>
         <text wx:if="{{isRz==2}}">{{fullName}}</text>
       </view>      
-    </view> 
+    </view>  -->
   </view>   
 
    <!--弹窗  -->

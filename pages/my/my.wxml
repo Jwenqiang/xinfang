@@ -22,7 +22,7 @@ module.exports.toHide = toHide;
       <view style='font-weight:bold;font-size:34rpx;margin-top:20rpx' bindtap='goLogin' wx:else>去登录</view>
     </view>  
   </view>  
-  <view class='hr10' wx:if="{{role>0}}"></view>
+  <!-- <view class='hr10' wx:if="{{role>0}}"></view>
   <view class='pt' wx:if="{{role>0}}">
     <view class='account-m' wx:if="{{uMsg.Title!=null}}">
       <view class='h3'>消息通知<text style='margin-left:10rpx;'>({{uMsg.Count}})</text></view>
@@ -34,7 +34,7 @@ module.exports.toHide = toHide;
         </view>
       </view>
     </view>
-  </view>
+  </view> -->
   <view class='hr10'></view>
   <view class='account-b'>
   <!-- 普通用户显示wx:if="{{role==1}}" -->
