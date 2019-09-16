@@ -192,7 +192,7 @@ goLogin:function(e){
               code: this.data.wxcode,
               encryptedData: telObj,
               iv: ivObj,
-              Type: 3
+              Type: 5
             },
             header: {
               'content-type': 'application/json' // 默认值
