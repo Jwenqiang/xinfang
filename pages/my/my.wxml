@@ -18,7 +18,10 @@ module.exports.toHide = toHide;
     <view class='account-top'>
       <image src='{{userImg}}' bindtap='goMyself' wx:if="{{userImg!=''&&userImg!=null}}" mode='aspectFill'></image>
       <image src='../../img/tx.png' bindtap='goMyself' wx:else data-n='{{name}}'></image>
-      <view style='font-weight:bold;font-size:34rpx;margin-top:20rpx' wx:if="{{name!=''}}"><text wx:if="{{name.length==11}}">{{phone.toHide(name)}}</text><text wx:else>{{name}}</text></view>
+      <view style='font-weight:bold;font-size:34rpx;margin-top:20rpx' wx:if="{{name!=''}}">
+        <text wx:if="{{name.length==11}}">{{phone.toHide(name)}}</text>
+        <text wx:else>{{name}}</text>
+      </view>
       <view style='font-weight:bold;font-size:34rpx;margin-top:20rpx' bindtap='goLogin' wx:else>去登录</view>
     </view>  
   </view>  

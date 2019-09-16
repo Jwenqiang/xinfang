@@ -282,6 +282,7 @@ Page({
         list.Name = that.data.tgTitle;
         list.OwnerFullName=that.data.xm;
         list.OwnerTelephone=that.data.dh;
+        list.ShootEstateDirectionType=2;
         if(e.currentTarget.dataset.t=='yes'){
           list.State = 4
         }else{
@@ -297,7 +298,7 @@ Page({
                 'token': that.data.utoken
               },              
               method:"post",
-              data: {ShootEstate:list},
+              data: { ShootEstate: list},
               success:obj=>{
                 wx.hideToast();
                 console.log(obj);
