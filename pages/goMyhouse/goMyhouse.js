@@ -117,6 +117,7 @@ Page({
         State:e,
         PageIndex: num,
         PageSize: 10,
+        ShootEstateDirectionType:2
       },
       success:res=>{
         console.log(res);
