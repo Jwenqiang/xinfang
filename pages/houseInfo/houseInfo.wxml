@@ -260,11 +260,11 @@ module.exports.toF = toF;
     <text>平台客服</text>
   </view>
   <view class='fbtn'>
-    <button data-tel="{{house.ShootEstateSale.TelePhone}}" data-m="{{house.ShootEstateSale.Mobile}}"  catchtap="openConfirm">电话咨询</button>  
-    <button open-type='contact'>在线咨询</button>
+    <button class="{{(house.ShootEstateSale.WxQRcode==''||house.ShootEstateSale.WxQRcode==null)?'only':''}}" data-tel="{{house.ShootEstateSale.TelePhone}}" data-m="{{house.ShootEstateSale.Mobile}}"  catchtap="openConfirm">电话咨询</button>  
+    <button bindtap='show' wx:if="{{house.ShootEstateSale.WxQRcode!=''&&house.ShootEstateSale.WxQRcode!=null}}">添加微信</button>
   </view>
 </view>
-<view class="footBar {{isX?'pd-b60 height160':''}}" wx:if="{{jjr==true}}">
+<!-- <view class="footBar {{isX?'pd-b60 height160':''}}" wx:if="{{jjr==true}}">
   <view class='sun' bindtap='sun'>
     <label>笋值</label>
     <text>{{cNum.toF(house.ShootHotValueProportion*100)}}%</text>
@@ -279,7 +279,7 @@ module.exports.toF = toF;
     <button class="{{(house.BrokerStoreSale.WxQRcode==''||house.BrokerStoreSale.WxQRcode==null)?'only':''}}" data-tel="{{house.BrokerStoreSale.TelePhone}}" data-m="{{house.BrokerStoreSale.Mobile}}"  catchtap="openConfirm">电话咨询</button>
     <button bindtap='show' wx:if="{{house.BrokerStoreSale.WxQRcode!=''&&house.BrokerStoreSale.WxQRcode!=null}}">添加微信</button>
   </view>
-</view>
+</view> -->
   <view class="gohome" style='background: #fff url(http://hfugweb.centaline.com.cn/img/smallR/img/gh.png) center 20% no-repeat;background-size: 44rpx;' bindtap='goIndex'>首页</view> 
    <!--弹窗  -->
    <view class='show' wx:if="{{isShow}}">
