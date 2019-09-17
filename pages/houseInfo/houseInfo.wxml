@@ -248,7 +248,7 @@ module.exports.toF = toF;
     </view>
 </view> -->
 <view class='hr60'></view>
-<view class="footBar {{isX?'pd-b60 height160':''}}" wx:if="{{jjr==false}}">
+<view class="footBar {{isX?'pd-b60 height160':''}}">
   <view class='sun' bindtap='sun'>
     <label>笋值</label>
     <text>{{cNum.toF(house.ShootHotValueProportion*100)}}%</text>
