@@ -50,7 +50,7 @@ module.exports.toF = toF;
         <view class='htag'>房型</view>
       </view> 
       <view class='house_tp' style='width:18%'>
-        <view class='houseMsg'>{{house.ProductionAcreage}}㎡</view>
+        <view class='houseMsg'>{{cNum.toF(house.ProductionAcreage)}}㎡</view>
         <view class='htag'>面积</view>
       </view>                 
     </view>
@@ -64,7 +64,7 @@ module.exports.toF = toF;
     <view class='orderH'>
       <label style='margin-right:10rpx'><text>{{house.Hot}}</text>人围观</label><label><text>{{house.ReserveCount}}</text>人预约看房</label>
     </view>  
-    <view class='xjDate' wx:if="{{house.ReserveTimeState}}"><text>{{xjDay}}</text>天<text>{{xjHour}}</text>时<text>{{xjMinute}}</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view>
+    <view class='xjDate' wx:if="{{house.ReserveTimeState}}"><canvas canvas-id="cav" style="width:130px;background:#000;border-radius:6rpx;float:left;height:19px"></canvas><text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view>
     <view class='xjDate' wx:else>预约已结束</view>
     <view  class='orderTime' wx:if="{{house.ReserveTimeState}}"><button bindtap='goYy' data-id="{{house.Id}}">预约看房</button></view> 
     <!-- <view  class='orderTime' wx:else>预约已结束</view>  -->

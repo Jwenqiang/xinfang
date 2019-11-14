@@ -112,9 +112,16 @@ Page({
           that.data.datetime[i].difftime = str;//在数据中添加difftime参数名，把时间放进去
           that.data.bzHouse[i].djs = that.data.datetime[i].difftime;
 
-          that.setData({
-            bzHouse: that.data.bzHouse
-          })
+          const ctx = wx.createCanvasContext('bzcanvas' + i);
+          ctx.font = 'normal bold 16px sans-serif';
+          ctx.setFillStyle('#fff');
+          ctx.setTextAlign('left');
+          ctx.fillText(day + " 天 " + hour + ' 时 ' + minute + ' 分 ', 4, 16);
+          ctx.draw()
+
+          // that.setData({
+          //   bzHouse: that.data.bzHouse
+          // })
 
         } else {
           // var str = "已结束！";
@@ -167,9 +174,15 @@ Page({
           that.data.zttime[i].difftime = str;//在数据中添加difftime参数名，把时间放进去
           that.data.ztHouse[i].djs = that.data.zttime[i].difftime;
 
-          that.setData({
-            ztHouse: that.data.ztHouse
-          })
+          const ctx = wx.createCanvasContext('ztcanvas' + i);
+          ctx.font = 'normal bold 16px sans-serif';
+          ctx.setFillStyle('#fff');
+          ctx.setTextAlign('left');
+          ctx.fillText(day + " 天 " + hour + ' 时 ' + minute + ' 分 ', 4, 16);
+          ctx.draw()
+          // that.setData({
+          //   ztHouse: that.data.ztHouse
+          // })
 
         } else {
           // var str = "已结束！";
@@ -216,9 +229,16 @@ Page({
           var str = day + "," + hour + ',' + minute + ',' + second
           that.data.xjtime[i].difftime = str;//在数据中添加difftime参数名，把时间放进去
           that.data.xjbHouse[i].djs = that.data.xjtime[i].difftime;
-          that.setData({
-            xjbHouse: that.data.xjbHouse
-          })
+
+          const ctx = wx.createCanvasContext('xjcanvas' + i);
+          ctx.font = 'normal bold 16px sans-serif';
+          ctx.setFillStyle('#fff');
+          ctx.setTextAlign('left');
+          ctx.fillText(day + " 天 " + hour + ' 时 ' + minute + ' 分 ', 4, 16);
+          ctx.draw()         
+          // that.setData({
+          //   xjbHouse: that.data.xjbHouse
+          // })
         } else {
           // var str = "已结束！";
           // clearInterval(timer);

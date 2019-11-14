@@ -61,20 +61,20 @@ module.exports.toF = toF;
             <text class='iconfont icon-right' style='float:right'></text>
         </view>
     </view> 
-    <swiper next-margin='20rpx' display-multiple-items="1.005"  style='height:740rpx;'>
+    <swiper next-margin='20rpx' display-multiple-items="1.05"  style='height:740rpx;'>
       <block wx:for="{{bzHouse}}" wx:key="index">
         <swiper-item>
           <view class='sContent outer saleContent' bindtap='goHouseInfo' data-id="{{item.Id}}">
             <view class='scLeft'>
               <image class='scImg' src='{{item.MainImg}}' mode='aspectFill'></image>
-              <view class='tsp' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/tsp.png) left top no-repeat;background-size:101rpx;'></view>
+              <!-- <view class='tsp' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/tsp.png) left top no-repeat;background-size:101rpx;'></view> -->
             </view>
             <view class='scRight'>
               <view class='scrOne'>
-                <image class='scImg' src='{{item.ShootEstatePicViceList[0].Url}}' mode='aspectFill'></image>   
+                <image class='scImg' src='{{item.ShootEstatePicViceList[1].Url}}' mode='scaleToFill'></image>   
               </view>
               <view class='scrOne'>
-                <image class='scImg' src='{{item.ShootEstatePicViceList[1].Url}}' mode='aspectFill'></image>     
+                <image class='scImg' src='{{item.ShootEstatePicViceList[2].Url}}' mode='scaleToFill'></image>     
               </view>      
             </view>
             <view class='schTitle'>
@@ -95,7 +95,8 @@ module.exports.toF = toF;
               <label style='margin-right:10rpx'><text>{{item.Hot}}</text>人围观</label><label><text>{{item.ReserveCount}}</text>人预约看房</label>
             </view>
             <!-- 倒计时 -->
-            <view class='xjDate' wx:if="{{item.ReserveTimeState==true}}"><text style='margin-left:0'>{{filter.dTime(item.djs)[0]}}</text>天<text>{{filter.dTime(item.djs)[1]}}</text>时<text>{{filter.dTime(item.djs)[2]}}</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view>
+            <!-- <view class='xjDate' wx:if="{{item.ReserveTimeState==true}}"><text style='margin-left:0'>{{filter.dTime(item.djs)[0]}}</text>天<text>{{filter.dTime(item.djs)[1]}}</text>时<text>{{filter.dTime(item.djs)[2]}}</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view> -->
+            <view class='xjDate' wx:if="{{item.ReserveTimeState==true}}"><canvas canvas-id="bzcanvas{{index}}" style="width:130px;background:#000;border-radius:6rpx;"></canvas><text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view>            
             <view class='xjDate' wx:else><text style='margin-left:0'>0</text>天<text>0</text>时<text>0</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>抢购已结束</text></view>
             <view  class='orderTime' wx:if="{{item.ReserveTimeState==true}}"><button catchtap='goYy' data-id="{{item.Id}}">预约看房</button></view>
             <view class='timeN' wx:else>预约已结束</view> 
@@ -120,13 +121,14 @@ module.exports.toF = toF;
       <block wx:for="{{ztHouse}}" wx:key="index" class="block">
         <swiper-item class="spzt" data-id="{{item.Id}}" catchtap='goZtInfo'>   
           <image src="{{item.MainImg}}" class="back" mode='aspectFill'/>
-          <text class='aStatus' decode="{{true}}" wx:if="{{item.Type==1}}">预告</text>
-          <text class='aStatus' decode="{{true}}" wx:if="{{item.Type==2}}">专题</text>
+          <!-- <text class='aStatus' decode="{{true}}" wx:if="{{item.Type==1}}">预告</text>
+          <text class='aStatus' decode="{{true}}" wx:if="{{item.Type==2}}">专题</text> -->
           <view class='ztName'>
             {{item.Name}}
           </view>
           <view class='sName'>{{item.SecondName}}</view>
-          <view class='xjDate spDate' style='margin-top:10rpx;font-size:24rpx;' wx:if="{{item.Type==1&&item.StartTimeState==true}}"><text style='margin-left:0'>{{filter.dTime(item.djs)[0]}}</text>天<text>{{filter.dTime(item.djs)[1]}}</text>时<text>{{filter.dTime(item.djs)[2]}}</text>分</view>  
+          <!-- <view class='xjDate spDate' style='margin-top:10rpx;font-size:24rpx;' wx:if="{{item.Type==1&&item.StartTimeState==true}}"><text style='margin-left:0'>{{filter.dTime(item.djs)[0]}}</text>天<text>{{filter.dTime(item.djs)[1]}}</text>时<text>{{filter.dTime(item.djs)[2]}}</text>分</view>   -->
+          <view class='xjDate spDate' style='margin-top:10rpx;font-size:24rpx;' wx:if="{{item.Type==1&&item.StartTimeState==true}}"><canvas canvas-id="ztcanvas{{index}}" style="width:130px;background:#000;border-radius:6rpx;"></canvas></view>            
           <!-- 专题显示 -->
           <view style='color:#00bfdc;font-size:24rpx;' wx:else>抢购火热进行中</view>        
         </swiper-item>
@@ -146,20 +148,20 @@ module.exports.toF = toF;
             <text class='iconfont icon-right' style='float:right'></text>
         </view>
     </view> 
-    <swiper next-margin='20rpx' display-multiple-items="1.005"  style='height:740rpx;'>
+    <swiper next-margin='20rpx' display-multiple-items="1.05"  style='height:740rpx;'>
       <block wx:for="{{xjbHouse}}" wx:key="index" class="block">
         <swiper-item>
           <view class='sContent outer saleContent' bindtap='goHouseInfo' data-id="{{item.Id}}">
             <view class='scLeft'>
               <image class='scImg' src='{{item.MainImg}}' mode='aspectFill'></image>
-              <view class='tsp' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/ico-rx.png) left top no-repeat;background-size:101rpx;'></view>              
+              <!-- <view class='tsp' style='background:url(http://hfugweb.centaline.com.cn/img/smallR/img/ico-rx.png) left top no-repeat;background-size:101rpx;'></view>               -->
             </view>
             <view class='scRight'>
               <view class='scrOne'>
-                <image class='scImg' src='{{item.ShootEstatePicViceList[0].Url}}' mode='aspectFill'></image>   
+                <image class='scImg' src='{{item.ShootEstatePicViceList[1].Url}}' mode='scaleToFill'></image>   
               </view>
               <view class='scrOne'>
-                <image class='scImg' src='{{item.ShootEstatePicViceList[1].Url}}' mode='aspectFill'></image>     
+                <image class='scImg' src='{{item.ShootEstatePicViceList[2].Url}}' mode='scaleToFill'></image>     
               </view>      
             </view>
             <view class='schTitle'>
@@ -180,7 +182,9 @@ module.exports.toF = toF;
               <label style='margin-right:10rpx'><text>{{item.Hot}}</text>人围观</label><label><text>{{item.ReserveCount}}</text>人预约看房</label>
             </view>
             <!-- 倒计时 -->
-            <view class='xjDate' wx:if="{{item.ReserveTimeState==true}}"><text style='margin-left:0'>{{filter.dTime(item.djs)[0]}}</text>天<text>{{filter.dTime(item.djs)[1]}}</text>时<text>{{filter.dTime(item.djs)[2]}}</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view>
+            <!-- <view class='xjDate' wx:if="{{item.ReserveTimeState==true}}"><text style='margin-left:0'>{{filter.dTime(item.djs)[0]}}</text>天<text>{{filter.dTime(item.djs)[1]}}</text>时<text>{{filter.dTime(item.djs)[2]}}</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view> -->
+            <view class='xjDate' wx:if="{{item.ReserveTimeState==true}}"><canvas canvas-id="xjcanvas{{index}}" style="width:130px;background:#000;border-radius:6rpx;"></canvas><text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>后抢购结束</text></view>   
+
             <view class='xjDate' wx:else><text style='margin-left:0'>0</text>天<text>0</text>时<text>0</text>分<text style='font-size:22rpx;color:#999;background:none;font-weight:500;margin：0;padding:0;color:#ccc'>抢购已结束</text></view>            
             <view  class='orderTime' wx:if="{{item.ReserveTimeState==true}}"><button catchtap='goYy' data-id="{{item.Id}}">预约看房</button></view> 
             <view class='timeN' wx:else>预约已结束</view> 

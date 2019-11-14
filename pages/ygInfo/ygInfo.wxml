@@ -1,4 +1,4 @@
-<import src="../../wxParse/wxParse.wxml" />
+<!-- <import src="../../wxParse/wxParse.wxml" /> -->
 <!--抢购预告-->
 <view class='page'>
   <view class='ztTop'>
@@ -6,20 +6,13 @@
     <text class='aStatus' decode="{{true}}" wx:if="{{yg.Type==1}}">预告</text>
     <text class='aStatus' decode="{{true}}" wx:if="{{yg.Type==2}}">专题</text>    
   </view>
+
+
   <view class='ztContent'>
    <view class='ztBig'>{{yg.Name}}</view>
    <!-- <text class='smallT'>{{yg.SecondName}}</text> -->
-   <view class='ztTime'>{{yg.AddTime}} 发布</view>
-   <!-- <view class='ztLab' wx:if="{{yg.Type==1}}">
-      预告详情
-   </view> 
-   <view class='ztLab' wx:if="{{yg.Type==2}}">
-      专题详情
-   </view>     -->
-   <view class='ygC'>
-    <!-- <rich-text nodes="{{yg.Content}}"></rich-text> -->
-    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
-   </view>
+   <view class='ztTime'>{{yg.AddTime}}</view>
+
    <view class='ztLab'>
       <label class='lline'></label>
       抢购房源
@@ -45,7 +38,14 @@
     <view class='noMsg' wx:if="{{ygHouse.length==0&&isN}}">
       <image src='../../img/noQ.png'></image>
       <view style='text-align:center;color:#999'>房源即将揭晓...</view>
-    </view>    
+    </view>  
+
+
+   <view class='ygC'>
+    <rich-text nodes="{{cHtml}}"></rich-text>
+    <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
+   </view>
+  
   </view>
   <view class="outer ygFt  {{isX?'pd-b60 height160':''}}" wx:if="{{yg.StartTimeState==true&&yg.Type==1}}">
         <view class='xjDate'>即将抢购：<text style='margin-left:0'>{{tian}}</text>天<text>{{shi}}</text>时<text>{{fen}}</text>分</view>

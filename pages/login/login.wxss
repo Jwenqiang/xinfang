@@ -4,4 +4,4 @@
 .loginBtn{width: 100%;margin-top: 40rpx;}
 .loginBtn button{margin-bottom: 40rpx;}
 .loginBtn button:first-child{background: #fe4836;color: #fff}
-.loginBtn button:last-child{border: 1px solid #fe4836;color: #fe4836;background: none;}
+/* .loginBtn button:last-child{border: 1px solid #fe4836;color: #fe4836;background: none;} */

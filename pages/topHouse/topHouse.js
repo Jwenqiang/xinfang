@@ -174,9 +174,6 @@ Page({
                 console.log('图片缓存成功', res.savedFilePath) // res.savedFilePath 为一个本地缓存文件路径  
                 if (i == u.length - 1) {
                   wx.setStorageSync('image_cache', img_arr)
-                  that.setData({
-                    imgBj: img_arr
-                  })
                 }
               }
             })

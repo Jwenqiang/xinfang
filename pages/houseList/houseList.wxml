@@ -13,7 +13,7 @@ module.exports.toF = toF;
       <text>高学位</text>
     </view>
     <view class='h40' wx:if="{{isFix}}"></view> -->
-    <view class='outer ztlist' wx:for="{{hisHouse}}" wx:key="index" bindtap='goHouseInfo' data-id="{{item.Id}}">
+    <view class='outer ztlist' wx:for="{{list}}" wx:key="index" bindtap='goHouseInfo' data-id="{{item.Id}}">
       <view class='outer thTop'>
           <image src='{{item.MainImg}}' class='hmsg'></image>
           <view class='bigT'>{{item.Name}}</view>

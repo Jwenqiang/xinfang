@@ -20,7 +20,8 @@ Page({
     shareTitle:"",
     shareImg:"",
     isShare:false,
-    timer:""
+    timer:"",
+    cHtml:""
   },
 
   /**
@@ -83,10 +84,11 @@ Page({
             ygHouse: res.data.data.ShootEstateSpecialEstateList,
             shareTitle: res.data.data.Name,
             shareImg: res.data.data.MainImg,
-            isN:true
+            isN:true,
+            cHtml: res.data.data.Content.replace(/\/>/g, 'style="max-width:100% !important;height:auto;display:block"/>')
           })
-          var article = res.data.data.Content;
-          WxParse.wxParse('article', 'html', article, that, 5); 
+          // var article = res.data.data.Content;
+          // WxParse.wxParse('article', 'html', article, that, 5); 
           that.setData({
             timer: setInterval(function () {
               that.getEndTime(that.data.endTime);

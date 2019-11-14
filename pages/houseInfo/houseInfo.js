@@ -162,7 +162,7 @@ Page({
           that.setData({
             timer: setInterval(function () {
               that.getEndTime(res.data.data.ReserveTime); 
-            }, 10)
+            }, 1000)
           })
           // that.getEndTime(res.data.data.ReserveTime); 
           wx.hideLoading();
@@ -229,17 +229,23 @@ Page({
       var sys_second = (end_time - new Date().getTime());
       // var timer = setInterval(function () {
         if (sys_second > 0) {
-          sys_second -= 10;
+          sys_second -= 1000;
           var day = Math.floor((sys_second / 1000 / 3600) / 24);
           var hour = Math.floor((sys_second / 1000 / 3600) % 24);
           var minute = Math.floor((sys_second / 1000 / 60) % 60);
           var second = Math.floor(sys_second / 1000 % 60);
-          var haomiao = Math.floor(sys_second % 1000);
-          _this.setData({
-            xjDay: day,
-            xjHour: hour < 10 ? "0" + hour : hour,
-            xjMinute: minute < 10 ? "0" + minute : minute
-          })
+          // var haomiao = Math.floor(sys_second % 1000);
+          // _this.setData({
+          //   xjDay: day,
+          //   xjHour: hour < 10 ? "0" + hour : hour,
+          //   xjMinute: minute < 10 ? "0" + minute : minute
+          // })
+          const ctx = wx.createCanvasContext('cav');
+          ctx.font = 'normal bold 16px sans-serif';
+          ctx.setFillStyle('#fff');
+          ctx.setTextAlign('left');
+          ctx.fillText(day + " 天 " + (hour < 10 ? "0" + hour : hour) + ' 时 ' + (minute < 10 ? "0" + minute : minute) + ' 分 ', 4, 16);
+          ctx.draw()          
         } else {
           clearInterval(_this.data.timer);
         }

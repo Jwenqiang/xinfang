@@ -5,7 +5,7 @@
 .ztTime{font-size: 28rpx;color: #999;padding: 20rpx 0 40rpx;border-bottom: 1px solid #f5f5f7;}
 .ztBig{font-size: 34rpx;font-weight: bold;line-height: 60rpx;color: #333}
 .smallT{font-size: 24rpx;color: #999;display: block;float: left}
-.ztLab{font-size: 34rpx;font-weight: bold;margin: 40rpx 0 60rpx;border-top: 1px solid #f5f5f7;padding-top: 40rpx}
+.ztLab{font-size: 34rpx;font-weight: bold;margin: 40rpx 0 60rpx;padding-top: 40rpx}
 .labC{width: 100%; box-shadow: 0 0 6px #ededed;border-radius: 5px;padding: 40rpx;box-sizing: border-box;margin-bottom: 40rpx}
 .labC .noMsg image{width: 518rpx;height: 324rpx;display: block;margin: 80rpx auto 0;}
 .yMsg{position: relative}
